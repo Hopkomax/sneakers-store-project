@@ -1,0 +1,167 @@
+.sneakersList__list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 52px 40px ;
+ 
+}
+
+.sneaker__item{
+  width: 210px;
+  height: 260px;
+
+  padding: 2rem;
+  left: 145px;
+top: 676px;
+  background: #ffffff;
+  border: 1px solid #f3f3f3;
+  border-radius: 40px;
+  
+}
+// ♡
+.sneaker__img__wrapper {
+  position: relative;
+  margin-bottom: 14px;
+  
+  & img {
+    
+    width: 100%;
+    height: 185px;
+    transform: scale(1);
+    background-image: url('/src/img/heart.png');
+    background-repeat: no-repeat;
+
+
+  }
+  & span {
+    
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-color: #504747;
+    z-index: 2;
+    &.active {
+      background-color: #f16969;
+
+    }
+  }
+}
+.sneaker__title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  
+  color: #000000;
+}
+.sneaker__price__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sneaker__price__wrapper {
+}
+.sneaker__price__label {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  text-transform: uppercase;
+  
+  color: #BDBDBD;
+}
+.sneaker__price {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  
+  
+  color: #000000;
+  
+}
+.sneaker__add__button {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 32px;
+height: 32px;
+background: #FFFFFF;
+border: 1px solid #F2F2F2;
+border-radius: 8px;
+&.active{
+background: linear-gradient(180deg, #89F09C 0%, #3CC755 100%);
+}
+
+& span{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #D3D3D3;
+    &.active{
+        color: #f31616;
+    }
+}
+}
+
+.search{
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.seach__container {
+
+  // display: flex;
+  // justify-content: flex-end;
+  // align-items: center;
+
+
+}
+.search__input{
+
+  box-sizing: border-box;
+
+  position: absolute;
+
+  left: 855px;
+  top: 595px;
+  
+  border: 1px solid #F3F3F3;
+  border-radius: 10px;
+
+}
+.search__input__label {
+  //  position: absolute;
+
+  left: 901px;
+  top: 608px;
+  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+  
+  
+  color: #C4C4C4;
+  background-image: url(/src/img/search.png);
+}
+.sneakersList__title{
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 39px;
+/* identical to box height */
+
+
+color: #000000;
+}
