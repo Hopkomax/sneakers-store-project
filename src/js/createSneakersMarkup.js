@@ -28,5 +28,3 @@ export default function createSneakersMarkup(items) {
     .join(' ');
 return markup;
 }
-// const list = document.querySelector('.sneakersList__list');
-// list.insertAdjacentHTML('afterbegin', createSneakersMarkup(sneakers));

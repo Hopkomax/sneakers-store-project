@@ -20,4 +20,4 @@ export default function createSkeletonMarkup() {
 list.insertAdjacentHTML('afterbegin', skeletonMarkup);
 console.log(skeletonMarkup);
 }
-//createSkeletonMarkup();
+
