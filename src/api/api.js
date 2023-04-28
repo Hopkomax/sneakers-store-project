@@ -13,4 +13,6 @@ export const getSneakers = async () => {
     // variant 3
     return fetch(`${BASE_URL}/sneakers`).then(response => response.json());
 };
-
+export const findSneakers = async (query) => {
+    return fetch(`${BASE_URL}/sneakers?title_like=${query}`).then(response => response.json())
+ }

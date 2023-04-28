@@ -20,13 +20,7 @@ if(cart.classList.contains('sneaker__plus__span')){
     localStorage.setItem('inCart', JSON.stringify(inCart));
 }
 }
-// const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
-// inCart.forEach(({ id }) => {
-//   //const item = document.querySelector(`#${id}`);
-//   const item = document.getElementById(id);
-//   const cartButton = item.querySelector('.sneaker__plus__span');
-//   cartButton.classList.add('active');
-// });
+
 export function setInCartOnload() {
   const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
   inCart.forEach(({ id }) => {

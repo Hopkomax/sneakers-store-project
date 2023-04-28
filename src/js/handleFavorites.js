@@ -18,13 +18,7 @@ export function handleFavorites(event) {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 }
-// const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-// favorites.forEach(({ id }) => {
-//   //const item = document.querySelector(`#${id}`);
-//   const item = document.getElementById(id);
-//   const heartButton = item.querySelector('.sneaker__heart__span');
-//   heartButton.classList.add('active');
-// });
+
   export function setFavoritesOnload(){
   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
   favorites.forEach(({ id }) => {

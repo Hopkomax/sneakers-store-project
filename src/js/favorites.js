@@ -33,9 +33,4 @@ list.addEventListener('click', (event) => {
     emptyFavorites();
   }
 });
-// try {
-// const favorites = JSON.parse(localStorage.getItem('favorites'));
-// favorites.lenght;
-// } catch (error) {
-//     console.log(error.message);
-// }
+
