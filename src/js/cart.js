@@ -1,18 +1,15 @@
-import createSneakersMarkup from './createSneakersMarkup'
+const cartList = document.querySelector('.cartList__list');
+cartList.addEventListener('click', handleDelete);
 
-console.log(createSneakersMarkup);
-const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
-console.log(inCart);
-if(inCart.length === 0 ){
-    const title = document.querySelector('.cartList__title');
-    title.textContent = '( )';
-    const img = document.createElement("img");
-    img.src = 'https://cdn.dribbble.com/users/1639273/screenshots/4897055/media/b23d4908df82e11bfe4e11072c41a7bb.png?compress=1&resize=400x300';
-    img.classList.add("img");
-    title.after(img);
-} else {
-    console.log(inCart);
-    const list = document.querySelector('.cartList__list');
-    list.insertAdjacentHTML('afterbegin', createSneakersMarkup(inCart));
-
+function handleDelete(event) {
+  if (
+    event.target.classList.contains('sneaker__inCart__button') ||
+    event.target.classList.contains('sneaker__inCart__button-span')
+  ) {
+    const inCart = JSON.parse(localStorage.getItem('inCart'));
+    const sneakerItem = event.target.closest('li');
+    const sneaekers = inCart.filter(item => item.id !== sneakerItem.id);
+    sneakerItem.remove();
+    localStorage.setItem('inCart', JSON.stringify(sneaekers));
+  }
 }

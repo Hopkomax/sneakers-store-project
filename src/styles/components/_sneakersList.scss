@@ -1,58 +1,66 @@
-.sneakersList__list{
+.sneakersList__list {
   display: flex;
   flex-wrap: wrap;
-  gap: 52px 40px ;
- 
+  gap: 52px 40px;
 }
 
-.sneaker__item{
+.sneaker__item {
   width: 210px;
   height: 260px;
 
   padding: 2rem;
   left: 145px;
-top: 676px;
+  top: 676px;
   background: #ffffff;
   border: 1px solid #f3f3f3;
   border-radius: 40px;
-  
 }
 // ♡
 .sneaker__img__wrapper {
   position: relative;
   margin-bottom: 14px;
-  
+
   & img {
-    
     width: 100%;
-    height: 185px;
-    transform: scale(1);
-    background-image: url('/src/img/heart.png');
-    background-repeat: no-repeat;
-
-
   }
   & span {
-    
-    position: absolute;
-    top: 0;
-    display: block;
+    align-items: center;
+    display: flex;
+    justify-content: center;
     width: 32px;
     height: 32px;
-    background-color: #504747;
     z-index: 2;
-    &.active {
-      background-color: #f16969;
+    background-color: #ffffff;
+    padding: 9px;
+    position: absolute;
+    top: 0;
+    border-radius: 7px;
+    border: 1px solid #d1cfcf;
 
+    &.active {
+      background-color: #f5c3c3;
+      & svg {
+        fill: #ff8585;
+        stroke: #ff8585;
+      }
+    }
+    & svg {
+      fill: #ffffff;
+      stroke: #d1cfcf;
     }
   }
+  // & .sneaker__heart__span {
+  //   text-align:center;
+  //   color: #3CC755;
+  // }
 }
+
 .sneaker__title {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  
+
   color: #000000;
 }
 .sneaker__price__container {
@@ -68,8 +76,8 @@ top: 676px;
   font-size: 11px;
   line-height: 13px;
   text-transform: uppercase;
-  
-  color: #BDBDBD;
+
+  color: #bdbdbd;
 }
 .sneaker__price {
   font-family: 'Inter';
@@ -78,90 +86,87 @@ top: 676px;
   font-size: 14px;
   line-height: 17px;
   /* identical to box height */
-  
-  
+
   color: #000000;
-  
 }
 .sneaker__add__button {
-display: flex;
-justify-content: center;
-align-items: center;
-width: 32px;
-height: 32px;
-background: #FFFFFF;
-border: 1px solid #F2F2F2;
-border-radius: 8px;
-&.active{
-background: linear-gradient(180deg, #89F09C 0%, #3CC755 100%);
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  border: 1px solid #f2f2f2;
+  border-radius: 8px;
 
-& span{
+  &.active {
+    background: linear-gradient(180deg, #89f09c 0%, #3cc755 100%);
+   
+  }
+
+  & span {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    color: #D3D3D3;
-    &.active{
-        color: #f31616;
+    color: #652b2b;
+    background-image: url('/src/img/plus_vector.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    &.active {
+      background-color: linear-gradient(180deg, #89f09c 0%, #3cc755 100%);
+      background-image: url('/src/img/vector_check_mark.svg');
+      background-blend-mode: multiply;
     }
+  }
 }
-}
-
-.search{
-  
+.search {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 }
 
 .seach__container {
-
-  // display: flex;
-  // justify-content: flex-end;
-  // align-items: center;
-
-
+  display: flex;
+  justify-content: flex-end;
 }
-.search__input{
 
-  box-sizing: border-box;
-
-  position: absolute;
-
-  left: 855px;
-  top: 595px;
-  
-  border: 1px solid #F3F3F3;
+.search__input {
+  padding: 15px 15px 15px 45px;
+  border: 1px solid #f3f3f3;
   border-radius: 10px;
-
-}
-.search__input__label {
-  //  position: absolute;
-
-  left: 901px;
-  top: 608px;
-  
-  font-style: normal;
-  font-weight: 400;
+  font-family: 'Inter';
   font-size: 14px;
   line-height: 17px;
-  /* identical to box height */
-  
-  
-  color: #C4C4C4;
+  color: #999999;
+}
+.search__input:focus {
+  outline: 1px solid #b7b7b7;
+}
+.search__input::placeholder {
+  color: #c4c4c4;
+}
+.search__input-label {
+  position: relative;
+}
+.search__input-label::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 18px;
+  top: 17px;
   background-image: url(/src/img/search.png);
 }
-.sneakersList__title{
-font-style: normal;
-font-weight: 700;
-font-size: 32px;
-line-height: 39px;
-/* identical to box height */
+.sneakersList__title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  /* identical to box height */
 
-
-color: #000000;
+  color: #000000;
 }
