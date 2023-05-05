@@ -6,14 +6,17 @@ display: block;
 }
 
 .cartList__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 30px;
   position: absolute;
-  height: 100%;
+  height: 93vh;
   width: fit-content;
   top: 0;
   right: 0;
   background-color: #fff;
-  overflow: scroll !important;
+  // overflow: scroll !important;
   z-index: 2;
 }
 .cartList__container.active{
@@ -30,32 +33,79 @@ display: block;
   line-height: 29px;
 }
 .cartList__list {
-    padding-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  flex-direction: column;
+  gap: 20px;
+  margin: 30px 0;
+  display: flex;
+  overflow: scroll;
+  height: 500px;
 }
-.cart__container__button__block {
-    position: absolute;
-    bottom: 0;
-  padding: 30px 30px 30px 30px;
+.cart__container__bottom__blok{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // position: absolute;
+  // bottom: 0;
+}
+.cart__container__button__blok {
+//   position: absolute;
+//   bottom: 0;
+// padding: 30px 30px 30px 30px;
 }
 .cart__container__button {
-  background: #a5d364;
-  border-radius: 110px;
-  border: none;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 19px;
   text-transform: uppercase;
-  padding: 14px 55px;
-  color: #ffffff;
-  transition: 300ms;
+  color: #fff;
+  background: #a5d364;
+  border: none;
+  border-radius: 18px;
+  padding: 16px 55px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  transition: all .3s;
+  width: 100%;
 }
 .cart__container__button:hover {
   cursor: pointer;
   background: #678b35;
 }
+
+.sneaker__inCart__totalAmount{
+
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 19px;
+
+}
+
+.cart__container__bottom__blok span {
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;  
+  border-bottom: 1px dashed #DFDFDF;
+  margin-right: 8px;
+  margin-left: 9px;
+  text-align: center;
+}
+
+.sneaker__inCart__taxes{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  white-space: nowrap;
+
+}
+.sneaker__inCart__taxes span{
+  display: inline-block;
+  width: 100%;
+  max-width: 300px;  
+  border-bottom: 1px dashed #DFDFDF;
+  margin-right: 8px;
+  margin-left: 9px;
+  text-align: center;
+}
+
+
 //////////////////////////////////////
 
 .modal-window {

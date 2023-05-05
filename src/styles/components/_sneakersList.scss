@@ -1,19 +1,24 @@
 .sneakersList__list {
+  max-width: 968px;
   display: flex;
   flex-wrap: wrap;
   gap: 52px 40px;
+  justify-content: center;
 }
 
 .sneaker__item {
   width: 210px;
   height: 260px;
-
   padding: 2rem;
   left: 145px;
   top: 676px;
   background: #ffffff;
   border: 1px solid #f3f3f3;
   border-radius: 40px;
+  transition: box-shadow 250ms ease-in-out;
+  &:hover{
+    box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
+  }
 }
 // ♡
 .sneaker__img__wrapper {
@@ -23,36 +28,32 @@
   & img {
     width: 100%;
   }
-  & span {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    z-index: 2;
-    background-color: #ffffff;
-    padding: 9px;
-    position: absolute;
-    top: 0;
-    border-radius: 7px;
-    border: 1px solid #d1cfcf;
+  
+}
+.sneaker__heart__button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #ffffff;
+  padding: 3px;
+  position: absolute;
+  top: 0;
+  border-radius: 7px;
+  border: 1px solid #d1cfcf88;
 
-    &.active {
-      background-color: #f5c3c3;
-      & svg {
-        fill: #ff8585;
-        stroke: #ff8585;
-      }
-    }
+  &.active {
+    background-color: #f5c3c3;
     & svg {
-      fill: #ffffff;
-      stroke: #d1cfcf;
+      fill: #ff8585;
+      stroke: #ff8585;
     }
   }
-  // & .sneaker__heart__span {
-  //   text-align:center;
-  //   color: #3CC755;
-  // }
+  & svg {
+    fill: #ffffff;
+    stroke: #d1cfcf;
+  }
 }
 
 .sneaker__title {
@@ -85,10 +86,9 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
-  /* identical to box height */
-
   color: #000000;
 }
+
 .sneaker__add__button {
   display: flex;
   justify-content: center;
@@ -101,10 +101,10 @@
 
   &.active {
     background: linear-gradient(180deg, #89f09c 0%, #3cc755 100%);
-   
   }
 
-  & span {
+  &:before {
+    content: '';
     width: 100%;
     height: 100%;
     display: flex;
@@ -115,11 +115,12 @@
     background-image: url('/src/img/plus_vector.svg');
     background-repeat: no-repeat;
     background-position: center;
-    &.active {
-      background-color: linear-gradient(180deg, #89f09c 0%, #3cc755 100%);
-      background-image: url('/src/img/vector_check_mark.svg');
-      background-blend-mode: multiply;
-    }
+  }
+
+  &.active:before {
+    background-color: linear-gradient(180deg, #89f09c 0%, #3cc755 100%);
+    background-image: url('/src/img/vector_check_mark.svg');
+    background-blend-mode: multiply;
   }
 }
 .search {
@@ -166,7 +167,5 @@
   font-weight: 700;
   font-size: 32px;
   line-height: 39px;
-  /* identical to box height */
-
   color: #000000;
 }

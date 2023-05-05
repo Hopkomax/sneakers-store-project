@@ -8,11 +8,7 @@ if (favorites.length === 0) {
   const list = document.querySelector('.favoritesList__list');
   list.insertAdjacentHTML('afterbegin', createSneakersMarkup(favorites));
 
-  favorites.forEach(({ id }) => {
-    const item = document.getElementById(id);
-    const heartButton = item.querySelector('.sneaker__heart__span');
-    heartButton.classList.add('active');
-  });
+ setFavoritesOnload();
 }
 
 function emptyFavorites() {const title = document.querySelector('.favoritesList__title');

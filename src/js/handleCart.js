@@ -1,40 +1,39 @@
 import sneakers from '../db/sneakers';
+import { setActualPriceIntoHeader } from './calculateTotalPrice';
 
-function handleCart(event){
-const cart = event.target;
-console.log(cart.parentNode.parentNode.parentNode);
-const sneakerId = cart.parentNode.parentNode.parentNode.id;
-const selectedSneaker = sneakers.find(({id}) => id === sneakerId );
-console.log(sneakerId);
-const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
+export function handleCart(event) {
+  const cart = event.target;
 
-if(cart.classList.contains('sneaker__plus__span')){
-    if(cart.classList.contains('active')){
-        const updatedCart = inCart.filter(({ id }) => id !== sneakerId);
-        localStorage.setItem('inCart', JSON.stringify(updatedCart));
-        cart.classList.remove('active');
-        return;
+  if (cart.classList.contains('sneaker__add__button')) {
+    const sneakerId = cart.parentNode.parentNode.id;
+    const selectedSneaker = sneakers.find(({ id }) => id === sneakerId);
+    const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
+    if (cart.classList.contains('active')) {
+      const updatedCart = inCart.filter(({ id }) => id !== sneakerId);
+      localStorage.setItem('inCart', JSON.stringify(updatedCart));
+      cart.classList.remove('active');
+      setActualPriceIntoHeader();
+      return;
     }
     cart.classList.add('active');
     inCart.push(selectedSneaker);
     localStorage.setItem('inCart', JSON.stringify(inCart));
-}
+    setActualPriceIntoHeader();
+  }
 }
 
 export function setInCartOnload() {
   const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
-  inCart.forEach(({ id }) => {
+  document
+    .querySelectorAll('.sneaker__add__button.active')
+    .forEach(item => item.classList.remove('active'));
+  for (const { id } of inCart) {
     const item = document.getElementById(id);
-    const cartButton = item.querySelector('.sneaker__plus__span');
+    if (!item) {
+      continue;
+    }
+    // Якщо item === null (getElementById(id) не знайшов такого елементу на сторінці), то ми пропустимо ту ітерацію, і йти до наступної (continue пропускає ітерацію)
+    const cartButton = item.querySelector('.sneaker__add__button');
     cartButton.classList.add('active');
-  });
-};
-
-
-
-document.querySelector('.sneakersList__list').addEventListener('click', handleCart);
-
-//heder__user__icon__cart
-
-//sneaker__add__button
-//sneaker__plus__span
+  }
+}

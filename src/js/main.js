@@ -1,8 +1,9 @@
 import sneakers from '../db/sneakers';
 import createSneakersMarkup from './createSneakersMarkup';
 import { getSneakers } from '../api/api';
-import { setInCartOnload } from './handleCart';
+import { setInCartOnload, handleCart } from './handleCart';
 import { setFavoritesOnload, handleFavorites } from './handleFavorites';
+import {setActualPriceIntoHeader} from './calculateTotalPrice';
 
 const list = document.querySelector('.sneakersList__list');
 getSneakers().then(data => {
@@ -11,5 +12,6 @@ getSneakers().then(data => {
   setFavoritesOnload();
 });
 document.querySelector('.sneakersList__list').addEventListener('click', handleFavorites);
+document.querySelector('.sneakersList__list').addEventListener('click', handleCart);
 
-//list.insertAdjacentHTML('afterbegin', createSneakersMarkup(sneakers));
+setActualPriceIntoHeader();
