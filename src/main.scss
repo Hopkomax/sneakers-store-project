@@ -1,3 +1,4 @@
+@import './styles/base/variables';
 @import './styles/base/reset';
 @import './styles/base/common';
 @import './styles/base/container';
@@ -9,3 +10,6 @@
 @import './styles/components/sneakerInCart';
 @import './styles/components/emptyContent';
 @import './styles/components/favoritesList';
+@import './styles/components/emptyFavorites';
+@import './styles/components/emptyOrder';
+@import './styles/components/mobileMenu';

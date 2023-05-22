@@ -1,0 +1,23 @@
+:root {
+    /*========== Colors ==========*/
+
+    /* HSL color mode */
+    --body-color: #ffffff;
+    --overlay-color: #fbfbfb;
+    --accent-color: #4440f6;
+    --text-color: #111321;
+    --text-color-light: #a8a8a8;
+    --white-color: #ffffff;
+    --black-color: #111321;
+    --light-grey-color: #7a7a7a;
+    --accent-color-read: #00dd73;
+    --accent-color-overlay: #4440f7;
+    --inactive-color: #5f6775;
+
+    /*========== Variables Dark theme ==========*/
+    body.dark {
+        --body-color: #242424;
+        --text-color: #f4f4f;
+        --light-grey-color: #3e3e3e;
+    }
+}

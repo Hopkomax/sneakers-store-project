@@ -1,3 +1,6 @@
+import { handleDelete } from './cart';
+import { makeOrder } from './makeOrder';
+
 export default function createCartMarkup() {
   document.querySelector('.cartList').innerHTML = `
   <div class="cartList__container">
@@ -21,4 +24,10 @@ export default function createCartMarkup() {
       </div>
     </div>
   </div>`;
+  
+  const cartList = document.querySelector('.cartList__list');
+  const makeOrderButton = document.querySelector('.cart__container__button');
+
+  cartList.addEventListener('click', handleDelete);
+  makeOrderButton.addEventListener('click', makeOrder);
 }

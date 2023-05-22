@@ -1,46 +1,53 @@
 .sneaker__inCart__item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    background-color: #fff;
-    border: 1px solid #f3f3f3;
-    padding: 30px 20px;
-    border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  background-color: #fff;
+  border: 1px solid #f3f3f3;
+  padding: 30px 20px;
+  border-radius: 20px;
+}
 
-}
 .sneaker__inCart__img {
-    width: 70px;
-    height: 70px;
-    border-radius: 10px;
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
 }
+
 .sneaker__inCart__description {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    & h3{
-        font-size: 14px;
-        line-height: 17px;
-    }
-    & p{
-        font-size: 14px;
-        line-height: 17px;
-        font-weight: 700;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  & h3 {
+    font-size: 14px;
+    line-height: 17px;
+  }
+  & p {
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 700;
+  }
 }
+
 .sneaker__inCart__button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
-    background-color: #fff;
-    border-radius: 8px;
-    border: 1px solid #dbdbdb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+  & span {
+    font-size: 20px;
+    color: #b5b5b5;
     cursor: pointer;
-    & span{
-        font-size: 20px;
-        color: #b5b5b5;
-        cursor: pointer;
-    }
+  }
+}
+
+.sneaker__inCart__totalAmount {
+  display: flex;
+  justify-content: space-between;
 }

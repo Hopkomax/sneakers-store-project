@@ -1,16 +1,15 @@
 import sneakers from '../db/sneakers';
-//document.querySelector('.sneakersList__container')
+
 export function handleFavorites(event) {
   const heart = event.target;
-  console.log( heart);
-
 
   if (heart.classList.contains('sneaker__heart__button')) {
-    const sneakerId = heart.closest('li').id;
-    const selectedSneaker = sneakers.find(({ id }) => id === sneakerId);
+    const sneaker = heart.closest('li');
+    const selectedSneaker = sneakers.find(({ id }) => id === sneaker.id);
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
     if (heart.classList.contains('active')) {
-      const updatedFavorites = favorites.filter(({ id }) => id !== sneakerId);
+      const updatedFavorites = favorites.filter(({ id }) => id !== sneaker.id);
       localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
       heart.classList.remove('active');
       return;
@@ -21,16 +20,17 @@ export function handleFavorites(event) {
   }
 }
 
-  export function setFavoritesOnload(){
+export function setFavoritesOnload() {
   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  for (const {id} of favorites) {
+
+  for (const { id } of favorites) {
     const item = document.getElementById(id);
-    if(!item){
+    if (!item) {
       continue;
     }
+
     const heartButton = item.querySelector('.sneaker__heart__button');
+
     heartButton.classList.add('active');
   }
-
-};
-
+}

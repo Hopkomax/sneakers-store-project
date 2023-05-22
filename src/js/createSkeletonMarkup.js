@@ -1,9 +1,8 @@
- 
 export default function createSkeletonMarkup() {
-    const list = document.querySelector('.sneakersList__list');
-    const skeletonMarkup = [...new Array(6)].map(() => {
-
-  return `
+  const list = document.querySelector('.sneakersList__list');
+  const skeletonMarkup = [...new Array(6)]
+    .map(() => {
+      return `
   <li class="skeleton__item">
     <div class="skeleton__img__wrapper"></div>
     <div class="skeleton__title__wrapper">
@@ -16,8 +15,7 @@ export default function createSkeletonMarkup() {
     </div>
   </li>
   `;
-}).join(' ');
-list.insertAdjacentHTML('afterbegin', skeletonMarkup);
-console.log(skeletonMarkup);
+    })
+    .join(' ');
+  list.insertAdjacentHTML('afterbegin', skeletonMarkup);
 }
-

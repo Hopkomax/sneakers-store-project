@@ -1,5 +1,5 @@
 import heartIcon from '../img/vector_heart.svg';
-export default function createSneakersMarkup(items) {
+export default function createSneakersMarkupInCart(items) {
   const markup = items
     .map(({ title, images, price, id }) => {
       return `
@@ -9,7 +9,6 @@ export default function createSneakersMarkup(items) {
           <h3>${title}</h3>
           <p>${price} UAH</p>
       </div>
-
       <div class='sneaker__inCart__button'>
           <span class='sneaker__inCart__button-span'>x</span>
       </div>

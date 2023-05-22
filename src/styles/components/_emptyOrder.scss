@@ -1,4 +1,4 @@
-.emptyContent__wrapper {
+.emptyContentOrder__wrapper {
   margin-top: 150px;
   display: flex;
   flex-direction: column;
@@ -17,36 +17,38 @@
   }
 }
 
-.emptyContent__img {
-  width: 120px;
+.emptyContentOrder__img {
+  width: 83px;
   height: 120px;
   background-size: contain;
-  background-image: url(/src/img/empty_cart.png);
+  background-position: center;
+  background-image: url(/src/img/order.png);
 }
 
-.emptyContent__title {
+.emptyContentOrder__title {
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
-  color: #000000;
+  font-size: 22px;
+  line-height: 27px;
+  color: #87c20a;
 }
 
-.emptyContent__text {
+.emptyContentOrder__text {
   font-weight: 400;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 24px;
   text-align: center;
   color: #000000;
   opacity: 0.4;
+  text-align: center;
 }
 
-.emptyContent__container__button {
+.emptyContentOrder__container__button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.emptyContent__button {
+.emptyContentOrder__button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,14 +60,15 @@
   width: 245px;
   height: 55px;
   border-radius: 18px;
-  margin-top: 50px;
+  margin-top: 40px;
   font-size: 16px;
   font-weight: 700;
   line-height: 19px;
   transition: all 0.3s;
+  // width: 100%;
 }
 
-.emptyContent__button:hover {
+.emptyContentOrder__button:hover {
   cursor: pointer;
   background: #678b35;
 }

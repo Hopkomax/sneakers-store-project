@@ -8,6 +8,7 @@ export function handleCart(event) {
     const sneakerId = cart.parentNode.parentNode.id;
     const selectedSneaker = sneakers.find(({ id }) => id === sneakerId);
     const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
+
     if (cart.classList.contains('active')) {
       const updatedCart = inCart.filter(({ id }) => id !== sneakerId);
       localStorage.setItem('inCart', JSON.stringify(updatedCart));
@@ -24,11 +25,14 @@ export function handleCart(event) {
 
 export function setInCartOnload() {
   const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
+
   document
     .querySelectorAll('.sneaker__add__button.active')
     .forEach(item => item.classList.remove('active'));
+
   for (const { id } of inCart) {
     const item = document.getElementById(id);
+
     if (!item) {
       continue;
     }

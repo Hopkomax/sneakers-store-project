@@ -1,8 +1,8 @@
 .cartList {
-display: none;
-&.active{
-display: block;
-}
+  display: none;
+  &.active {
+    display: block;
+  }
 }
 
 .cartList__container {
@@ -13,25 +13,34 @@ display: block;
   position: absolute;
   height: 93vh;
   width: fit-content;
+  width: 260px;
   top: 0;
   right: 0;
   background-color: #fff;
-  // overflow: scroll !important;
   z-index: 2;
+  @media only screen and (min-width: 768px) {
+    width: 385px;
+   
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 385px;
+
+  }
 }
-.cartList__container.active{
-    display: block;
+
+.cartList__container.active {
+  display: block;
 }
 
 .cartList__title {
   width: 100%;
   padding-top: 0px;
-  padding-left: 30px;
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
 }
+
 .cartList__list {
   flex-direction: column;
   gap: 20px;
@@ -40,18 +49,13 @@ display: block;
   overflow: scroll;
   height: 500px;
 }
-.cart__container__bottom__blok{
+
+.cart__container__bottom__blok {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  // position: absolute;
-  // bottom: 0;
 }
-.cart__container__button__blok {
-//   position: absolute;
-//   bottom: 0;
-// padding: 30px 30px 30px 30px;
-}
+
 .cart__container__button {
   text-transform: uppercase;
   color: #fff;
@@ -62,49 +66,46 @@ display: block;
   font-size: 16px;
   font-weight: 700;
   line-height: 19px;
-  transition: all .3s;
+  transition: all 0.3s;
   width: 100%;
 }
+
 .cart__container__button:hover {
   cursor: pointer;
   background: #678b35;
 }
 
-.sneaker__inCart__totalAmount{
-
+.sneaker__inCart__totalAmount {
   display: flex;
   justify-content: space-between;
   margin-bottom: 19px;
-
 }
 
 .cart__container__bottom__blok span {
   display: inline-block;
   width: 100%;
-  max-width: 300px;  
-  border-bottom: 1px dashed #DFDFDF;
+  max-width: 300px;
+  border-bottom: 1px dashed #dfdfdf;
   margin-right: 8px;
   margin-left: 9px;
   text-align: center;
 }
 
-.sneaker__inCart__taxes{
+.sneaker__inCart__taxes {
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
   white-space: nowrap;
-
 }
-.sneaker__inCart__taxes span{
+.sneaker__inCart__taxes span {
   display: inline-block;
   width: 100%;
-  max-width: 300px;  
-  border-bottom: 1px dashed #DFDFDF;
+  max-width: 300px;
+  border-bottom: 1px dashed #dfdfdf;
   margin-right: 8px;
   margin-left: 9px;
   text-align: center;
 }
-
 
 //////////////////////////////////////
 
@@ -113,17 +114,22 @@ display: block;
   z-index: 100;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -80%) scale(.9);
+  transform: translate(-50%, -80%) scale(0.9);
   width: 520px;
   max-width: 95%;
   min-height: 200px;
-  box-shadow: 0 10px 30px rgba(#000, .2);
+  box-shadow: 0 10px 30px rgba(#000, 0.2);
   background-color: #fff;
   border-radius: 4px;
-  transition: all .18s ease-in-out;
+  transition: all 0.18s ease-in-out;
   visibility: hidden;
   opacity: 0;
+  @media only screen and (min-width: 768px) {
 
+  }
+  @media only screen and (min-width: 1200px) {
+
+  }
   &.show {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
@@ -143,9 +149,10 @@ display: block;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(#000, .6);
+    background-color: rgba(#000, 0.6);
   }
 }
+
 .hidden {
   display: none;
 }

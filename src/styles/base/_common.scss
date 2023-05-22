@@ -1,5 +1,9 @@
-body {
-    font-family: "Inter";
-    position: relative;
-    overflow-x: hidden;
+body, body.light {
+  font-family: 'Inter';
+  position: relative;
+  overflow-x: hidden;
+  background-color: var(--body-color);
+}
+body.dark{
+  background-color: var(--body-color);
 }

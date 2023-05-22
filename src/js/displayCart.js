@@ -2,34 +2,33 @@ import createSneakersMarkupInCart from './createSneakersMarkupInCart';
 import { setActualPriceIntoCart, setActualPriceIntoHeader } from './calculateTotalPrice';
 import { setInCartOnload } from './handleCart';
 import createCartMarkup from './createCartMarkup';
-createCartMarkup();
+import createEmptyContent from './createEmptyContent';
+import { makeOrder } from './makeOrder';
 
+let list = null;
 const backdrop = document.querySelector('#modal-backdrop');
-document.addEventListener('click', modalHandler);
-
-const cartButton = document.querySelector('.heder__user__icon__cart');
-const list = document.querySelector('.cartList__list');
 const modalCart = document.querySelector('.cartList');
+
+document.addEventListener('click', modalHandler);
 
 function modalHandler(evt) {
   const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
   const modalBtnOpen = evt.target.closest('.heder__user__icon__cart');
+
   if (modalBtnOpen) {
     createCartMarkup();
 
+    list = document.querySelector('.cartList__list');
+  
     // open btn click
     showModal(modalCart);
     setActualPriceIntoCart();
-  
-    if (inCart.length === 0) {
-      const img = document.createElement('img');
-      img.src =
-        'https://cdn.dribbble.com/users/1639273/screenshots/4897055/media/b23d4908df82e11bfe4e11072c41a7bb.png?compress=1&resize=400x300';
-      img.classList.add('img');
-      list.prepend(img);
-    } else {
-      list.insertAdjacentHTML('afterbegin', createSneakersMarkupInCart(inCart));
 
+    if (inCart.length === 0) {
+      document.querySelector('.cartList__container').innerHTML = createEmptyContent();
+     // list.insertAdjacentHTML('afterbegin', createEmptyContent());
+    } else {
+      list.innerHTML = createSneakersMarkupInCart(inCart);
     }
   }
 
