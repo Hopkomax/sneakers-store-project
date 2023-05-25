@@ -6,18 +6,33 @@
     --overlay-color: #fbfbfb;
     --accent-color: #4440f6;
     --text-color: #111321;
-    --text-color-light: #a8a8a8;
+    //--text-color-light: #a8a8a8;
     --white-color: #ffffff;
     --black-color: #111321;
     --light-grey-color: #7a7a7a;
     --accent-color-read: #00dd73;
     --accent-color-overlay: #4440f7;
     --inactive-color: #5f6775;
+    --text-color-light: #9d9d9d;
+
+    --search-color:#fcfcfc;
+    --search-placeholder-color:#c4c4c4;
+    --search-focus-color:#b7b7b7;
+    --search-text-color:#0f0f0f;
 
     /*========== Variables Dark theme ==========*/
-    body.dark {
-        --body-color: #242424;
-        --text-color: #f4f4f;
+    .dark {
+        --body-color: #555555;
+        --text-color: #d4d4d4;
         --light-grey-color: #3e3e3e;
+        --white-color: #ffffff;
+        --color: #f1e7e7; 
+        --text-color-light: #c4c4c4;
+
+        --search-color:#bdbdbd;
+        --search-text-color:#eeeeee;
+
+    --search-placeholder-color:#cacaca;
+    --search-focus-color:#dddddd;
     }
 }

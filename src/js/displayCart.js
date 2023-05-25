@@ -13,7 +13,7 @@ document.addEventListener('click', modalHandler);
 
 function modalHandler(evt) {
   const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
-  const modalBtnOpen = evt.target.closest('.heder__user__icon__cart');
+  const modalBtnOpen = evt.target.closest('.header__user__icon__cart');
 
   if (modalBtnOpen) {
     createCartMarkup();

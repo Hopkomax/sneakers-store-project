@@ -3,7 +3,27 @@ body, body.light {
   position: relative;
   overflow-x: hidden;
   background-color: var(--body-color);
+  color: var(--text-color-light);
 }
 body.dark{
   background-color: var(--body-color);
+  color: var(--text-color-light);
 }
+
+
+
+// header, header.light{
+//   color: var(--white-color);
+// }
+
+// header.dark{
+//   background-color: var(--body-color);
+//   color: var(--text-color-light);
+//   &__header__logo__title {
+//     color: var(--text-color-light);
+
+//   }
+// }
+// .header__logo__subtitle.dark {
+//   color: var(--text-color-light);
+// }

@@ -192,13 +192,14 @@
   font-family: 'Inter';
   font-size: 14px;
   line-height: 17px;
-  color: #999999;
+  color: var(--search-text-color);
+  background-color: var(--search-color);
 }
 .search__input:focus {
-  outline: 1px solid #b7b7b7;
+  outline: 1px solid var(--search-focus-color);
 }
 .search__input::placeholder {
-  color: #c4c4c4;
+  color: var(--search-placeholder-color);
 }
 .search__input-label {
   position: relative;
@@ -219,7 +220,7 @@
   font-weight: 700;
   font-size: 32px;
   line-height: 39px;
-  color: #000000;
+  color: var(--text-color);
   margin-bottom: 20px;
   @media only screen and (min-width: 768px) {
 

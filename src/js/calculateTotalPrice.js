@@ -8,7 +8,7 @@ export function calculateTotalPrice() {
 }
 
 export function setActualPriceIntoHeader() {
-  // const priceEl = document.querySelector('.heder__user__icon__cart span');
+  // const priceEl = document.querySelector('.header__user__icon__cart span');
   let price = priceEl.textContent.split('\n')[0];
   price = calculateTotalPrice() + ' ' + 'грн';
   priceEl.textContent = price;

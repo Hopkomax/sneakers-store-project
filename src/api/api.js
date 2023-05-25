@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const BASE_URL = "http://localhost:4000";
+const BASE_URL = "https://sneakers-store-project.onrender.com";
 export const getSneakers = async () => {
     // variant 1
     // const { data } = await axios.get('/contcts')
