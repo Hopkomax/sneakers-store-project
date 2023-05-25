@@ -1,5 +1,3 @@
-import refs from "./refs";
-const {priceEl, totalAmountElementInCart, taxElementInCart} = refs;
 
 export function calculateTotalPrice() {
   const productsInCart = JSON.parse(localStorage.getItem('inCart')) || [];
@@ -8,7 +6,7 @@ export function calculateTotalPrice() {
 }
 
 export function setActualPriceIntoHeader() {
-  // const priceEl = document.querySelector('.header__user__icon__cart span');
+  const priceEl = document.querySelector('.header__user__icon__cart span');
   let price = priceEl.textContent.split('\n')[0];
   price = calculateTotalPrice() + ' ' + 'грн';
   priceEl.textContent = price;
