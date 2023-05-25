@@ -1,4 +1,3 @@
-import sneakers from '../db/sneakers';
 import createSneakersMarkup from './createSneakersMarkup';
 import { findSneakers } from '../api/api';
 import createEmptyContent from './createEmptyContent';

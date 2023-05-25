@@ -1,5 +1,3 @@
-import sneakers from '../db/sneakers';
-import heartIcon from '../img/vector_heart.svg';
 export default function createSneakersMarkup(items) {
   const markup = items
     .map(({ title, images, price, id }) => {

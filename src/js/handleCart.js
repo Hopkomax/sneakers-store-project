@@ -1,12 +1,12 @@
-import sneakers from '../db/sneakers';
 import { setActualPriceIntoHeader } from './calculateTotalPrice';
+import {getSneakerById} from '../api/api';
 
-export function handleCart(event) {
+export async function handleCart(event) {
   const cart = event.target;
 
   if (cart.classList.contains('sneaker__add__button')) {
     const sneakerId = cart.parentNode.parentNode.id;
-    const selectedSneaker = sneakers.find(({ id }) => id === sneakerId);
+    const selectedSneaker = await getSneakerById(sneakerId) || {};
     const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
 
     if (cart.classList.contains('active')) {

@@ -1,4 +1,3 @@
-import sneakers from '../db/sneakers';
 import createSneakersMarkup from './createSneakersMarkup';
 import { getSneakers } from '../api/api';
 import { setInCartOnload, handleCart } from './handleCart';
@@ -11,16 +10,13 @@ const list = document.querySelector('.sneakersList__list');
 
 createSkeletonMarkup();
 setTimeout(() => {
-  // getSneakers().then(data => {
-  //   list.innerHTML = '';
-  //   list.insertAdjacentHTML('afterbegin', createSneakersMarkup(data));
-  //   setInCartOnload();
-  //   setFavoritesOnload();
-  // });
-  list.innerHTML = '';
-    list.insertAdjacentHTML('afterbegin', createSneakersMarkup(sneakers));
+  getSneakers().then(data => {
+    list.innerHTML = '';
+    list.insertAdjacentHTML('afterbegin', createSneakersMarkup(data));
     setInCartOnload();
     setFavoritesOnload();
+  });
+ 
 }, 2000);
 
 document.querySelector('.sneakersList__list').addEventListener('click', handleFavorites);

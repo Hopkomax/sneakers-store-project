@@ -1,11 +1,12 @@
-import sneakers from '../db/sneakers';
 
-export function handleFavorites(event) {
+import {getSneakerById} from '../api/api';
+
+export async function handleFavorites(event) {
   const heart = event.target;
 
   if (heart.classList.contains('sneaker__heart__button')) {
     const sneaker = heart.closest('li');
-    const selectedSneaker = sneakers.find(({ id }) => id === sneaker.id);
+    const selectedSneaker = await getSneakerById(sneaker.id) || {};
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     if (heart.classList.contains('active')) {
