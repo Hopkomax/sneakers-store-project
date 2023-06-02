@@ -1,12 +1,22 @@
-import createSneakersMarkup from './createSneakersMarkup';
+import createSneakersMarkup from './createMarkupFunctions/createSneakersMarkup';
 import { setFavoritesOnload } from './handleFavorites';
-import { createEmptyFavorites } from './createEmptyFavorites';
+import { createEmptyFavorites } from './createMarkupFunctions/createEmptyFavorites';
 import { setActualPriceIntoHeader } from './calculateTotalPrice';
 import { setInCartOnload } from './handleCart';
 import {getSneakerById} from '../api/api';
 
-const list = document.querySelector('.favoritesList__list');
+import { setActualPriceIntoHeader } from './calculateTotalPrice';
+import { setInCartOnload } from './handleCart';
+import { themeSwitch, setThemeOnLoad } from './themeSwitch';
+import { modalHandler } from './displayCart';
+import './mobileMenu';
 
+setThemeOnLoad();
+
+document.querySelector('.theme__switch').addEventListener('change', themeSwitch);
+document.addEventListener('click', modalHandler);
+
+const list = document.querySelector('.favoritesList__list');
 list.addEventListener('click', handleFavorites);
 list.addEventListener('click', handleCart);
 
@@ -70,3 +80,5 @@ async function handleCart(event) {
     setActualPriceIntoHeader();
   }
 }
+
+

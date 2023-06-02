@@ -2,7 +2,7 @@
   padding: 40px 0px;
 }
 
-.banner__container {
+.banner__container{
   width: 320px;
   margin: 0 auto;
 
@@ -21,24 +21,64 @@
 
     width: 768px;
     height: 300px;
-    padding: 0 30px;
+    // padding: 0 30px;
     .banner__container__img {
       width: 100%;
       height: auto;
-      display: block;    
+      display: block;
+
+      // width: 100%;
+      // height: auto;
+      // display: block;
+      // justify-content: flex-end;    
     }
     & img {
       width: 100%;
       height: 100%;
       display: block;
+  
     }
   }
   @media only screen and (min-width: 1200px) {
     width: 1225px;
     // padding: 0 75px;
+        padding: 0 15px;
+        .banner__container__img {
+          // width: 100%;
+          // height: auto;
+          // display: block;
+           width: initial;
+          height: auto;
+          display: block;
+          justify-content: flex-end;    
+        }
+        & img {
+          // width: 100%;
+          // height: 100%;
+          // display: block;
+          
+          width: initial;
+          height: initial;
+          display: initial;
+      
+        }
+        
   }
 }
-
+// .banner__container::before{
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: var(--text-color);
+//   opacity: 0.5;
+// }
+// .dark .banner__container__img::before {
+//   background-color: var(--body-color);
+//   opacity: 0.5;
+// }
 .banner__container__info {
   width: fit-content;
   padding:1px 3px 7px 27px;
@@ -60,15 +100,19 @@
 }
 
 .banner__container__title {
+  max-width: 200px;
   font-weight: 700;
   font-size: 38px;
   line-height: 46px;
   color: #8bb43c;
   margin-bottom: 23px;
-}
+  // word-break: break-all;
+  // white-space: normal; 
+  }
 
-.banner__container__title span {
+  .banner__container__title span {
   color: #000000;
+  // display: block;
 }
 
 .banner__container__button {
@@ -87,4 +131,13 @@
 .banner__container__button:hover {
   cursor: pointer;
   background: #678b35;
+}
+
+.banner__container__label{
+
+  & img{
+  width: auto;
+    height: auto;
+    display: block;
+  }
 }

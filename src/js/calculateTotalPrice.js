@@ -1,4 +1,3 @@
-
 export function calculateTotalPrice() {
   const productsInCart = JSON.parse(localStorage.getItem('inCart')) || [];
   const totalPrice = productsInCart.reduce((total, { price }) => (total += price), 0);
@@ -14,9 +13,7 @@ export function setActualPriceIntoHeader() {
 
 export function setActualPriceIntoCart() {
   const priceElement = document.querySelector('.sneaker__inCart__totalAmount').lastElementChild;
-  // const priceElement = totalAmountElementInCart.lastElementChild;
   priceElement.textContent = calculateTotalPrice() + ' ' + 'грн';
-   const taxElement = document.querySelector('.sneaker__inCart__taxes').lastElementChild;
- // const taxElement = taxElementInCart.lastElementChild;
-  taxElement.textContent = ((calculateTotalPrice() * 5) / 100 ).toFixed(2) + ' ' + 'грн';
+  const taxElement = document.querySelector('.sneaker__inCart__taxes').lastElementChild;
+  taxElement.textContent = ((calculateTotalPrice() * 5) / 100).toFixed(2) + ' ' + 'грн';
 }

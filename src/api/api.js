@@ -11,10 +11,14 @@ export const getSneakers = async () => {
     // return await data.json();
 
     // variant 3
-    return fetch(`${BASE_URL}/sneakers`).then(response => response.json());
+    const response = await fetch(`${BASE_URL}/sneakers`);
+    return response.json();
 };
+
 export const findSneakers = async (query) => {
-    return fetch(`${BASE_URL}/sneakers?title_like=${query}`).then(response => response.json())
+    // return fetch(`${BASE_URL}/sneakers?title_like=${query}`).then(response => response.json());
+    const response = await fetch(`${BASE_URL}/sneakers?title_like=${query}`);
+    return response.json();
  }
 
  export const getSneakerById = async (id) => {

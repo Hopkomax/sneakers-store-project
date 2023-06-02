@@ -3,16 +3,18 @@ import {getSneakerById} from '../api/api';
 
 export async function handleCart(event) {
   const cart = event.target;
-
+console.log(cart);
   if (cart.classList.contains('sneaker__add__button')) {
     const sneakerId = cart.parentNode.parentNode.id;
     const selectedSneaker = await getSneakerById(sneakerId) || {};
     const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
-
+console.log(inCart);
     if (cart.classList.contains('active')) {
       const updatedCart = inCart.filter(({ id }) => id !== sneakerId);
+      console.log(updatedCart);
       localStorage.setItem('inCart', JSON.stringify(updatedCart));
       cart.classList.remove('active');
+      console.log(cart);
       setActualPriceIntoHeader();
       return;
     }

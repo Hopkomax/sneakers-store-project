@@ -1,4 +1,3 @@
-import heartIcon from '../img/vector_heart.svg';
 export default function createSneakersMarkupInCart(items) {
   const markup = items
     .map(({ title, images, price, id }) => {

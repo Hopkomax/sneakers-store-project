@@ -3,6 +3,10 @@
 
     /* HSL color mode */
     --body-color: #ffffff;
+    --card-color:#fff;
+    --card-border-color: #f3f3f3;
+    --skeleton-color: #f2f2f2;
+
     --overlay-color: #fbfbfb;
     --accent-color: #4440f6;
     --text-color: #111321;
@@ -22,16 +26,19 @@
 
     /*========== Variables Dark theme ==========*/
     .dark {
-        --body-color: #555555;
+        --body-color: #3c3c3c;
+        --card-color: #555;
+        --card-border-color: transparent;
+        --skeleton-color: #3c3c3c;
+
         --text-color: #d4d4d4;
         --light-grey-color: #3e3e3e;
         --white-color: #ffffff;
         --color: #f1e7e7; 
         --text-color-light: #c4c4c4;
 
-        --search-color:#bdbdbd;
-        --search-text-color:#eeeeee;
-
+        --search-color:#f4efe9;
+        --search-text-color:#000000;
     --search-placeholder-color:#cacaca;
     --search-focus-color:#dddddd;
     }

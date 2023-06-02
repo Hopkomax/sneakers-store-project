@@ -1,16 +1,17 @@
 import main from './js/main'
-import createSneakersMarkup from './js/createSneakersMarkup'
+import createSneakersMarkup from './js/createMarkupFunctions/createSneakersMarkup'
 import search from './js/search';
-import createSkeletonMarkup from './js/createSkeletonMarkup'
+import createSkeletonMarkup from './js/createMarkupFunctions/createSkeletonMarkup'
 import handleFavorites from './js/handleFavorites'
 import handleCart from './js/handleCart'
 import { getSneakers } from './api/api';
 import displayCart from './js/displayCart'
-import makeOrder from './js/makeOrder'
-import createSneakersMarkupInCart from './js/createSneakersMarkupInCart'
+import createMakeOrderMarkup from './js/createMarkupFunctions/createMakeOrderMarkup';
+import createSneakersMarkupInCart from './js/createMarkupFunctions/createSneakersMarkupInCart'
 import themeSwitch from './js/themeSwitch';
 import setThemeOnLoad from './js/themeSwitch';
 import mobileMenu from './js/mobileMenu';
+// import displayPurchases from './js/purchases';
 // const sentense = "Get best sle offers now!";
 
 // if(sentense.toLowerCase().includes('sale')){

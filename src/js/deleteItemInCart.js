@@ -1,4 +1,4 @@
-import createEmptyContent from "./createEmptyContent";
+import createEmptyCart from "./createMarkupFunctions/createEmptyCart";
 import {setActualPriceIntoCart} from './calculateTotalPrice'
 
 export function handleDelete(event) {
@@ -16,7 +16,7 @@ export function handleDelete(event) {
     const inCartAfterUpdate = JSON.parse(localStorage.getItem('inCart')) || [];
 
     if(inCartAfterUpdate.length === 0 ){
-      document.querySelector('.cartList__container').innerHTML = createEmptyContent();
+      document.querySelector('.cartList__container').innerHTML = createEmptyCart();
     }
   }
 }

@@ -11,7 +11,7 @@ export default function createSneakersMarkup(items) {
 <h4 class='sneaker__title'>${formatedTitle}</h4>
 <div class='sneaker__price__container'>
     <div class='sneaker__price__wrapper'>
-        <p class='sneaker__price__label'>Ціна</p>
+        <p class='sneaker__price__label'>Price</p>
         <p class='sneaker__price'>${price}</p>
     </div>
     <div class='sneaker__add__button'>

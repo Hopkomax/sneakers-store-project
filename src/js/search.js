@@ -1,26 +1,33 @@
-import createSneakersMarkup from './createSneakersMarkup';
+import createSneakersMarkup from './createMarkupFunctions/createSneakersMarkup';
 import { findSneakers } from '../api/api';
-import createEmptyContent from './createEmptyContent';
+import createEmptyContent from './createMarkupFunctions/createEmptyContent';
 import { setFavoritesOnload } from './handleFavorites';
 import { setInCartOnload } from './handleCart';
+import debounce from 'lodash/debounce';
 
 const list = document.querySelector('.sneakersList__list');
+const input = document.querySelector('.search__input');
 
-export default function search(event) {
-  const inputValue = event.currentTarget.value.toLocaleLowerCase().trim();
+async function search(event) {
+  const inputValue = input.value.toLowerCase().trim();
 
   list.innerHTML = '';
 
-  findSneakers(inputValue).then(data => {
+  try {
+    const data = await findSneakers(inputValue);
+
     if (data.length === 0) {
       list.insertAdjacentHTML('afterbegin', createEmptyContent());
     }
+
     list.insertAdjacentHTML('afterbegin', createSneakersMarkup(data));
     setFavoritesOnload();
     setInCartOnload();
-  });
+  } catch (error) {
+    console.error('Error searching sneakers:', error);
+  }
 }
 
-const input = document.querySelector('.search__input');
+const debouncedSearch = debounce(search, 500);
 
-input.addEventListener('input', search);
+input.addEventListener('input', debouncedSearch);

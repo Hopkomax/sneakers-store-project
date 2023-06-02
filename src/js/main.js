@@ -1,11 +1,10 @@
-import createSneakersMarkup from './createSneakersMarkup';
+import createSneakersMarkup from './createMarkupFunctions/createSneakersMarkup';
 import { getSneakers } from '../api/api';
 import { setInCartOnload, handleCart } from './handleCart';
 import { setFavoritesOnload, handleFavorites } from './handleFavorites';
 import { setActualPriceIntoHeader } from './calculateTotalPrice';
-import createSkeletonMarkup from './createSkeletonMarkup';
+import createSkeletonMarkup from './createMarkupFunctions/createSkeletonMarkup';
 import { setThemeOnLoad, themeSwitch } from './themeSwitch';
-
 const list = document.querySelector('.sneakersList__list');
 
 createSkeletonMarkup();
