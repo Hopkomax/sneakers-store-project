@@ -11,6 +11,8 @@ import createSneakersMarkupInCart from './js/createMarkupFunctions/createSneaker
 import themeSwitch from './js/themeSwitch';
 import setThemeOnLoad from './js/themeSwitch';
 import mobileMenu from './js/mobileMenu';
+import createPurchasesMarkup from './js/createMarkupFunctions/createPurchasesMarkup';
+import './js/handleAuthForm';
 // import displayPurchases from './js/purchases';
 // const sentense = "Get best sle offers now!";
 

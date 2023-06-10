@@ -1,0 +1,101 @@
+.modal-auth__backdrop {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    &.open {
+        display: block;
+    }
+  }
+  .modal-auth__content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 26px;
+    border: 1px solid #888;
+    // width: 600px;
+    width: 320px;
+    margin: 0 auto;
+    @media only screen and (min-width: 768px) {
+      width: 600px;
+    }
+    @media only screen and (min-width: 1200px) {
+      width: 600px;
+  
+    }
+  }
+  
+  /* Modal Content */
+  // .modal-auth__content {
+  //   background-color: #fefefe;
+  //   margin: auto;
+  //   padding: 26px;
+  //   border: 1px solid #888;
+  //   width: 600px;
+  // }
+  .form__title{
+    padding-bottom: 10px;
+    color: #888;
+  }
+  /* The Close Button */
+  .close {
+    margin-top: -15px;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Bordered form */
+form {
+    border: 3px solid #f1f1f1;
+  }
+  
+  /* Full-width inputs */
+  .auth__form input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  .form__button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+
+  .username__form {
+    display: block;
+   &.hiden {
+    display: none;
+}}
+  /* Зробити поле видимим */
+  // .username__form .visible {
+  //   display: block;
+  // }

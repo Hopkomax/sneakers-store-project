@@ -1,0 +1,30 @@
+.sneaker__InPurchases__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background-color: #fff;
+  border: 1px solid #f3f3f3;
+  padding: 30px 20px;
+  border-radius: 20px;
+  
+}
+.sneaker__InPurchases__img {
+  width: 133px;
+  height: 112px;
+  border-radius: 10px;
+}
+.sneaker__InPurchases__description {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    & h3 {
+      font-size: 14px;
+      line-height: 17px;
+    }
+    & p {
+      font-size: 14px;
+      line-height: 17px;
+      font-weight: 700;
+    }
+}

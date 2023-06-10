@@ -1,0 +1,45 @@
+.purchasesList {
+}
+.purchasesList__container {
+    width: 320px;
+    margin: 0 auto;
+    @media only screen and (min-width: 768px) {
+      width: 768px;
+      padding: 0 20px;
+    }
+    @media only screen and (min-width: 1200px) {
+      width: 1225px;
+      padding: 0 75px;
+  
+    }
+}
+
+.purchasesList__title {
+    padding-top: 42px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    @media only screen and (min-width: 768px) {
+  
+      }
+    @media only screen and (min-width: 1200px) {
+      
+    }
+}
+.purchasesList__list {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    @media only screen and (min-width: 768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    @media only screen and (min-width: 1200px) {
+      gap: 40px;
+    }
+}
