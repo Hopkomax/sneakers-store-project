@@ -10,11 +10,16 @@ import { setInCartOnload } from './handleCart';
 import { themeSwitch, setThemeOnLoad } from './themeSwitch';
 import { modalHandler } from './displayCart';
 import './mobileMenu';
+import { openModal } from './handleAuthForm';
 
 setThemeOnLoad();
 
 document.querySelector('.theme__switch').addEventListener('change', themeSwitch);
 document.addEventListener('click', modalHandler);
+
+const userButton = document.querySelector('.header__user__icon__user');
+userButton.addEventListener('click', openModal);
+
 
 const list = document.querySelector('.favoritesList__list');
 list.addEventListener('click', handleFavorites);

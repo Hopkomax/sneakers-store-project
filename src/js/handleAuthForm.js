@@ -14,7 +14,7 @@ const identificateForm = document.querySelector('[data-action]');
 const actionValue = identificateForm.dataset.action;
 console.log(actionValue);
 
-function handleSubmit(event) {
+export function handleSubmit(event) {
   event.preventDefault();
 
   const formData = [...authForm.elements].reduce((formData, element) => {
@@ -23,7 +23,7 @@ function handleSubmit(event) {
     }
     return formData;
   }, {});
-  
+
   if (isRegMode) {
     createUser(formData);
     console.log('rege');
@@ -34,13 +34,13 @@ function handleSubmit(event) {
   authForm.reset();
 }
 
-function openModal() {
+export function openModal() {
   authModal.classList.add('open');
   closeButton.addEventListener('click', closeModal);
   userButton.removeEventListener('click', openModal);
 }
 
-function closeModal() {
+export function closeModal() {
   authModal.classList.remove('open');
   closeButton.removeEventListener('click', closeModal);
   userButton.addEventListener('click', openModal);
@@ -116,6 +116,7 @@ if(isRegMode){
 // btnChangeForm.dataset.action = "reg";
 
 // }
+
 userButton.addEventListener('click', openModal);
 authForm.addEventListener('submit', handleSubmit);
 btnChangeForm.addEventListener('click', changeForm);
