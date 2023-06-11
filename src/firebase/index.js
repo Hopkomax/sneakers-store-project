@@ -74,14 +74,14 @@ export function signIn({email, password}) {
   });
 }
 
-export function authState () {
-  db.auth().onAuthStateChanged((user) => {
-  if (user) {
-    // Користувач авторизований
-    console.log('Користувач авторизований:', user);
-  } else {
-    // Користувач неавторизований
-    console.log('Користувач неавторизований');
-  }
-});
-}
+// export function authState () {
+//   db.auth().onAuthStateChanged((user) => {
+//   if (user) {
+//     // Користувач авторизований
+//     console.log('Користувач авторизований:', user);
+//   } else {
+//     // Користувач неавторизований
+//     console.log('Користувач неавторизований');
+//   }
+// });
+// }

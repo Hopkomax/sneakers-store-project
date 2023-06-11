@@ -61,7 +61,7 @@
 
   /* Bordered form */
 form {
-    border: 3px solid #f1f1f1;
+    // border: 3px solid #f1f1f1;
   }
   
   /* Full-width inputs */
@@ -76,13 +76,17 @@ form {
   
   /* Set a style for all buttons */
   .form__button {
-    background-color: #04AA6D;
+    margin: 20px 0 0 0;
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 100%;
+    background: #a5d364;
+    border-radius: 18px;
+    padding: 16px 55px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: all 0.3s;
   }
   
   /* Add a hover effect for buttons */
@@ -95,7 +99,10 @@ form {
    &.hiden {
     display: none;
 }}
-  /* Зробити поле видимим */
-  // .username__form .visible {
-  //   display: block;
-  // }
+.action__container {
+  margin-top: 10px;
+}
+.btn__change__form {
+  margin-top: 7px;
+  
+}

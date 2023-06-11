@@ -1,4 +1,4 @@
-import { createUser , signIn, authState } from '../firebase';
+import { createUser, signIn, authState } from '../firebase';
 
 const userButton = document.querySelector('.header__user__icon__user');
 const authModal = document.querySelector('.modal-auth__backdrop');
@@ -9,7 +9,7 @@ const usernameInput = userNameForm.querySelector('input[name="username"]');
 const actionText = document.querySelector('.action__text');
 const btnChangeForm = document.querySelector('.btn__change__form');
 const title = document.querySelector('.form__title');
-let isLoginMode = true;
+let isRegMode = true;
 const identificateForm = document.querySelector('[data-action]');
 const actionValue = identificateForm.dataset.action;
 console.log(actionValue);
@@ -23,16 +23,16 @@ function handleSubmit(event) {
     }
     return formData;
   }, {});
-  if (actionValue === 'log_in'){
-  createUser(formData);
-
- 
-}else if (actionValue === 'reg'){
-    signIn(formData);
+  
+  if (isRegMode) {
+    createUser(formData);
     console.log('rege');
+  } else if (!isRegMode) {
+    signIn(formData);
+    console.log('log_in');
+  }
+  authForm.reset();
 }
-authForm.reset();
-} 
 
 function openModal() {
   authModal.classList.add('open');
@@ -46,28 +46,52 @@ function closeModal() {
   userButton.addEventListener('click', openModal);
 }
 
-function changeForm() {
-    if (isLoginMode) {
-        btnChangeForm.textContent = 'Registration';
-        userNameForm.classList.add('hiden');
-        btnChangeForm.setAttribute('data-action', 'log_in');
-        title.textContent = 'Log in';
-        actionText.textContent = 'Don`t have account?';
-        usernameInput.removeAttribute('required');
-        authState();
-        authForm.reset();
-        isLoginMode = false;
-      } else {
-        btnChangeForm.textContent = 'Log in';
-        btnChangeForm.setAttribute('data-action', 'reg');    
-        userNameForm.classList.remove('hiden');
-        title.textContent = 'Sign up';
-        actionText.textContent = 'Already have account?';
 
-        authForm.reset();
-        isLoginMode = true;
-      }
+function changeForm() {
+if(isRegMode){
+    btnChangeForm.textContent = 'Registration';
+    userNameForm.classList.add('hiden');
+    btnChangeForm.setAttribute('data-action', 'log_in');
+    title.textContent = 'Log in';
+    actionText.textContent = 'Don`t have account?';
+    usernameInput.removeAttribute('required');
+    authForm.reset();
+    isRegMode = false;
+} else {
+    btnChangeForm.textContent = 'Log in';
+    btnChangeForm.setAttribute('data-action', 'reg');
+    userNameForm.classList.remove('hiden');
+    title.textContent = 'Registration';
+    actionText.textContent = 'Already have account?';
+    authForm.reset();
+    isRegMode = true;
 }
+
+}
+
+// function changeForm() {
+//   if (isRegMode) {
+//     console.log('1');
+//     btnChangeForm.textContent = 'Log in';
+//     userNameForm.classList.add('hiden');
+//     btnChangeForm.setAttribute('data-action', 'log_in');
+//     title.textContent = 'Log in';
+//     actionText.textContent = 'Don`t have account?';
+//     usernameInput.removeAttribute('required');
+//     // authState();
+//     authForm.reset();
+//     isRegMode = true;
+//   } else {
+//     btnChangeForm.textContent = 'Registration';
+//     btnChangeForm.setAttribute('data-action', 'reg');
+//     userNameForm.classList.remove('hiden');
+//     title.textContent = 'Sign up';
+//     actionText.textContent = 'Already have account?';
+
+//     authForm.reset();
+//     isRegMode = false;
+//   }
+// }
 // function changeForm(){
 //     const action = btnChangeForm.dataset.action;
 //     if(action === 'log_in') {
@@ -86,10 +110,10 @@ function changeForm() {
 
 //         authForm.reset();
 
-    // }
-   // userNameForm.hide;
-    // console.log(actionValue);
-   // btnChangeForm.dataset.action = "reg";
+// }
+// userNameForm.hide;
+// console.log(actionValue);
+// btnChangeForm.dataset.action = "reg";
 
 // }
 userButton.addEventListener('click', openModal);
