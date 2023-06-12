@@ -15,7 +15,7 @@
   margin: 0 auto;
   @media only screen and (min-width: 768px) {
     width: 768px;
-    padding: 0 20px;
+    // padding: 0 20px;
   }
   @media only screen and (min-width: 1200px) {
     width: 1225px;
@@ -223,6 +223,7 @@
   color: var(--text-color);
   margin-bottom: 20px;
   @media only screen and (min-width: 768px) {
+    padding: 0 20px;
 
     }
   @media only screen and (min-width: 1200px) {

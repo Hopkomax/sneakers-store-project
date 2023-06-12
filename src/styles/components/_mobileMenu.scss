@@ -17,7 +17,7 @@ ul {
   padding: 0;
 }
 
-li {
+.header__user__icon__cart {
   display: inline-block;
   padding: 0 1.25rem;
 }
@@ -69,20 +69,21 @@ li {
 
   nav {
     height: 0;
-    width: 100%;
+    width: auto; /* Автоматична ширина */
+    margin-left: auto; /* Автоматичне вирівнювання по центру */
+    margin-right: auto;     
     overflow: hidden;
-    transition: 250ms height ease-in-out;
+    transition: 250ms 
+    height ease-in-out;
   }
 
-  li {
+  .header__user__icon__cart {
     display: block;
     text-align: center;
     padding: 1.5rem 0;
   }
 
-  // li a {
-  //   font-size: 1.4rem;
-  // }
+
 
   .nav-toggle {
     display: block;

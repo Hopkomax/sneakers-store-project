@@ -2,10 +2,9 @@
   padding: 40px 0px;
 }
 
-.banner__container{
+.banner__container {
   width: 320px;
   margin: 0 auto;
-
   padding: 0;
   display: flex;
   justify-content: space-between;
@@ -17,51 +16,32 @@
   }
   @media only screen and (min-width: 768px) {
     flex-direction: row;
-    // width: 100%;
-
     width: 768px;
     height: 300px;
-    // padding: 0 30px;
     .banner__container__img {
       width: 100%;
       height: auto;
       display: block;
-
-      // width: 100%;
-      // height: auto;
-      // display: block;
-      // justify-content: flex-end;    
     }
     & img {
       width: 100%;
       height: 100%;
       display: block;
-  
     }
   }
   @media only screen and (min-width: 1200px) {
     width: 1255px;
-    // padding: 0 75px;
-        .banner__container__img {
-          // width: 100%;
-          // height: auto;
-          // display: block;
-           width: initial;
-          height: auto;
-          display: block;
-          justify-content: flex-end;    
-        }
-        & img {
-          // width: 100%;
-          // height: 100%;
-          // display: block;
-          
-          width: initial;
-          height: initial;
-          display: initial;
-      
-        }
-        
+    .banner__container__img {
+      width: initial;
+      height: auto;
+      display: block;
+      justify-content: flex-end;
+    }
+    & img {
+      width: initial;
+      height: initial;
+      display: initial;
+    }
   }
 }
 // .banner__container::before{
@@ -80,16 +60,14 @@
 // }
 .banner__container__info {
   width: fit-content;
-  padding:1px 3px 7px 27px;
+  padding: 1px 3px 7px 27px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   @media only screen and (min-width: 768px) {
     // padding: 16px 43px 58px 20px;
-    }
-  
+  }
   @media only screen and (min-width: 1200px) {
-
   }
 }
 
@@ -105,13 +83,10 @@
   line-height: 46px;
   color: #8bb43c;
   margin-bottom: 23px;
-  // word-break: break-all;
-  // white-space: normal; 
-  }
+}
 
-  .banner__container__title span {
+.banner__container__title span {
   color: #000000;
-  // display: block;
 }
 
 .banner__container__button {
@@ -132,10 +107,9 @@
   background: #678b35;
 }
 
-.banner__container__label{
-
-  & img{
-  width: auto;
+.banner__container__label {
+  & img {
+    width: auto;
     height: auto;
     display: block;
   }

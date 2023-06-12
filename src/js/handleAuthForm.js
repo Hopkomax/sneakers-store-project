@@ -38,12 +38,16 @@ export function openModal() {
   authModal.classList.add('open');
   closeButton.addEventListener('click', closeModal);
   userButton.removeEventListener('click', openModal);
+  document.body.style.overflow = 'hidden';
+
 }
 
 export function closeModal() {
   authModal.classList.remove('open');
   closeButton.removeEventListener('click', closeModal);
   userButton.addEventListener('click', openModal);
+  document.body.style.overflow = 'visible';
+
 }
 
 
