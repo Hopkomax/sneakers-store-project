@@ -75,7 +75,7 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  background-color: #ffffff;
+  background-color:var(--heart-background-color);
   padding: 3px;
   position: absolute;
   top: 0;
@@ -102,19 +102,26 @@
     background-blend-mode: multiply;
   }
 }
+.dark .sneaker__heart__button {
+  background-color:var(--heart-background-color);
+  &.active {
+    background-color: #f5c3c3;
+  }
+}
 
 .sneaker__title {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  color: #000000;
+  color:var(--text-color);
 }
 
 .sneaker__price__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
 }
 
 .sneaker__price__label {
@@ -123,7 +130,7 @@
   font-size: 11px;
   line-height: 13px;
   text-transform: uppercase;
-  color: #bdbdbd;
+  color: var(--sneaker-price-label-color);
 }
 
 .sneaker__price {
@@ -132,7 +139,7 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
-  color: #000000;
+  color:var(--text-color);
 }
 
 .sneaker__add__button {

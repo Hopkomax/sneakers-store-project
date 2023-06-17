@@ -23,7 +23,18 @@
     --search-placeholder-color:#c4c4c4;
     --search-focus-color:#b7b7b7;
     --search-text-color:#0f0f0f;
+    --modal-background-color:#ffffff;
 
+    --modal-text-color: #111321;
+    --cart-dashed-line-color: #dfdfdf;
+    --heart-background-color:#ffffff;
+    --sneaker-price-label-color: #bdbdbd;
+    --toggle-dark: linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%);
+
+    --slider-background-color:#b7b7b7;
+    --header-user-color:#5c5c5c;
+    --header-user-slider-color:#ffffff;
+    --sneaker-inCart-color: #111321;
     /*========== Variables Dark theme ==========*/
     .dark {
         --body-color: #3c3c3c;
@@ -31,7 +42,7 @@
         --card-border-color: transparent;
         --skeleton-color: #3c3c3c;
 
-        --text-color: #d4d4d4;
+        --text-color: #e6e6e6;
         --light-grey-color: #3e3e3e;
         --white-color: #ffffff;
         --color: #f1e7e7; 
@@ -39,7 +50,20 @@
 
         --search-color:#f4efe9;
         --search-text-color:#000000;
-    --search-placeholder-color:#cacaca;
+    --search-placeholder-color:#919191;
     --search-focus-color:#dddddd;
-    }
+
+    --modal-text-color: #e6e6e6;
+    --cart-dashed-line-color: #a8a8a8;
+    --modal-background-color:#555;
+    --heart-background-color:#dbdbdb;
+    --sneaker-price-label-color: #acacac;
+    --toggle-light: hsl(230, 13%, 63%);
+  
+    --slider-background-color:#555;
+    --header-user-color:#e6e6e6;
+    --header-user-slider-color:#111321;
+    --sneaker-inCart-color: #111321;
+
+}
 }

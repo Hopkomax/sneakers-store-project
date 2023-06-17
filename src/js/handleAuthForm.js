@@ -1,20 +1,22 @@
-import { createUser, signIn, authState } from '../firebase';
+import { createUser, signIn, db } from '../firebase';
 
 const userButton = document.querySelector('.header__user__icon__user');
 const authModal = document.querySelector('.modal-auth__backdrop');
 const closeButton = document.querySelector('.close');
 const authForm = document.querySelector('.auth__form');
 const userNameForm = document.querySelector('.username__form');
-const usernameInput = userNameForm.querySelector('input[name="username"]');
+const usernameInput = userNameForm.querySelector('input[name="name"]');
 const actionText = document.querySelector('.action__text');
 const btnChangeForm = document.querySelector('.btn__change__form');
 const title = document.querySelector('.form__title');
 let isRegMode = true;
 const identificateForm = document.querySelector('[data-action]');
 const actionValue = identificateForm.dataset.action;
+const userName = document.querySelector('.header__user__user__name');
+
 console.log(actionValue);
 
-export function handleSubmit(event) {
+export async function handleSubmit(event) {
   event.preventDefault();
 
   const formData = [...authForm.elements].reduce((formData, element) => {
@@ -25,16 +27,22 @@ export function handleSubmit(event) {
   }, {});
 
   if (isRegMode) {
-    createUser(formData);
+    await createUser(formData);
     console.log('rege');
+    await signIn(formData);
+    
   } else if (!isRegMode) {
-    signIn(formData);
+    await signIn(formData);
     console.log('log_in');
   }
   authForm.reset();
+  const curentUser = await db.auth().currentUser;
+  console.log(curentUser);
+  userName.textContent = curentUser.displayName;
 }
 
 export function openModal() {
+  console.log('openModal1');
   authModal.classList.add('open');
   closeButton.addEventListener('click', closeModal);
   userButton.removeEventListener('click', openModal);
@@ -124,3 +132,13 @@ if(isRegMode){
 userButton.addEventListener('click', openModal);
 authForm.addEventListener('submit', handleSubmit);
 btnChangeForm.addEventListener('click', changeForm);
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
+  });
+  authModal.addEventListener('click', function(event) {
+    if (event.target === authModal) {
+      closeModal();
+    }
+  });

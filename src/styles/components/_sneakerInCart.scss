@@ -19,6 +19,8 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  color: var(--sneaker-inCart-color);
+
   & h3 {
     font-size: 14px;
     line-height: 17px;
@@ -47,7 +49,4 @@
   }
 }
 
-.sneaker__inCart__totalAmount {
-  display: flex;
-  justify-content: space-between;
-}
+

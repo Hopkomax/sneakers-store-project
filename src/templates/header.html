@@ -3,32 +3,57 @@
     <div class="header__logo">
       <a href="index.html" class="header__logo__link">
         <img class="header__logo__img" src="./img/logo.png" alt="" />
-      
-      <div class="header__logo__text-wrapper">
-        <h1 class="header__logo__title">Js SNEAKERS</h1>
-        <h3 class="header__logo__subtitle">Best sneakers store</h3>
-      </div>
-    </a>
+
+        <div class="header__logo__text-wrapper">
+          <h1 class="header__logo__title">Js SNEAKERS</h1>
+          <h3 class="header__logo__subtitle">Best sneakers store</h3>
+        </div>
+      </a>
       <div class="nav-toggle__container">
-      <div class="nav-toggle" id="navToggle">
-              
-        <img id="navClosed" class="navIcon" src="https://www.richardmiddleton.me/wp-content/themes/richardcodes/assets/img/hamburger.svg" alt="hamburger menu">
-        <img id="navOpen" class="navIcon hidden" src="https://www.richardmiddleton.me/wp-content/themes/richardcodes/assets/img/close.svg" alt="close hamburger">
+        <div class="nav-toggle" id="navToggle">
+          <img
+            id="navClosed"
+            class="navIcon"
+            src="https://www.richardmiddleton.me/wp-content/themes/richardcodes/assets/img/hamburger.svg"
+            alt="hamburger menu"
+          />
+          <img
+            id="navOpen"
+            class="navIcon hidden"
+            src="https://www.richardmiddleton.me/wp-content/themes/richardcodes/assets/img/close.svg"
+            alt="close hamburger"
+          />
+        </div>
       </div>
-    </div>
     </div>
 
     <nav class="header__user">
-      <input class="theme__switch" type="checkbox">
-      <div class="header__user__icon header__user__icon__cart">
-        <img src="./img/cart.png" alt="" /><span></span>
+      <!-- <input class="theme__switch" type="checkbox"> -->
+      <div class="toggle-switch">
+        <p>Light</p>
+        <span>
+          <label class="switch">
+            <input class="theme__switch" type="checkbox" />
+            <span class="slider round"></span>
+          </label>
+        </span>
+        <p>Dark</p>
       </div>
+      <div class="header__user__icons__group">
       <a href="./favorites.html" class="header__user__icon header__user__icon__heart"
         ><img src="./img/heart.png" alt=""
       /></a>
       <!-- <a  href="./purchases.html"  class="header__user__icon header__user__icon__user"><img src="./img/user.png" alt="" /></a> -->
 
-      <a class="header__user__icon header__user__icon__user"><img src="./img/user.png" alt="" /></a>
+      <!-- <a class="header__user__icon header__user__icon__user"><img src="./img/user.png" alt="" /></a> -->
+      <div class="header__user__icon header__user__icon__cart">
+        <img src="./img/cart.png" alt="" /><span></span>
+      </div>
+      <span class="header__user__user__name"></span>
+    </div>
+    <a class="header__user__icon header__user__icon__user"><img src="./img/user.png" alt="" /></a>
+
+      <button class="btn__log__out" type="button">log out</button>
     </nav>
   </div>
 </header>

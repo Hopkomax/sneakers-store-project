@@ -3,18 +3,23 @@
 }
 
 .header__container {
-  width: 320px;
+  max-width: 300px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+
   @media only screen and (min-width: 768px) {
+    // margin-left: 0px;
+    max-width: 768px;
+    // justify-content: space-between;
   }
   @media only screen and (min-width: 1200px) {
+    // margin: 0 auto;
     justify-content: space-between;
-    width: 1225px;
-    padding: 0 75px;
+    max-width: 1225px;
+    // padding: 0 75px;
     flex-direction: row;
   }
 }
@@ -22,8 +27,13 @@
 .header__logo {
   display: flex;
   padding-bottom: 15px;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+
   @media only screen and (min-width: 768px) {
     padding-bottom: 0px;
+    // width: 768px;
   }
   @media only screen and (min-width: 1200px) {
   }
@@ -55,11 +65,13 @@
 
 .header__user {
   display: none;
+  flex: 1 0 auto;
   @media only screen and (min-width: 768px) {
+    // max-width: 768px;
   }
   @media only screen and (min-width: 1200px) {
-    padding-left: 0;
-    padding-top: 0;
+  // //   padding-left: 0;
+  // //   padding-top: 0;
     display: block;
     display: flex;
     justify-content: space-between;
@@ -72,33 +84,195 @@
 }
 
 .header__user__icon__cart {
+  padding: 0;
   display: flex;
   align-items: center;
 }
 
 .header__user__icon:last-child {
   margin-right: 0px;
-}
+  }
+
+
 
 .header__user__icon span {
   font-weight: 600;
   font-size: 14px;
   line-height: 17px;
-  color: #5c5c5c;
+  color: var(--header-user-color);
   margin-left: 10px;
+}
+
+.header__user__icons__group {
+  display: none;
+&.visible{
+  display: flex;
+
+}
 }
 
 .header__user.open {
   display: flex;
   flex-direction: column;
-  padding-top: 40px;
-  padding-left: 90px;
+  padding-top: 10px;
+  // padding-left: 90px;
   align-items: flex-start;
+  
   .header__user__icon:last-child {
     margin-right: 0px;
     padding-top: 25px;
   }
   @media only screen and (min-width: 768px) {
+    // max-width: 768 ;
     align-items: flex-start;
   }
+}
+.header__user.open > * {
+  margin-top: 20px;
+
+}
+.header__user.open {
+  color: var(--header-user-color);
+
+  .header__user__icon__heart {
+    color: var(--header-user-color);
+
+   text-decoration: none;
+      &::after {
+        content: "Favorites";
+        padding-left: 10px;
+
+      
+    }
+  }
+  .header__user__icon__user {
+       &::after {
+         content: "User";
+         padding-left: 10px;
+       
+       
+     }
+   }
+}
+.btn__log__out {
+}
+// .theme__switch {
+  /* Приховуємо оригінальний чекбокс */
+  // appearance: none;
+  // -webkit-appearance: none;
+  // -moz-appearance: none;
+  /* Встановлюємо розміри та стилі фону для галочки */
+//   width: 20px;
+//   height: 20px;
+//   background-color: #fff;
+//   border: 1px solid #ccc;
+//   border-radius: 4px;
+//   position: relative;
+// }
+
+// .theme__switch::before {
+//   /* Стилізуємо галочку */
+//   // content: "";
+//   display: block;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   width: 10px;
+//   height: 10px;
+//   // background-color: #000; /* Задаємо колір галочки */
+//   border-radius: 2px;
+//   transition: background-color 0.3s ease;
+// }
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+/* Hide default html checkbox */
+.switch input {
+  opacity: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #a5d364;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  left: 5px;
+  bottom: 5px;
+  background-color: var(--header-user-slider-color);
+  transition: 0.4s;
+  border: #636363 ;
+}
+
+input:checked + .slider {
+  background: linear-gradient(
+    90grad,
+    hsl(210, 78%, 56%),
+    hsl(146, 68%, 55%)
+  );
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px); 
+}
+.slider,
+.round {
+  border-radius: 34px;
+}
+
+.round::before {
+  border-radius: 50%;
+}
+
+input:checked + .round::before {
+  background-color: hsl(230, 17%, 14%);
+}
+/* /THEME/ */
+.dark {
+  background-color: hsl(230, 17%, 14%);
+  // --main-font: white;
+}
+
+.light {
+  background-color: rgb(255, 255, 255);
+  // --main-font: hsl(230, 17%, 14%);
+}
+
+// body {
+//   background: var(--main-background);
+//   color: var(--main-font);
+// }
+
+.toggle-switch {
+  display: flex;
+  // flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+.toggle-switch p {
+  padding: 1em;
+}
+.toggle-switch p:first-child {
+  padding-left: 0;
+}
+.header__user__user__name {
+  margin-right: 25px;
+  color: var(--header-user-color);
 }

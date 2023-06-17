@@ -15,13 +15,16 @@
   }
 }
 .modal-auth__content {
-  background-color: #fefefe;
+  // background-color: #fefefe;
   margin: auto;
   padding: 26px;
   border: 1px solid #888;
   // width: 600px;
   // width: 320px;
-  margin: 0 auto;
+  color: var(--modal-text-color);
+
+  background-color: var(--modal-background-color);
+    margin: 0 auto;
   @media only screen and (min-width: 768px) {
     width: 600px;
   }
@@ -40,7 +43,7 @@
 // }
 .form__title {
   padding-bottom: 10px;
-  color: #888;
+  color: var(--modal-text-color);
 }
 /* The Close Button */
 .close {
