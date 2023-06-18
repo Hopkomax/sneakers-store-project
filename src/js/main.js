@@ -9,10 +9,11 @@ import { signOut, db} from '../firebase';
 
 const list = document.querySelector('.sneakersList__list');
 const headerGroup = document.querySelector('.header__user__icons__group');
+const btnLogOut = document.querySelector('.btn__log__out');
 
 setThemeOnLoad();
-checkCurrentUser();
 createSkeletonMarkup();
+checkCurrentUser();
 
 setTimeout(() => {
   getSneakers().then(data => {
@@ -22,19 +23,32 @@ setTimeout(() => {
  
 }, 2000);
 
-  async function checkCurrentUser() {
+   async function checkCurrentUser() {
   await db.auth().onAuthStateChanged((user) => {
-  if (user){
-    setInCartOnload();
-    setFavoritesOnload();
+  if ( user){
+    console.log(' USER =>', user);
+
+    // await Promise.all([setInCartOnload(), setFavoritesOnload()]);
+    console.log('promise');
+    setTimeout(() => {
+      setInCartOnload();
+      setFavoritesOnload();
+      // setActualPriceIntoHeader();
+    }, 2000);
     setActualPriceIntoHeader();
+
 
     console.log(' USER =>', user);
     document.querySelector('.header__user__user__name').textContent = user.displayName;
     headerGroup.classList.add('visible');
+      btnLogOut.classList.add('visible');
+
     console.log(user.displayName);
   } else {
+    btnLogOut.classList.remove('visible');
+
     headerGroup.classList.remove('visible');
+// btnLogOut.classList.add('hidden');
 
   }
 });

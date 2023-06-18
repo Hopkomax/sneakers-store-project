@@ -2,6 +2,7 @@ import { setActualPriceIntoHeader } from './calculateTotalPrice';
 import { getSneakerById } from '../api/api';
 import { db } from '../firebase';
 import 'firebase/compat/firestore';
+import Swal from 'sweetalert2';
 
 export async function handleCart(event) {
   const cart = event.target;
@@ -12,6 +13,8 @@ export async function handleCart(event) {
     // const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
     //console.log(inCart);
     if (cart.classList.contains('active')) {
+      console.log('ssssssssssss');
+      console.log('cart.classList', cart.classList);
       // const updatedCart = inCart.filter(({ id }) => id !== sneakerId);
       // console.log(updatedCart);
       //localStorage.setItem('inCart', JSON.stringify(updatedCart));
@@ -40,23 +43,25 @@ export async function handleCart(event) {
         setActualPriceIntoHeader();
       } else {
         console.log('щоб додати у корзину - зареєструйся');
+        Swal.fire('Please log in');
+
       }
     });
     //inCart.push(selectedSneaker);
     //localStorage.setItem('inCart', JSON.stringify(inCart));
     // add sneakers to FIREBASE
-    await db
-      .firestore()
-      .collection('cart')
-      .add({ ...selectedSneaker, userId: db.auth().currentUser.uid });
+    // await db
+    //   .firestore()
+    //   .collection('cart')
+    //   .add({ ...selectedSneaker, userId: db.auth().currentUser.uid });
 
-    setActualPriceIntoHeader();
+    // setActualPriceIntoHeader();
   }
 }
 
 export function setInCartOnload() {
   // const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
-  db.firestore()
+  unsubscribe = db.firestore()
     .collection('cart')
     .where('userId', '==', db.auth().currentUser.uid)
     .onSnapshot(
@@ -68,7 +73,6 @@ export function setInCartOnload() {
 
         for (const { id } of inCart) {
           const item = document.getElementById(id);
-
           if (!item) {
             continue;
           }

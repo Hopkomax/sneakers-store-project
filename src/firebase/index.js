@@ -10,6 +10,7 @@ const firebaseConfig = {
   appId: '1:136640583583:web:c3286904d98a7edf99cfaa',
   measurementId: 'G-M359FBS8GK',
 };
+const btnLogOut = document.querySelector('.btn__log__out');
 
 export const db = firebase.initializeApp(firebaseConfig);
 const userName = document.querySelector('.header__user__user__name');
@@ -32,11 +33,15 @@ export async function signIn({ email, password }) {
   } catch (error) {
     console.log(error.message);
   }
+  // btnLogOut.classList.remove('hidden');
+
 }
 
 export async function signOut () {
 await db.auth().signOut()
 console.log('Sign out');
+// btnLogOut.classList.add('hidden');
+
 
   await db.auth().onAuthStateChanged((user) => {
   if (!user){

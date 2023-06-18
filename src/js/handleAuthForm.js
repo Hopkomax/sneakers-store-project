@@ -13,7 +13,7 @@ let isRegMode = true;
 const identificateForm = document.querySelector('[data-action]');
 const actionValue = identificateForm.dataset.action;
 const userName = document.querySelector('.header__user__user__name');
-
+const btnLogOut = document.querySelector('.btn__log__out');
 console.log(actionValue);
 
 export async function handleSubmit(event) {
@@ -34,11 +34,14 @@ export async function handleSubmit(event) {
   } else if (!isRegMode) {
     await signIn(formData);
     console.log('log_in');
+
   }
   authForm.reset();
   const curentUser = await db.auth().currentUser;
   console.log(curentUser);
   userName.textContent = curentUser.displayName;
+  closeModal();
+
 }
 
 export function openModal() {

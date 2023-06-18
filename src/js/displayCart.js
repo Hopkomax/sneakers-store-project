@@ -42,7 +42,7 @@ export function modalHandler(evt) {
       console.log('Помилка отримання даних:', error);
     });
 
-
+    // unsubscribe();
     // if (inCart.length === 0) {
     //   const cart = document.querySelector('.cartList__container');
     //   cart.innerHTML = createEmptyCart();

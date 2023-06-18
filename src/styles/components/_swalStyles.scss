@@ -1,0 +1,16 @@
+// $swal-background-color: #f1f1f1;
+// $swal-title-color: #ff0000;
+
+.swal2-title{
+    color: var(--modal-text-color);
+    background-color: var(--modal-background-color);
+}
+
+.swal2-confirm.swal2-styled {
+    background-color: #a5d364;
+    border-radius: 70px;
+}
+.swal2-popup {
+    background-color: var(--modal-background-color);
+
+}

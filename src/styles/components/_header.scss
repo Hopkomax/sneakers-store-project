@@ -110,6 +110,12 @@
 
 }
 }
+.header__user.open .header__user__icons__group {
+  flex-direction: column;
+}
+.header__user.open .header__user__icons__group > * {
+  margin-bottom: 30px;
+}
 
 .header__user.open {
   display: flex;
@@ -128,7 +134,7 @@
   }
 }
 .header__user.open > * {
-  margin-top: 20px;
+  // margin-top: 20px;
 
 }
 .header__user.open {
@@ -154,8 +160,18 @@
      }
    }
 }
-.btn__log__out {
+.header__user__icon__user{
+  margin-right: 0;
 }
+.btn__log__out {
+  margin-left: 30px;
+display: none;
+&.visible{
+  display: initial;
+
+}
+}
+
 // .theme__switch {
   /* Приховуємо оригінальний чекбокс */
   // appearance: none;
