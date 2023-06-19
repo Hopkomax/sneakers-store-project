@@ -15,14 +15,14 @@ import { handleCart } from './handleCart';
 const headerGroup = document.querySelector('.header__user__icons__group');
 const btnLogOut = document.querySelector('.btn__log__out');
 
- db.auth().onAuthStateChanged((user) => {
+  db.auth().onAuthStateChanged(async (user) => {
   if ( user){
     console.log(' USER =>', user);
 
     // await Promise.all([setInCartOnload(), setFavoritesOnload()]);
     console.log('promise');
-    setTimeout(() => {
-      setInCartOnload();
+    await setTimeout(() => {
+     setInCartOnload();
       setFavoritesOnload();
 
     }, 2000);
