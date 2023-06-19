@@ -23,7 +23,7 @@
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
     "sass": "^1.60.0",
-    "sweetalert2": "^11.7.12"
+    "sweetalert2": "^11.4.8"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",

@@ -4,9 +4,6 @@ import { createEmptyFavorites } from './createMarkupFunctions/createEmptyFavorit
 import { setActualPriceIntoHeader } from './calculateTotalPrice';
 import { setInCartOnload } from './handleCart';
 import { getSneakerById } from '../api/api';
-
-import { setActualPriceIntoHeader } from './calculateTotalPrice';
-import { setInCartOnload } from './handleCart';
 import { themeSwitch, setThemeOnLoad } from './themeSwitch';
 import { modalHandler } from './displayCart';
 import './mobileMenu';
