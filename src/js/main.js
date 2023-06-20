@@ -13,28 +13,26 @@ const btnLogOut = document.querySelector('.btn__log__out');
 
 setThemeOnLoad();
 createSkeletonMarkup();
-checkCurrentUser();
 
 setTimeout(() => {
   getSneakers().then(data => {
     list.innerHTML = '';
     list.insertAdjacentHTML('afterbegin', createSneakersMarkup(data));
+    checkCurrentUser();
+
   });
- 
 }, 2000);
 
    async function checkCurrentUser() {
   await db.auth().onAuthStateChanged((user) => {
-  if ( user){
+  if (user){
     console.log(' USER =>', user);
 
-    // await Promise.all([setInCartOnload(), setFavoritesOnload()]);
     console.log('promise');
-    setTimeout(() => {
+    // setTimeout(() => {
       setInCartOnload();
       setFavoritesOnload();
       // setActualPriceIntoHeader();
-    }, 2000);
     setActualPriceIntoHeader();
 
 

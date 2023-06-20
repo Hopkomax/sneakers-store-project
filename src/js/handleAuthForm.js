@@ -46,11 +46,15 @@ export async function handleSubmit(event) {
 
 export function openModal() {
   console.log('openModal1');
+  const currentUser = db.auth().currentUser;
+  if(currentUser){
+    window.location.replace(`${window.location.origin}/purchases.html`);
+    return;
+  }
   authModal.classList.add('open');
   closeButton.addEventListener('click', closeModal);
   userButton.removeEventListener('click', openModal);
   document.body.style.overflow = 'hidden';
-
 }
 
 export function closeModal() {
@@ -58,9 +62,7 @@ export function closeModal() {
   closeButton.removeEventListener('click', closeModal);
   userButton.addEventListener('click', openModal);
   document.body.style.overflow = 'visible';
-
 }
-
 
 function changeForm() {
 if(isRegMode){
@@ -83,54 +85,6 @@ if(isRegMode){
 }
 
 }
-
-// function changeForm() {
-//   if (isRegMode) {
-//     console.log('1');
-//     btnChangeForm.textContent = 'Log in';
-//     userNameForm.classList.add('hiden');
-//     btnChangeForm.setAttribute('data-action', 'log_in');
-//     title.textContent = 'Log in';
-//     actionText.textContent = 'Don`t have account?';
-//     usernameInput.removeAttribute('required');
-//     // authState();
-//     authForm.reset();
-//     isRegMode = true;
-//   } else {
-//     btnChangeForm.textContent = 'Registration';
-//     btnChangeForm.setAttribute('data-action', 'reg');
-//     userNameForm.classList.remove('hiden');
-//     title.textContent = 'Sign up';
-//     actionText.textContent = 'Already have account?';
-
-//     authForm.reset();
-//     isRegMode = false;
-//   }
-// }
-// function changeForm(){
-//     const action = btnChangeForm.dataset.action;
-//     if(action === 'log_in') {
-//         // 2 поля
-//         console.log('login');
-//         userNameForm.classList.add('hiden');
-//         btnChangeForm.setAttribute('data-action', 'reg');
-//         btnChangeForm.textContent = 'Registration';
-//         authForm.reset();
-//     } else if (action === 'reg') {
-//         console.log('reg');
-//         userNameForm.classList.remove('hiden');
-//         btnChangeForm.setAttribute('data-action', 'log_in');
-
-//         btnChangeForm.textContent = 'Log in';
-
-//         authForm.reset();
-
-// }
-// userNameForm.hide;
-// console.log(actionValue);
-// btnChangeForm.dataset.action = "reg";
-
-// }
 
 userButton.addEventListener('click', openModal);
 authForm.addEventListener('submit', handleSubmit);

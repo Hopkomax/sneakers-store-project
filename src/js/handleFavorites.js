@@ -8,7 +8,7 @@ export async function handleFavorites(event) {
   // console.log('heart', heart);
   if (heart.classList.contains('sneaker__heart__button')) {
     console.log('heart', heart);
-    await db.auth().onAuthStateChanged(async(user) => {
+    await db.auth().onAuthStateChanged(async user => {
       if (user) {
         const sneaker = heart.closest('li');
         const selectedSneaker = (await getSneakerById(sneaker.id)) || {};
@@ -21,7 +21,7 @@ export async function handleFavorites(event) {
 
           // work with FIREBASE
           const docId = await db.firestore().collection('favorites').get();
-          docId.forEach(async (item) => {
+          docId.forEach(async item => {
             const currentSneaker = item.data();
             if (currentSneaker.id === selectedSneaker.id) {
               await db.firestore().collection('favorites').doc(item.id).delete();
@@ -39,20 +39,20 @@ export async function handleFavorites(event) {
           .collection('favorites')
           .add({ ...selectedSneaker, userId: db.auth().currentUser.uid });
       } else {
-        console.log( 'зареєструйся');
+        console.log('зареєструйся');
         Swal.fire('Please log in');
       }
     });
   }
 }
 
-
-export  function setFavoritesOnload() {
-  // const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
+export function setFavoritesOnload() {
+  const currentUser = db.auth().currentUser;
+  if (!currentUser) return;
+     
   db.firestore()
     .collection('favorites')
-    .where('userId', '==', db.auth().currentUser.uid)
+    .where('userId', '==', currentUser.uid)
     .onSnapshot(
       snapshot => {
         const favorites = snapshot.docs.map(doc => doc.data()) || [];

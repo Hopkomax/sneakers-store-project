@@ -51,8 +51,6 @@ console.log('Sign out');
       item.classList.remove('active')
     });
 
-    headerGroup.classList.remove('visible');
-
   }
 });
 }

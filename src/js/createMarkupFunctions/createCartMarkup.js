@@ -1,5 +1,5 @@
 import { handleDelete } from '../deleteItemInCart';
-import createMakeOrderMarkup from './createMakeOrderMarkup';
+import { handleOrder } from '../handleOrder';
 
 export default function createCartMarkup() {
   document.querySelector('.cartList').innerHTML = `
@@ -29,5 +29,5 @@ export default function createCartMarkup() {
   const makeOrderButton = document.querySelector('.cart__container__button');
 
   cartList.addEventListener('click', handleDelete);
-  makeOrderButton.addEventListener('click', createMakeOrderMarkup);
+  makeOrderButton.addEventListener('click', handleOrder);
 }

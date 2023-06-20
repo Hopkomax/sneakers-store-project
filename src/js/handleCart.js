@@ -61,9 +61,11 @@ export async function handleCart(event) {
 
 export function setInCartOnload() {
   // const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
+  const currentUser = db.auth().currentUser;
+  if(!currentUser) return;
   unsubscribe = db.firestore()
     .collection('cart')
-    .where('userId', '==', db.auth().currentUser.uid)
+    .where('userId', '==', currentUser.uid)
     .onSnapshot(
       snapshot => {
         const inCart = snapshot.docs.map(doc => doc.data()) || [];
