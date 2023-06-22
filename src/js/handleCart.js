@@ -63,7 +63,7 @@ export function setInCartOnload() {
   // const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
   const currentUser = db.auth().currentUser;
   if(!currentUser) return;
-  unsubscribe = db.firestore()
+  db.firestore()
     .collection('cart')
     .where('userId', '==', currentUser.uid)
     .onSnapshot(

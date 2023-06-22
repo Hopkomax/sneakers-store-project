@@ -9,7 +9,6 @@ import 'firebase/compat/firestore';
 let list = null;
 const backdrop = document.querySelector('#modal-backdrop');
 const modalCart = document.querySelector('.cartList');
-let unsubscribe = null;
 
 document.addEventListener('click', modalHandler);
 
@@ -26,7 +25,7 @@ export function modalHandler(evt) {
     showModal(modalCart);
     setActualPriceIntoCart();
 
-    unsubscribe = db.firestore()
+    db.firestore()
     .collection('cart')
     .where('userId', '==', db.auth().currentUser.uid)
     .onSnapshot(snapshot => {
@@ -42,13 +41,7 @@ export function modalHandler(evt) {
       console.log('Помилка отримання даних:', error);
     });
 
-    // unsubscribe();
-    // if (inCart.length === 0) {
-    //   const cart = document.querySelector('.cartList__container');
-    //   cart.innerHTML = createEmptyCart();
-    // } else {
-    //   list.innerHTML = createSneakersMarkupInCart(inCart);
-    // }
+
   }
 
   if (evt.target.matches('#modal-backdrop')) {

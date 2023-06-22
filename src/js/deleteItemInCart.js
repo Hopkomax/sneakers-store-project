@@ -2,7 +2,6 @@ import createEmptyCart from "./createMarkupFunctions/createEmptyCart";
 import {setActualPriceIntoCart} from './calculateTotalPrice'
 import { db } from '../firebase';
 import 'firebase/compat/firestore';
-let unsubscribe = null;
 
 export async function handleDelete(event) {
   if (

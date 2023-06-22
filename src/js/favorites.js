@@ -62,7 +62,7 @@ function handleAuthStateChanged(user) {
   if (user) {
     console.log('USER =>', user);
     console.log('db.auth().currentUser.uid', db.auth().currentUser.uid);
-    unsubscribe = db
+    db
       .firestore()
       .collection('favorites')
       .where('userId', '==', db.auth().currentUser.uid)
