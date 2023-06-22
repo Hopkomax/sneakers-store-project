@@ -1,1 +1,102 @@
-<!DOCTYPE html><html lang="en"><head><script nomodule defer src="/sneakers-store-project/cart.533417de.js"></script><script type="module" src="/sneakers-store-project/cart.cbbdfbf7.js"></script><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/sneakers-store-project/cart.af3bec5a.css"><title>Document</title></head><body> <header class="header section"> <div class="container header__container"> <div class="header__logo"> <a href="/sneakers-store-project/index.html" class="header__logo__link"> <img class="header__logo__img" src="/sneakers-store-project/logo.3550da28.png" alt> <div class="header__logo__text-wrapper"> <h1 class="header__logo__title">Js SNEAKERS</h1> <h3 class="header__logo__subtitle">Best sneakers store</h3> </div> </a> <div class="nav-toggle__container"> <div class="nav-toggle" id="navToggle"> <img id="navClosed" class="navIcon" src="https://www.richardmiddleton.me/wp-content/themes/richardcodes/assets/img/hamburger.svg" alt="hamburger menu"> <img id="navOpen" class="hidden navIcon" src="https://www.richardmiddleton.me/wp-content/themes/richardcodes/assets/img/close.svg" alt="close hamburger"> </div> </div> </div> <nav class="header__user">  <div class="toggle-switch"> <p>Light</p> <span> <label class="switch"> <input class="theme__switch" type="checkbox"> <span class="round slider"></span> </label> </span> <p>Dark</p> </div> <div class="header__user__icons__group"> <a href="/sneakers-store-project/favorites.html" class="header__user__icon header__user__icon__heart"><img src="/sneakers-store-project/heart.9f22d4e8.png" alt></a>   <div class="header__user__icon header__user__icon__cart"> <img src="/sneakers-store-project/cart.28b38b4b.png" alt><span></span> </div> <span class="header__user__user__name"></span> </div> <a class="header__user__icon header__user__icon__user"><img src="/sneakers-store-project/user.146129e6.png" alt></a> <button class="btn__log__out" type="button">log out</button> </nav> </div> </header>  <section class="cartList"></section> <div class="hidden modal-window__backdrop" id="modal-backdrop"></div> <section class="purchasesList"> <div class="purchasesList__container"> <h2 class="purchasesList__title">My purchases</h2> <ul class="purchasesList__list"></ul> </div> </section> <script src="/sneakers-store-project/purchases.bd921b25.js" type="module"></script><script src="/sneakers-store-project/purchases.7ce56d8b.js" nomodule defer></script> </body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head><script nomodule="" defer="" src="/sneakers-store-project/purchases.17476ecb.js"></script><script nomodule="" defer="" src="/sneakers-store-project/cart.7b690dc2.js"></script><script type="module" src="/sneakers-store-project/purchases.c75dd93e.js"></script><script type="module" src="/sneakers-store-project/cart.758e5792.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sneakers-store-project/cart.1220e003.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header section">
+  <div class="header__container container">
+    <div class="header__logo">
+      <a href="/sneakers-store-project/index.html" class="header__logo__link">
+        <img class="header__logo__img" src="/sneakers-store-project/logo.5bce1bad.png" alt="">
+
+        <div class="header__logo__text-wrapper">
+          <h1 class="header__logo__title">Js SNEAKERS</h1>
+          <h3 class="header__logo__subtitle">Best sneakers store</h3>
+        </div>
+      </a>
+      <div class="nav-toggle__container">
+        <div class="nav-toggle" id="navToggle">
+          <img id="navClosed" class="navIcon" src="https://www.richardmiddleton.me/wp-content/themes/richardcodes/assets/img/hamburger.svg" alt="hamburger menu">
+          <img id="navOpen" class="navIcon hidden" src="https://www.richardmiddleton.me/wp-content/themes/richardcodes/assets/img/close.svg" alt="close hamburger">
+        </div>
+      </div>
+    </div>
+
+    <nav class="header__user">
+      <!-- <input class="theme__switch" type="checkbox"> -->
+      <div class="toggle-switch">
+        <p>Light</p>
+        <span>
+          <label class="switch">
+            <input class="theme__switch" type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </span>
+        <p>Dark</p>
+      </div>
+      <div class="header__user__icons__group">
+      <a href="/sneakers-store-project/favorites.html" class="header__user__icon header__user__icon__heart"><img src="/sneakers-store-project/heart.1f13c0bf.png" alt=""></a>
+      <!-- <a  href="./purchases.html"  class="header__user__icon header__user__icon__user"><img src="./img/user.png" alt="" /></a> -->
+
+      <!-- <a class="header__user__icon header__user__icon__user"><img src="./img/user.png" alt="" /></a> -->
+      <div class="header__user__icon header__user__icon__cart">
+        <img src="/sneakers-store-project/cart.154e37cc.png" alt=""><span></span>
+      </div>
+      <span class="header__user__user__name"></span>
+    </div>
+    <a class="header__user__icon header__user__icon__user"><img src="/sneakers-store-project/user.27232398.png" alt=""></a>
+
+      <button class="btn__log__out" type="button">Log out</button>
+    </nav>
+  </div>
+</header>
+
+    <!-- <include src="./templates/favoritesList.html"></include> -->
+    <section class="cartList"></section>
+<div class="modal-window__backdrop hidden" id="modal-backdrop"></div>
+
+
+    <section class="purchasesList">
+  <div class="purchasesList__container">
+    <h2 class="purchasesList__title">My purchases</h2>
+    <ul class="purchasesList__list"></ul>
+  </div>
+</section>
+
+
+<!-- <ul>
+  <li>
+    <p>10.06</p>
+    <ul>
+      <li>card</li>
+      <li>card</li>
+      <li>card</li>
+    </ul>
+  </li>
+
+  <li>
+    <p>15.06</p>
+    <ul>
+      <li>card</li>
+    </ul>
+  </li>
+
+  <li>
+    <p>19.06</p>
+    <ul>
+      <li>card</li>
+      <li>card</li>
+    </ul>
+  </li>
+</ul> -->
+
+
+    <script src="/sneakers-store-project/purchases.500ca9fa.js" type="module"></script><script src="/sneakers-store-project/purchases.b42eead4.js" nomodule="" defer=""></script>
+
+  </body>
+</html>
