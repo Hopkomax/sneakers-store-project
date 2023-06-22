@@ -48,7 +48,9 @@ export function openModal() {
   console.log('openModal1');
   const currentUser = db.auth().currentUser;
   if(currentUser){
-    window.location.replace(`${window.location.origin}/purchases.html`);
+    window.location.replace(`${window.location.href}/purchases.html`);
+    console.log('window.location');
+    console.log(window.location);
     return;
   }
   authModal.classList.add('open');
