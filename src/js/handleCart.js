@@ -78,8 +78,10 @@ export function setInCartOnload() {
           if (!item) {
             continue;
           }
+          console.log('ITEM:   ', item);
           // Якщо item === null (getElementById(id) не знайшов такого елементу на сторінці), то ми пропустимо ту ітерацію, і йти до наступної (continue пропускає ітерацію)
           const cartButton = item.querySelector('.sneaker__add__button');
+          if(!cartButton) return;
           cartButton.classList.add('active');
         }
       },

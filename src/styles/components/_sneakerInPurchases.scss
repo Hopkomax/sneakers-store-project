@@ -10,8 +10,8 @@
   
 }
 .sneaker__InPurchases__img {
-  width: 133px;
-  height: 112px;
+  width: 100%;
+  height: 150px;
   border-radius: 10px;
 }
 .sneaker__InPurchases__description {
@@ -27,4 +27,19 @@
       line-height: 17px;
       font-weight: 700;
     }
+}
+
+.purchasesList__item {
+
+}
+
+.purchasesItem__date {
+  margin-bottom: 20px;
+  
+}
+
+.purchasesItem__sneakers {
+display: flex;
+gap: 20px;
+opacity: 0.6;
 }

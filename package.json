@@ -5,7 +5,7 @@
   "homepage": "https://Hopkomax.github.io/sneakers-store-project",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /sneakers-store-project/",
+    "build": "parcel build src/*.html --no-optimize --public-url /sneakers-store-project/",
     "server": "json-server --watch db.json --port 4000"
   },
   "repository": {
@@ -27,8 +27,8 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
-    "buffer": "^5.7.1",
-    "parcel": "^2.6.0",
+    "buffer": "^6.0.3",
+    "parcel": "^2.9.2",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4",
     "process": "^0.11.10"

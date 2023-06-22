@@ -16,9 +16,10 @@
 }
 .modal-auth__content {
   // background-color: #fefefe;
+  border-radius: 28px;
   margin: auto;
-  padding: 26px;
-  border: 1px solid #888;
+  padding: 40px 36px;
+    border: 1px solid #888;
   // width: 600px;
   // width: 320px;
   color: var(--modal-text-color);
@@ -42,7 +43,9 @@
 //   width: 600px;
 // }
 .form__title {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+  font-size: 20px;
+  text-align: center;
   color: var(--modal-text-color);
 }
 /* The Close Button */
@@ -84,7 +87,7 @@ form {
   cursor: pointer;
   width: 100%;
   background: #a5d364;
-  border-radius: 18px;
+  border-radius: 16px;
   padding: 16px 55px;
   font-size: 16px;
   font-weight: 700;
@@ -103,8 +106,22 @@ button:hover {
   }
 }
 .action__container {
-  margin-top: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
 }
 .btn__change__form {
-  margin-top: 7px;
+
+  color: #a5d364;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  line-height: 19px;
+  transition: all 0.3s;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
 }
