@@ -98,4 +98,3 @@ function emptyPurchases() {
   const purchasesList = document.querySelector('.purchasesList__list');
   purchasesList.innerHTML = createEmptyPurchases();
 }
-// userButton.addEventListener('click', openModal);
