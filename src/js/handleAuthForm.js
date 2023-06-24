@@ -30,25 +30,26 @@ export async function handleSubmit(event) {
     await createUser(formData);
     console.log('rege');
     await signIn(formData);
-    
   } else if (!isRegMode) {
     await signIn(formData);
     console.log('log_in');
-
   }
   authForm.reset();
   const curentUser = await db.auth().currentUser;
   console.log(curentUser);
   userName.textContent = curentUser.displayName;
   closeModal();
-
 }
 
 export function openModal() {
   console.log('openModal1');
   const currentUser = db.auth().currentUser;
-  if(currentUser){
-    window.location.replace(`${window.location.origin}/sneakers-store-project/purchases.html`);
+
+  if (currentUser) {
+    const currentPath = window.location.pathname;
+    const basePath = currentPath.endsWith('/index.html') ? currentPath.slice(0, -10) : currentPath;
+
+    window.location.replace(`${window.location.origin}${basePath}/purchases.html`);
     console.log('window.location');
     console.log(window.location);
     return;
@@ -67,7 +68,7 @@ export function closeModal() {
 }
 
 function changeForm() {
-if(isRegMode){
+  if (isRegMode) {
     btnChangeForm.textContent = 'Registration';
     userNameForm.classList.add('hiden');
     btnChangeForm.setAttribute('data-action', 'log_in');
@@ -76,7 +77,7 @@ if(isRegMode){
     usernameInput.removeAttribute('required');
     authForm.reset();
     isRegMode = false;
-} else {
+  } else {
     btnChangeForm.textContent = 'Log in';
     btnChangeForm.setAttribute('data-action', 'reg');
     userNameForm.classList.remove('hiden');
@@ -84,20 +85,19 @@ if(isRegMode){
     actionText.textContent = 'Already have account?';
     authForm.reset();
     isRegMode = true;
-}
-
+  }
 }
 
 userButton.addEventListener('click', openModal);
 authForm.addEventListener('submit', handleSubmit);
 btnChangeForm.addEventListener('click', changeForm);
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      closeModal();
-    }
-  });
-  authModal.addEventListener('click', function(event) {
-    if (event.target === authModal) {
-      closeModal();
-    }
-  });
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+});
+authModal.addEventListener('click', function (event) {
+  if (event.target === authModal) {
+    closeModal();
+  }
+});
