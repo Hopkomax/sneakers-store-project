@@ -5,11 +5,11 @@
     margin: 0 auto;
     @media only screen and (min-width: 768px) {
       width: 768px;
-      padding: 0 20px;
+      // padding: 0 20px;
     }
     @media only screen and (min-width: 1200px) {
       width: 1225px;
-      padding: 0 75px;
+      // padding: 0 75px;
   
     }
 }
@@ -32,6 +32,7 @@
 .purchasesList__list {
     display: flex;
     flex-direction: column;
+    
     gap: 20px;
     @media only screen and (min-width: 768px) {
     }
@@ -40,3 +41,10 @@
     }
 }
 
+.emptyLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Вирівнювання по вертикалі */
+  align-items: center; /* Вирівнювання по горизонталі */
+  height: 100%; /* Встановіть висоту, щоб розмітка займала всю висоту батьківського контейнера */
+}

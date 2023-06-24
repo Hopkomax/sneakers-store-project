@@ -95,6 +95,6 @@ db.firestore()
 db.auth().onAuthStateChanged(handleAuthStateChanged);
 
 function emptyPurchases() {
-  const purchasesList = document.querySelector('.purchasesList__list');
+  const purchasesList = document.querySelector('.emptyLayout');
   purchasesList.innerHTML = createEmptyPurchases();
 }

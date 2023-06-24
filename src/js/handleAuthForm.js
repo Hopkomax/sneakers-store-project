@@ -47,10 +47,12 @@ export function openModal() {
 
   if (currentUser) {
     const currentPath = window.location.pathname;
-    const basePath = currentPath.endsWith('/index.html') ? currentPath.slice(0, -10) : currentPath;
-
-    window.location.replace(`${window.location.origin}${basePath}/purchases.html`);
-    console.log('window.location');
+    const basePath = currentPath.endsWith('/index.html') ? currentPath.slice(0, -11) : currentPath;
+    
+    const newURL = `${window.location.origin}${basePath}/purchases.html`;
+    const finalURL = newURL.replace('/favorites.html', '');
+    
+    window.location.replace(finalURL);        console.log('window.location');
     console.log(window.location);
     return;
   }
