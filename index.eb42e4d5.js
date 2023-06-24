@@ -1,3 +1,4 @@
+(function () {
 function $parcel$interopDefault(a) {
   return a && a.__esModule ? a.default : a;
 }
@@ -40,37 +41,37 @@ if (parcelRequire == null) {
   $parcel$global["parcelRequire7084"] = parcelRequire;
 }
 
-var $1iJ0s = parcelRequire("1iJ0s");
+var $j5HDT = parcelRequire("j5HDT");
 
-var $lDONj = parcelRequire("lDONj");
+var $9FS1E = parcelRequire("9FS1E");
 
-var $bEAY7 = parcelRequire("bEAY7");
+var $9jwmw = parcelRequire("9jwmw");
 
-var $lDONj = parcelRequire("lDONj");
+var $9FS1E = parcelRequire("9FS1E");
 
-var $iqmmd = parcelRequire("iqmmd");
-parcelRequire("lo6ue");
+var $eJHP4 = parcelRequire("eJHP4");
+parcelRequire("8cZNZ");
 
-var $cm2nk = parcelRequire("cm2nk");
-async function $36a0ee730425f3c7$export$4be896189efc8c9f(event) {
+var $1wyha = parcelRequire("1wyha");
+async function $1080de6416cd3505$export$4be896189efc8c9f(event) {
     const heart = event.target;
     // console.log('heart', heart);
     if (heart.classList.contains("sneaker__heart__button")) {
         console.log("heart", heart);
-        await (0, $iqmmd.db).auth().onAuthStateChanged(async (user)=>{
+        await (0, $eJHP4.db).auth().onAuthStateChanged(async (user)=>{
             if (user) {
                 const sneaker = heart.closest("li");
-                const selectedSneaker = await (0, $lDONj.getSneakerById)(sneaker.id) || {};
+                const selectedSneaker = await (0, $9FS1E.getSneakerById)(sneaker.id) || {};
                 // const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
                 if (heart.classList.contains("active")) {
                     // const updatedFavorites = favorites.filter(({ id }) => id !== sneaker.id);
                     // localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
                     heart.classList.remove("active");
                     // work with FIREBASE
-                    const docId = await (0, $iqmmd.db).firestore().collection("favorites").get();
+                    const docId = await (0, $eJHP4.db).firestore().collection("favorites").get();
                     docId.forEach(async (item)=>{
                         const currentSneaker = item.data();
-                        if (currentSneaker.id === selectedSneaker.id) await (0, $iqmmd.db).firestore().collection("favorites").doc(item.id).delete();
+                        if (currentSneaker.id === selectedSneaker.id) await (0, $eJHP4.db).firestore().collection("favorites").doc(item.id).delete();
                     });
                     return;
                 }
@@ -78,21 +79,21 @@ async function $36a0ee730425f3c7$export$4be896189efc8c9f(event) {
                 // favorites.push(selectedSneaker);
                 // localStorage.setItem('favorites', JSON.stringify(favorites));
                 // add sneakers to FIREBASE
-                await (0, $iqmmd.db).firestore().collection("favorites").add({
+                await (0, $eJHP4.db).firestore().collection("favorites").add({
                     ...selectedSneaker,
-                    userId: (0, $iqmmd.db).auth().currentUser.uid
+                    userId: (0, $eJHP4.db).auth().currentUser.uid
                 });
             } else {
                 console.log("зареєструйся");
-                (0, (/*@__PURE__*/$parcel$interopDefault($cm2nk))).fire("Please log in");
+                (0, (/*@__PURE__*/$parcel$interopDefault($1wyha))).fire("Please log in");
             }
         });
     }
 }
-function $36a0ee730425f3c7$export$29284ae2149307d8() {
-    const currentUser = (0, $iqmmd.db).auth().currentUser;
+function $1080de6416cd3505$export$29284ae2149307d8() {
+    const currentUser = (0, $eJHP4.db).auth().currentUser;
     if (!currentUser) return;
-    (0, $iqmmd.db).firestore().collection("favorites").where("userId", "==", currentUser.uid).onSnapshot((snapshot)=>{
+    (0, $eJHP4.db).firestore().collection("favorites").where("userId", "==", currentUser.uid).onSnapshot((snapshot)=>{
         const favorites = snapshot.docs.map((doc)=>doc.data()) || [];
         document.querySelectorAll(".sneaker__heart__button.active").forEach((item)=>item.classList.remove("active"));
         for (const { id: id  } of favorites){
@@ -108,8 +109,8 @@ function $36a0ee730425f3c7$export$29284ae2149307d8() {
 
 
 
-var $d9MTO = parcelRequire("d9MTO");
-function $529054fd081fcd1a$export$2e2bcd8739ae039() {
+var $iDdm1 = parcelRequire("iDdm1");
+function $47dd2b1f0903dba9$export$2e2bcd8739ae039() {
     const list = document.querySelector(".sneakersList__list");
     const skeletonMarkup = [
         ...new Array(6)
@@ -133,55 +134,55 @@ function $529054fd081fcd1a$export$2e2bcd8739ae039() {
 
 
 
-var $03Y6j = parcelRequire("03Y6j");
+var $lGpGj = parcelRequire("lGpGj");
 
-var $iqmmd = parcelRequire("iqmmd");
-const $3df27706487cf5b3$var$list = document.querySelector(".sneakersList__list");
-const $3df27706487cf5b3$var$headerGroup = document.querySelector(".header__user__icons__group");
-const $3df27706487cf5b3$var$btnLogOut = document.querySelector(".btn__log__out");
-(0, $03Y6j.setThemeOnLoad)();
-(0, $529054fd081fcd1a$export$2e2bcd8739ae039)();
+var $eJHP4 = parcelRequire("eJHP4");
+const $33990869035dc605$var$list = document.querySelector(".sneakersList__list");
+const $33990869035dc605$var$headerGroup = document.querySelector(".header__user__icons__group");
+const $33990869035dc605$var$btnLogOut = document.querySelector(".btn__log__out");
+(0, $lGpGj.setThemeOnLoad)();
+(0, $47dd2b1f0903dba9$export$2e2bcd8739ae039)();
 setTimeout(()=>{
-    (0, $lDONj.getSneakers)().then((data)=>{
-        $3df27706487cf5b3$var$list.innerHTML = "";
-        $3df27706487cf5b3$var$list.insertAdjacentHTML("afterbegin", (0, $1iJ0s.default)(data));
-        $3df27706487cf5b3$var$checkCurrentUser();
+    (0, $9FS1E.getSneakers)().then((data)=>{
+        $33990869035dc605$var$list.innerHTML = "";
+        $33990869035dc605$var$list.insertAdjacentHTML("afterbegin", (0, $j5HDT.default)(data));
+        $33990869035dc605$var$checkCurrentUser();
     });
 }, 2000);
-async function $3df27706487cf5b3$var$checkCurrentUser() {
-    await (0, $iqmmd.db).auth().onAuthStateChanged((user)=>{
+async function $33990869035dc605$var$checkCurrentUser() {
+    await (0, $eJHP4.db).auth().onAuthStateChanged((user)=>{
         if (user) {
             console.log(" USER =>", user);
             console.log("promise");
             // setTimeout(() => {
-            (0, $bEAY7.setInCartOnload)();
-            (0, $36a0ee730425f3c7$export$29284ae2149307d8)();
+            (0, $9jwmw.setInCartOnload)();
+            (0, $1080de6416cd3505$export$29284ae2149307d8)();
             // setActualPriceIntoHeader();
-            (0, $d9MTO.setActualPriceIntoHeader)();
+            (0, $iDdm1.setActualPriceIntoHeader)();
             console.log(" USER =>", user);
             document.querySelector(".header__user__user__name").textContent = user.displayName;
-            $3df27706487cf5b3$var$headerGroup.classList.add("visible");
-            $3df27706487cf5b3$var$btnLogOut.classList.add("visible");
+            $33990869035dc605$var$headerGroup.classList.add("visible");
+            $33990869035dc605$var$btnLogOut.classList.add("visible");
             console.log(user.displayName);
         } else {
-            $3df27706487cf5b3$var$btnLogOut.classList.remove("visible");
-            $3df27706487cf5b3$var$headerGroup.classList.remove("visible");
+            $33990869035dc605$var$btnLogOut.classList.remove("visible");
+            $33990869035dc605$var$headerGroup.classList.remove("visible");
         // btnLogOut.classList.add('hidden');
         }
     });
 }
-document.querySelector(".sneakersList__list").addEventListener("click", (0, $36a0ee730425f3c7$export$4be896189efc8c9f));
-document.querySelector(".sneakersList__list").addEventListener("click", (0, $bEAY7.handleCart));
-document.querySelector(".theme__switch").addEventListener("change", (0, $03Y6j.themeSwitch));
-document.querySelector(".btn__log__out").addEventListener("click", (0, $iqmmd.signOut));
+document.querySelector(".sneakersList__list").addEventListener("click", (0, $1080de6416cd3505$export$4be896189efc8c9f));
+document.querySelector(".sneakersList__list").addEventListener("click", (0, $9jwmw.handleCart));
+document.querySelector(".theme__switch").addEventListener("change", (0, $lGpGj.themeSwitch));
+document.querySelector(".btn__log__out").addEventListener("click", (0, $eJHP4.signOut));
 
 
-parcelRequire("1iJ0s");
+parcelRequire("j5HDT");
 
-var $1iJ0s = parcelRequire("1iJ0s");
+var $j5HDT = parcelRequire("j5HDT");
 
-var $lDONj = parcelRequire("lDONj");
-function $e7edab6dd16ff014$export$2e2bcd8739ae039() {
+var $9FS1E = parcelRequire("9FS1E");
+function $41dfba78f78355f9$export$2e2bcd8739ae039() {
     return `<div class="emptyContent__wrapper" >
     <div class="emptyContent__img">
     </div>
@@ -196,9 +197,9 @@ function $e7edab6dd16ff014$export$2e2bcd8739ae039() {
 
 
 
-var $bEAY7 = parcelRequire("bEAY7");
-var $64c53e9e90f3fd38$exports = {};
-var $dece21280c5e548e$exports = {};
+var $9jwmw = parcelRequire("9jwmw");
+var $752efb17a5bb51b9$exports = {};
+var $5721719246650e46$exports = {};
 /**
  * Checks if `value` is the
  * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
@@ -223,23 +224,23 @@ var $dece21280c5e548e$exports = {};
  *
  * _.isObject(null);
  * // => false
- */ function $dece21280c5e548e$var$isObject(value) {
+ */ function $5721719246650e46$var$isObject(value) {
     var type = typeof value;
     return value != null && (type == "object" || type == "function");
 }
-$dece21280c5e548e$exports = $dece21280c5e548e$var$isObject;
+$5721719246650e46$exports = $5721719246650e46$var$isObject;
 
 
-var $5151486ecb2eed46$exports = {};
-var $5d692988e06b59a0$exports = {};
-var $ea4ae1e05fac2b77$exports = {};
-/** Detect free variable `global` from Node.js. */ var $ea4ae1e05fac2b77$var$freeGlobal = typeof $parcel$global == "object" && $parcel$global && $parcel$global.Object === Object && $parcel$global;
-$ea4ae1e05fac2b77$exports = $ea4ae1e05fac2b77$var$freeGlobal;
+var $196987ee540a7e50$exports = {};
+var $355a297594c706b7$exports = {};
+var $a5d144d0be2f7977$exports = {};
+/** Detect free variable `global` from Node.js. */ var $a5d144d0be2f7977$var$freeGlobal = typeof $parcel$global == "object" && $parcel$global && $parcel$global.Object === Object && $parcel$global;
+$a5d144d0be2f7977$exports = $a5d144d0be2f7977$var$freeGlobal;
 
 
-/** Detect free variable `self`. */ var $5d692988e06b59a0$var$freeSelf = typeof self == "object" && self && self.Object === Object && self;
-/** Used as a reference to the global object. */ var $5d692988e06b59a0$var$root = $ea4ae1e05fac2b77$exports || $5d692988e06b59a0$var$freeSelf || Function("return this")();
-$5d692988e06b59a0$exports = $5d692988e06b59a0$var$root;
+/** Detect free variable `self`. */ var $355a297594c706b7$var$freeSelf = typeof self == "object" && self && self.Object === Object && self;
+/** Used as a reference to the global object. */ var $355a297594c706b7$var$root = $a5d144d0be2f7977$exports || $355a297594c706b7$var$freeSelf || Function("return this")();
+$355a297594c706b7$exports = $355a297594c706b7$var$root;
 
 
 /**
@@ -257,16 +258,16 @@ $5d692988e06b59a0$exports = $5d692988e06b59a0$var$root;
  *   console.log(_.now() - stamp);
  * }, _.now());
  * // => Logs the number of milliseconds it took for the deferred invocation.
- */ var $5151486ecb2eed46$var$now = function() {
-    return $5d692988e06b59a0$exports.Date.now();
+ */ var $196987ee540a7e50$var$now = function() {
+    return $355a297594c706b7$exports.Date.now();
 };
-$5151486ecb2eed46$exports = $5151486ecb2eed46$var$now;
+$196987ee540a7e50$exports = $196987ee540a7e50$var$now;
 
 
-var $c63a992535c6decb$exports = {};
-var $4debfa1e1b5e190a$exports = {};
-var $31ad9ca17a2f5335$exports = {};
-/** Used to match a single whitespace character. */ var $31ad9ca17a2f5335$var$reWhitespace = /\s/;
+var $644cbf4361d8480e$exports = {};
+var $6a4ab52f0c34763e$exports = {};
+var $4800f88f979fbc9d$exports = {};
+/** Used to match a single whitespace character. */ var $4800f88f979fbc9d$var$reWhitespace = /\s/;
 /**
  * Used by `_.trim` and `_.trimEnd` to get the index of the last non-whitespace
  * character of `string`.
@@ -274,103 +275,103 @@ var $31ad9ca17a2f5335$exports = {};
  * @private
  * @param {string} string The string to inspect.
  * @returns {number} Returns the index of the last non-whitespace character.
- */ function $31ad9ca17a2f5335$var$trimmedEndIndex(string) {
+ */ function $4800f88f979fbc9d$var$trimmedEndIndex(string) {
     var index = string.length;
-    while(index-- && $31ad9ca17a2f5335$var$reWhitespace.test(string.charAt(index)));
+    while(index-- && $4800f88f979fbc9d$var$reWhitespace.test(string.charAt(index)));
     return index;
 }
-$31ad9ca17a2f5335$exports = $31ad9ca17a2f5335$var$trimmedEndIndex;
+$4800f88f979fbc9d$exports = $4800f88f979fbc9d$var$trimmedEndIndex;
 
 
-/** Used to match leading whitespace. */ var $4debfa1e1b5e190a$var$reTrimStart = /^\s+/;
+/** Used to match leading whitespace. */ var $6a4ab52f0c34763e$var$reTrimStart = /^\s+/;
 /**
  * The base implementation of `_.trim`.
  *
  * @private
  * @param {string} string The string to trim.
  * @returns {string} Returns the trimmed string.
- */ function $4debfa1e1b5e190a$var$baseTrim(string) {
-    return string ? string.slice(0, $31ad9ca17a2f5335$exports(string) + 1).replace($4debfa1e1b5e190a$var$reTrimStart, "") : string;
+ */ function $6a4ab52f0c34763e$var$baseTrim(string) {
+    return string ? string.slice(0, $4800f88f979fbc9d$exports(string) + 1).replace($6a4ab52f0c34763e$var$reTrimStart, "") : string;
 }
-$4debfa1e1b5e190a$exports = $4debfa1e1b5e190a$var$baseTrim;
+$6a4ab52f0c34763e$exports = $6a4ab52f0c34763e$var$baseTrim;
 
 
 
-var $d825102d0760c32f$exports = {};
-var $f1e35466294f4b00$exports = {};
-var $678398cd8a3be314$exports = {};
+var $bfaf94ad080ee92a$exports = {};
+var $99885e458f8e8ebe$exports = {};
+var $6c2a83ea1523ecea$exports = {};
 
-/** Built-in value references. */ var $678398cd8a3be314$var$Symbol = $5d692988e06b59a0$exports.Symbol;
-$678398cd8a3be314$exports = $678398cd8a3be314$var$Symbol;
+/** Built-in value references. */ var $6c2a83ea1523ecea$var$Symbol = $355a297594c706b7$exports.Symbol;
+$6c2a83ea1523ecea$exports = $6c2a83ea1523ecea$var$Symbol;
 
 
-var $49399615d22d7b1c$exports = {};
+var $000f1918f91bf441$exports = {};
 
-/** Used for built-in method references. */ var $49399615d22d7b1c$var$objectProto = Object.prototype;
-/** Used to check objects for own properties. */ var $49399615d22d7b1c$var$hasOwnProperty = $49399615d22d7b1c$var$objectProto.hasOwnProperty;
+/** Used for built-in method references. */ var $000f1918f91bf441$var$objectProto = Object.prototype;
+/** Used to check objects for own properties. */ var $000f1918f91bf441$var$hasOwnProperty = $000f1918f91bf441$var$objectProto.hasOwnProperty;
 /**
  * Used to resolve the
  * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
  * of values.
- */ var $49399615d22d7b1c$var$nativeObjectToString = $49399615d22d7b1c$var$objectProto.toString;
-/** Built-in value references. */ var $49399615d22d7b1c$var$symToStringTag = $678398cd8a3be314$exports ? $678398cd8a3be314$exports.toStringTag : undefined;
+ */ var $000f1918f91bf441$var$nativeObjectToString = $000f1918f91bf441$var$objectProto.toString;
+/** Built-in value references. */ var $000f1918f91bf441$var$symToStringTag = $6c2a83ea1523ecea$exports ? $6c2a83ea1523ecea$exports.toStringTag : undefined;
 /**
  * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
  *
  * @private
  * @param {*} value The value to query.
  * @returns {string} Returns the raw `toStringTag`.
- */ function $49399615d22d7b1c$var$getRawTag(value) {
-    var isOwn = $49399615d22d7b1c$var$hasOwnProperty.call(value, $49399615d22d7b1c$var$symToStringTag), tag = value[$49399615d22d7b1c$var$symToStringTag];
+ */ function $000f1918f91bf441$var$getRawTag(value) {
+    var isOwn = $000f1918f91bf441$var$hasOwnProperty.call(value, $000f1918f91bf441$var$symToStringTag), tag = value[$000f1918f91bf441$var$symToStringTag];
     try {
-        value[$49399615d22d7b1c$var$symToStringTag] = undefined;
+        value[$000f1918f91bf441$var$symToStringTag] = undefined;
         var unmasked = true;
     } catch (e) {}
-    var result = $49399615d22d7b1c$var$nativeObjectToString.call(value);
+    var result = $000f1918f91bf441$var$nativeObjectToString.call(value);
     if (unmasked) {
-        if (isOwn) value[$49399615d22d7b1c$var$symToStringTag] = tag;
-        else delete value[$49399615d22d7b1c$var$symToStringTag];
+        if (isOwn) value[$000f1918f91bf441$var$symToStringTag] = tag;
+        else delete value[$000f1918f91bf441$var$symToStringTag];
     }
     return result;
 }
-$49399615d22d7b1c$exports = $49399615d22d7b1c$var$getRawTag;
+$000f1918f91bf441$exports = $000f1918f91bf441$var$getRawTag;
 
 
-var $326339dfd4cff539$exports = {};
-/** Used for built-in method references. */ var $326339dfd4cff539$var$objectProto = Object.prototype;
+var $f7baf0202122c59c$exports = {};
+/** Used for built-in method references. */ var $f7baf0202122c59c$var$objectProto = Object.prototype;
 /**
  * Used to resolve the
  * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
  * of values.
- */ var $326339dfd4cff539$var$nativeObjectToString = $326339dfd4cff539$var$objectProto.toString;
+ */ var $f7baf0202122c59c$var$nativeObjectToString = $f7baf0202122c59c$var$objectProto.toString;
 /**
  * Converts `value` to a string using `Object.prototype.toString`.
  *
  * @private
  * @param {*} value The value to convert.
  * @returns {string} Returns the converted string.
- */ function $326339dfd4cff539$var$objectToString(value) {
-    return $326339dfd4cff539$var$nativeObjectToString.call(value);
+ */ function $f7baf0202122c59c$var$objectToString(value) {
+    return $f7baf0202122c59c$var$nativeObjectToString.call(value);
 }
-$326339dfd4cff539$exports = $326339dfd4cff539$var$objectToString;
+$f7baf0202122c59c$exports = $f7baf0202122c59c$var$objectToString;
 
 
-/** `Object#toString` result references. */ var $f1e35466294f4b00$var$nullTag = "[object Null]", $f1e35466294f4b00$var$undefinedTag = "[object Undefined]";
-/** Built-in value references. */ var $f1e35466294f4b00$var$symToStringTag = $678398cd8a3be314$exports ? $678398cd8a3be314$exports.toStringTag : undefined;
+/** `Object#toString` result references. */ var $99885e458f8e8ebe$var$nullTag = "[object Null]", $99885e458f8e8ebe$var$undefinedTag = "[object Undefined]";
+/** Built-in value references. */ var $99885e458f8e8ebe$var$symToStringTag = $6c2a83ea1523ecea$exports ? $6c2a83ea1523ecea$exports.toStringTag : undefined;
 /**
  * The base implementation of `getTag` without fallbacks for buggy environments.
  *
  * @private
  * @param {*} value The value to query.
  * @returns {string} Returns the `toStringTag`.
- */ function $f1e35466294f4b00$var$baseGetTag(value) {
-    if (value == null) return value === undefined ? $f1e35466294f4b00$var$undefinedTag : $f1e35466294f4b00$var$nullTag;
-    return $f1e35466294f4b00$var$symToStringTag && $f1e35466294f4b00$var$symToStringTag in Object(value) ? $49399615d22d7b1c$exports(value) : $326339dfd4cff539$exports(value);
+ */ function $99885e458f8e8ebe$var$baseGetTag(value) {
+    if (value == null) return value === undefined ? $99885e458f8e8ebe$var$undefinedTag : $99885e458f8e8ebe$var$nullTag;
+    return $99885e458f8e8ebe$var$symToStringTag && $99885e458f8e8ebe$var$symToStringTag in Object(value) ? $000f1918f91bf441$exports(value) : $f7baf0202122c59c$exports(value);
 }
-$f1e35466294f4b00$exports = $f1e35466294f4b00$var$baseGetTag;
+$99885e458f8e8ebe$exports = $99885e458f8e8ebe$var$baseGetTag;
 
 
-var $b5cc5dd8f121853d$exports = {};
+var $5f4621a4171ab462$exports = {};
 /**
  * Checks if `value` is object-like. A value is object-like if it's not `null`
  * and has a `typeof` result of "object".
@@ -394,13 +395,13 @@ var $b5cc5dd8f121853d$exports = {};
  *
  * _.isObjectLike(null);
  * // => false
- */ function $b5cc5dd8f121853d$var$isObjectLike(value) {
+ */ function $5f4621a4171ab462$var$isObjectLike(value) {
     return value != null && typeof value == "object";
 }
-$b5cc5dd8f121853d$exports = $b5cc5dd8f121853d$var$isObjectLike;
+$5f4621a4171ab462$exports = $5f4621a4171ab462$var$isObjectLike;
 
 
-/** `Object#toString` result references. */ var $d825102d0760c32f$var$symbolTag = "[object Symbol]";
+/** `Object#toString` result references. */ var $bfaf94ad080ee92a$var$symbolTag = "[object Symbol]";
 /**
  * Checks if `value` is classified as a `Symbol` primitive or object.
  *
@@ -417,17 +418,17 @@ $b5cc5dd8f121853d$exports = $b5cc5dd8f121853d$var$isObjectLike;
  *
  * _.isSymbol('abc');
  * // => false
- */ function $d825102d0760c32f$var$isSymbol(value) {
-    return typeof value == "symbol" || $b5cc5dd8f121853d$exports(value) && $f1e35466294f4b00$exports(value) == $d825102d0760c32f$var$symbolTag;
+ */ function $bfaf94ad080ee92a$var$isSymbol(value) {
+    return typeof value == "symbol" || $5f4621a4171ab462$exports(value) && $99885e458f8e8ebe$exports(value) == $bfaf94ad080ee92a$var$symbolTag;
 }
-$d825102d0760c32f$exports = $d825102d0760c32f$var$isSymbol;
+$bfaf94ad080ee92a$exports = $bfaf94ad080ee92a$var$isSymbol;
 
 
-/** Used as references for various `Number` constants. */ var $c63a992535c6decb$var$NAN = 0 / 0;
-/** Used to detect bad signed hexadecimal string values. */ var $c63a992535c6decb$var$reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
-/** Used to detect binary string values. */ var $c63a992535c6decb$var$reIsBinary = /^0b[01]+$/i;
-/** Used to detect octal string values. */ var $c63a992535c6decb$var$reIsOctal = /^0o[0-7]+$/i;
-/** Built-in method references without a dependency on `root`. */ var $c63a992535c6decb$var$freeParseInt = parseInt;
+/** Used as references for various `Number` constants. */ var $644cbf4361d8480e$var$NAN = 0 / 0;
+/** Used to detect bad signed hexadecimal string values. */ var $644cbf4361d8480e$var$reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+/** Used to detect binary string values. */ var $644cbf4361d8480e$var$reIsBinary = /^0b[01]+$/i;
+/** Used to detect octal string values. */ var $644cbf4361d8480e$var$reIsOctal = /^0o[0-7]+$/i;
+/** Built-in method references without a dependency on `root`. */ var $644cbf4361d8480e$var$freeParseInt = parseInt;
 /**
  * Converts `value` to a number.
  *
@@ -450,23 +451,23 @@ $d825102d0760c32f$exports = $d825102d0760c32f$var$isSymbol;
  *
  * _.toNumber('3.2');
  * // => 3.2
- */ function $c63a992535c6decb$var$toNumber(value) {
+ */ function $644cbf4361d8480e$var$toNumber(value) {
     if (typeof value == "number") return value;
-    if ($d825102d0760c32f$exports(value)) return $c63a992535c6decb$var$NAN;
-    if ($dece21280c5e548e$exports(value)) {
+    if ($bfaf94ad080ee92a$exports(value)) return $644cbf4361d8480e$var$NAN;
+    if ($5721719246650e46$exports(value)) {
         var other = typeof value.valueOf == "function" ? value.valueOf() : value;
-        value = $dece21280c5e548e$exports(other) ? other + "" : other;
+        value = $5721719246650e46$exports(other) ? other + "" : other;
     }
     if (typeof value != "string") return value === 0 ? value : +value;
-    value = $4debfa1e1b5e190a$exports(value);
-    var isBinary = $c63a992535c6decb$var$reIsBinary.test(value);
-    return isBinary || $c63a992535c6decb$var$reIsOctal.test(value) ? $c63a992535c6decb$var$freeParseInt(value.slice(2), isBinary ? 2 : 8) : $c63a992535c6decb$var$reIsBadHex.test(value) ? $c63a992535c6decb$var$NAN : +value;
+    value = $6a4ab52f0c34763e$exports(value);
+    var isBinary = $644cbf4361d8480e$var$reIsBinary.test(value);
+    return isBinary || $644cbf4361d8480e$var$reIsOctal.test(value) ? $644cbf4361d8480e$var$freeParseInt(value.slice(2), isBinary ? 2 : 8) : $644cbf4361d8480e$var$reIsBadHex.test(value) ? $644cbf4361d8480e$var$NAN : +value;
 }
-$c63a992535c6decb$exports = $c63a992535c6decb$var$toNumber;
+$644cbf4361d8480e$exports = $644cbf4361d8480e$var$toNumber;
 
 
-/** Error message constants. */ var $64c53e9e90f3fd38$var$FUNC_ERROR_TEXT = "Expected a function";
-/* Built-in method references for those with the same name as other `lodash` methods. */ var $64c53e9e90f3fd38$var$nativeMax = Math.max, $64c53e9e90f3fd38$var$nativeMin = Math.min;
+/** Error message constants. */ var $752efb17a5bb51b9$var$FUNC_ERROR_TEXT = "Expected a function";
+/* Built-in method references for those with the same name as other `lodash` methods. */ var $752efb17a5bb51b9$var$nativeMax = Math.max, $752efb17a5bb51b9$var$nativeMin = Math.min;
 /**
  * Creates a debounced function that delays invoking `func` until after `wait`
  * milliseconds have elapsed since the last time the debounced function was
@@ -520,14 +521,14 @@ $c63a992535c6decb$exports = $c63a992535c6decb$var$toNumber;
  *
  * // Cancel the trailing debounced invocation.
  * jQuery(window).on('popstate', debounced.cancel);
- */ function $64c53e9e90f3fd38$var$debounce(func, wait, options) {
+ */ function $752efb17a5bb51b9$var$debounce(func, wait, options) {
     var lastArgs, lastThis, maxWait, result, timerId, lastCallTime, lastInvokeTime = 0, leading = false, maxing = false, trailing = true;
-    if (typeof func != "function") throw new TypeError($64c53e9e90f3fd38$var$FUNC_ERROR_TEXT);
-    wait = $c63a992535c6decb$exports(wait) || 0;
-    if ($dece21280c5e548e$exports(options)) {
+    if (typeof func != "function") throw new TypeError($752efb17a5bb51b9$var$FUNC_ERROR_TEXT);
+    wait = $644cbf4361d8480e$exports(wait) || 0;
+    if ($5721719246650e46$exports(options)) {
         leading = !!options.leading;
         maxing = "maxWait" in options;
-        maxWait = maxing ? $64c53e9e90f3fd38$var$nativeMax($c63a992535c6decb$exports(options.maxWait) || 0, wait) : maxWait;
+        maxWait = maxing ? $752efb17a5bb51b9$var$nativeMax($644cbf4361d8480e$exports(options.maxWait) || 0, wait) : maxWait;
         trailing = "trailing" in options ? !!options.trailing : trailing;
     }
     function invokeFunc(time) {
@@ -547,7 +548,7 @@ $c63a992535c6decb$exports = $c63a992535c6decb$var$toNumber;
     }
     function remainingWait(time) {
         var timeSinceLastCall = time - lastCallTime, timeSinceLastInvoke = time - lastInvokeTime, timeWaiting = wait - timeSinceLastCall;
-        return maxing ? $64c53e9e90f3fd38$var$nativeMin(timeWaiting, maxWait - timeSinceLastInvoke) : timeWaiting;
+        return maxing ? $752efb17a5bb51b9$var$nativeMin(timeWaiting, maxWait - timeSinceLastInvoke) : timeWaiting;
     }
     function shouldInvoke(time) {
         var timeSinceLastCall = time - lastCallTime, timeSinceLastInvoke = time - lastInvokeTime;
@@ -557,7 +558,7 @@ $c63a992535c6decb$exports = $c63a992535c6decb$var$toNumber;
         return lastCallTime === undefined || timeSinceLastCall >= wait || timeSinceLastCall < 0 || maxing && timeSinceLastInvoke >= maxWait;
     }
     function timerExpired() {
-        var time = $5151486ecb2eed46$exports();
+        var time = $196987ee540a7e50$exports();
         if (shouldInvoke(time)) return trailingEdge(time);
         // Restart the timer.
         timerId = setTimeout(timerExpired, remainingWait(time));
@@ -576,10 +577,10 @@ $c63a992535c6decb$exports = $c63a992535c6decb$var$toNumber;
         lastArgs = lastCallTime = lastThis = timerId = undefined;
     }
     function flush() {
-        return timerId === undefined ? result : trailingEdge($5151486ecb2eed46$exports());
+        return timerId === undefined ? result : trailingEdge($196987ee540a7e50$exports());
     }
     function debounced() {
-        var time = $5151486ecb2eed46$exports(), isInvoking = shouldInvoke(time);
+        var time = $196987ee540a7e50$exports(), isInvoking = shouldInvoke(time);
         lastArgs = arguments;
         lastThis = this;
         lastCallTime = time;
@@ -599,55 +600,55 @@ $c63a992535c6decb$exports = $c63a992535c6decb$var$toNumber;
     debounced.flush = flush;
     return debounced;
 }
-$64c53e9e90f3fd38$exports = $64c53e9e90f3fd38$var$debounce;
+$752efb17a5bb51b9$exports = $752efb17a5bb51b9$var$debounce;
 
 
-const $72a2265e6e4011ce$var$list = document.querySelector(".sneakersList__list");
-const $72a2265e6e4011ce$var$input = document.querySelector(".search__input");
-async function $72a2265e6e4011ce$var$search(event) {
-    const inputValue = $72a2265e6e4011ce$var$input.value.toLowerCase().trim();
-    $72a2265e6e4011ce$var$list.innerHTML = "";
+const $1ed19c11baf902a7$var$list = document.querySelector(".sneakersList__list");
+const $1ed19c11baf902a7$var$input = document.querySelector(".search__input");
+async function $1ed19c11baf902a7$var$search(event) {
+    const inputValue = $1ed19c11baf902a7$var$input.value.toLowerCase().trim();
+    $1ed19c11baf902a7$var$list.innerHTML = "";
     try {
-        const data = await (0, $lDONj.findSneakers)(inputValue);
-        if (data.length === 0) $72a2265e6e4011ce$var$list.insertAdjacentHTML("afterbegin", (0, $e7edab6dd16ff014$export$2e2bcd8739ae039)());
-        $72a2265e6e4011ce$var$list.insertAdjacentHTML("afterbegin", (0, $1iJ0s.default)(data));
-        (0, $36a0ee730425f3c7$export$29284ae2149307d8)();
-        (0, $bEAY7.setInCartOnload)();
+        const data = await (0, $9FS1E.findSneakers)(inputValue);
+        if (data.length === 0) $1ed19c11baf902a7$var$list.insertAdjacentHTML("afterbegin", (0, $41dfba78f78355f9$export$2e2bcd8739ae039)());
+        $1ed19c11baf902a7$var$list.insertAdjacentHTML("afterbegin", (0, $j5HDT.default)(data));
+        (0, $1080de6416cd3505$export$29284ae2149307d8)();
+        (0, $9jwmw.setInCartOnload)();
     } catch (error) {
         console.error("Error searching sneakers:", error);
     }
 }
-const $72a2265e6e4011ce$var$debouncedSearch = (0, (/*@__PURE__*/$parcel$interopDefault($64c53e9e90f3fd38$exports)))($72a2265e6e4011ce$var$search, 500);
-$72a2265e6e4011ce$var$input.addEventListener("input", $72a2265e6e4011ce$var$debouncedSearch);
+const $1ed19c11baf902a7$var$debouncedSearch = (0, (/*@__PURE__*/$parcel$interopDefault($752efb17a5bb51b9$exports)))($1ed19c11baf902a7$var$search, 500);
+$1ed19c11baf902a7$var$input.addEventListener("input", $1ed19c11baf902a7$var$debouncedSearch);
 
 
 
 
-parcelRequire("bEAY7");
-parcelRequire("lDONj");
-parcelRequire("2wACO");
-parcelRequire("j5Pfr");
-parcelRequire("ZMfkQ");
-parcelRequire("03Y6j");
-const $af2a72dd55787b74$var$navToggle = document.querySelector("#navToggle");
-const $af2a72dd55787b74$var$navClosedIcon = document.querySelector("#navClosed");
-const $af2a72dd55787b74$var$navOpenIcon = document.querySelector("#navOpen");
-const $af2a72dd55787b74$var$navIcon = document.querySelectorAll(".navIcon");
-const $af2a72dd55787b74$var$nav = document.querySelector("nav");
-$af2a72dd55787b74$var$navToggle.addEventListener("click", ()=>{
-    $af2a72dd55787b74$var$nav.classList.toggle("open");
-    document.body.style.overflow = $af2a72dd55787b74$var$nav.classList.contains("open") ? "hidden" : "auto";
-    $af2a72dd55787b74$var$navIcon.forEach((icon)=>{
+parcelRequire("9jwmw");
+parcelRequire("9FS1E");
+parcelRequire("30aga");
+parcelRequire("g33fn");
+parcelRequire("103Hm");
+parcelRequire("lGpGj");
+const $bf423685ba1738e3$var$navToggle = document.querySelector("#navToggle");
+const $bf423685ba1738e3$var$navClosedIcon = document.querySelector("#navClosed");
+const $bf423685ba1738e3$var$navOpenIcon = document.querySelector("#navOpen");
+const $bf423685ba1738e3$var$navIcon = document.querySelectorAll(".navIcon");
+const $bf423685ba1738e3$var$nav = document.querySelector("nav");
+$bf423685ba1738e3$var$navToggle.addEventListener("click", ()=>{
+    $bf423685ba1738e3$var$nav.classList.toggle("open");
+    document.body.style.overflow = $bf423685ba1738e3$var$nav.classList.contains("open") ? "hidden" : "auto";
+    $bf423685ba1738e3$var$navIcon.forEach((icon)=>{
         icon.classList.toggle("hidden");
     });
 });
 window.addEventListener("resize", ()=>{
     if (document.body.clientWidth > 1200) {
-        $af2a72dd55787b74$var$nav.classList.remove("open");
-        $af2a72dd55787b74$var$navIcon.forEach((icon)=>{
+        $bf423685ba1738e3$var$nav.classList.remove("open");
+        $bf423685ba1738e3$var$navIcon.forEach((icon)=>{
             icon.classList.remove("hidden");
         });
-        $af2a72dd55787b74$var$navOpenIcon.classList.add("hidden");
+        $bf423685ba1738e3$var$navOpenIcon.classList.add("hidden");
         document.body.style.overflow = "auto";
     }
 }, {
@@ -655,7 +656,7 @@ window.addEventListener("resize", ()=>{
 });
 
 
-function $bda1df280237c685$export$2e2bcd8739ae039(items) {
+function $0ff4aedaabdabfe3$export$2e2bcd8739ae039(items) {
     const markup = items.map(({ order: order , createdAt: createdAt  })=>{
         console.log(createdAt);
         const normalDate = new Date(createdAt.toDate()).toLocaleString("en-GB", {
@@ -694,92 +695,92 @@ function $bda1df280237c685$export$2e2bcd8739ae039(items) {
 
 
 
-var $iqmmd = parcelRequire("iqmmd");
-const $3f77bd57f4711a86$var$userButton = document.querySelector(".header__user__icon__user");
-const $3f77bd57f4711a86$var$authModal = document.querySelector(".modal-auth__backdrop");
-const $3f77bd57f4711a86$var$closeButton = document.querySelector(".close");
-const $3f77bd57f4711a86$var$authForm = document.querySelector(".auth__form");
-const $3f77bd57f4711a86$var$userNameForm = document.querySelector(".username__form");
-const $3f77bd57f4711a86$var$usernameInput = $3f77bd57f4711a86$var$userNameForm.querySelector('input[name="name"]');
-const $3f77bd57f4711a86$var$actionText = document.querySelector(".action__text");
-const $3f77bd57f4711a86$var$btnChangeForm = document.querySelector(".btn__change__form");
-const $3f77bd57f4711a86$var$title = document.querySelector(".form__title");
-let $3f77bd57f4711a86$var$isRegMode = true;
-const $3f77bd57f4711a86$var$identificateForm = document.querySelector("[data-action]");
-const $3f77bd57f4711a86$var$actionValue = $3f77bd57f4711a86$var$identificateForm.dataset.action;
-const $3f77bd57f4711a86$var$userName = document.querySelector(".header__user__user__name");
-const $3f77bd57f4711a86$var$btnLogOut = document.querySelector(".btn__log__out");
-console.log($3f77bd57f4711a86$var$actionValue);
-async function $3f77bd57f4711a86$export$89c2621768820c8b(event) {
+var $eJHP4 = parcelRequire("eJHP4");
+const $a969998314c3f48f$var$userButton = document.querySelector(".header__user__icon__user");
+const $a969998314c3f48f$var$authModal = document.querySelector(".modal-auth__backdrop");
+const $a969998314c3f48f$var$closeButton = document.querySelector(".close");
+const $a969998314c3f48f$var$authForm = document.querySelector(".auth__form");
+const $a969998314c3f48f$var$userNameForm = document.querySelector(".username__form");
+const $a969998314c3f48f$var$usernameInput = $a969998314c3f48f$var$userNameForm.querySelector('input[name="name"]');
+const $a969998314c3f48f$var$actionText = document.querySelector(".action__text");
+const $a969998314c3f48f$var$btnChangeForm = document.querySelector(".btn__change__form");
+const $a969998314c3f48f$var$title = document.querySelector(".form__title");
+let $a969998314c3f48f$var$isRegMode = true;
+const $a969998314c3f48f$var$identificateForm = document.querySelector("[data-action]");
+const $a969998314c3f48f$var$actionValue = $a969998314c3f48f$var$identificateForm.dataset.action;
+const $a969998314c3f48f$var$userName = document.querySelector(".header__user__user__name");
+const $a969998314c3f48f$var$btnLogOut = document.querySelector(".btn__log__out");
+console.log($a969998314c3f48f$var$actionValue);
+async function $a969998314c3f48f$export$89c2621768820c8b(event) {
     event.preventDefault();
     const formData = [
-        ...$3f77bd57f4711a86$var$authForm.elements
+        ...$a969998314c3f48f$var$authForm.elements
     ].reduce((formData, element)=>{
         if (element.name) formData[element.name] = element.value;
         return formData;
     }, {});
-    if ($3f77bd57f4711a86$var$isRegMode) {
-        await (0, $iqmmd.createUser)(formData);
+    if ($a969998314c3f48f$var$isRegMode) {
+        await (0, $eJHP4.createUser)(formData);
         console.log("rege");
-        await (0, $iqmmd.signIn)(formData);
-    } else if (!$3f77bd57f4711a86$var$isRegMode) {
-        await (0, $iqmmd.signIn)(formData);
+        await (0, $eJHP4.signIn)(formData);
+    } else if (!$a969998314c3f48f$var$isRegMode) {
+        await (0, $eJHP4.signIn)(formData);
         console.log("log_in");
     }
-    $3f77bd57f4711a86$var$authForm.reset();
-    const curentUser = await (0, $iqmmd.db).auth().currentUser;
+    $a969998314c3f48f$var$authForm.reset();
+    const curentUser = await (0, $eJHP4.db).auth().currentUser;
     console.log(curentUser);
-    $3f77bd57f4711a86$var$userName.textContent = curentUser.displayName;
-    $3f77bd57f4711a86$export$3f6fecd573f3fa48();
+    $a969998314c3f48f$var$userName.textContent = curentUser.displayName;
+    $a969998314c3f48f$export$3f6fecd573f3fa48();
 }
-function $3f77bd57f4711a86$export$a7f6cffb6b8ba11c() {
+function $a969998314c3f48f$export$a7f6cffb6b8ba11c() {
     console.log("openModal1");
-    const currentUser = (0, $iqmmd.db).auth().currentUser;
+    const currentUser = (0, $eJHP4.db).auth().currentUser;
     if (currentUser) {
-        window.location.replace(`${window.location.href}/purchases.html`);
+        window.location.replace(`${window.location.origin}/purchases.html`);
         console.log("window.location");
         console.log(window.location);
         return;
     }
-    $3f77bd57f4711a86$var$authModal.classList.add("open");
-    $3f77bd57f4711a86$var$closeButton.addEventListener("click", $3f77bd57f4711a86$export$3f6fecd573f3fa48);
-    $3f77bd57f4711a86$var$userButton.removeEventListener("click", $3f77bd57f4711a86$export$a7f6cffb6b8ba11c);
+    $a969998314c3f48f$var$authModal.classList.add("open");
+    $a969998314c3f48f$var$closeButton.addEventListener("click", $a969998314c3f48f$export$3f6fecd573f3fa48);
+    $a969998314c3f48f$var$userButton.removeEventListener("click", $a969998314c3f48f$export$a7f6cffb6b8ba11c);
     document.body.style.overflow = "hidden";
 }
-function $3f77bd57f4711a86$export$3f6fecd573f3fa48() {
-    $3f77bd57f4711a86$var$authModal.classList.remove("open");
-    $3f77bd57f4711a86$var$closeButton.removeEventListener("click", $3f77bd57f4711a86$export$3f6fecd573f3fa48);
-    $3f77bd57f4711a86$var$userButton.addEventListener("click", $3f77bd57f4711a86$export$a7f6cffb6b8ba11c);
+function $a969998314c3f48f$export$3f6fecd573f3fa48() {
+    $a969998314c3f48f$var$authModal.classList.remove("open");
+    $a969998314c3f48f$var$closeButton.removeEventListener("click", $a969998314c3f48f$export$3f6fecd573f3fa48);
+    $a969998314c3f48f$var$userButton.addEventListener("click", $a969998314c3f48f$export$a7f6cffb6b8ba11c);
     document.body.style.overflow = "visible";
 }
-function $3f77bd57f4711a86$var$changeForm() {
-    if ($3f77bd57f4711a86$var$isRegMode) {
-        $3f77bd57f4711a86$var$btnChangeForm.textContent = "Registration";
-        $3f77bd57f4711a86$var$userNameForm.classList.add("hiden");
-        $3f77bd57f4711a86$var$btnChangeForm.setAttribute("data-action", "log_in");
-        $3f77bd57f4711a86$var$title.textContent = "Log in";
-        $3f77bd57f4711a86$var$actionText.textContent = "Don`t have account?";
-        $3f77bd57f4711a86$var$usernameInput.removeAttribute("required");
-        $3f77bd57f4711a86$var$authForm.reset();
-        $3f77bd57f4711a86$var$isRegMode = false;
+function $a969998314c3f48f$var$changeForm() {
+    if ($a969998314c3f48f$var$isRegMode) {
+        $a969998314c3f48f$var$btnChangeForm.textContent = "Registration";
+        $a969998314c3f48f$var$userNameForm.classList.add("hiden");
+        $a969998314c3f48f$var$btnChangeForm.setAttribute("data-action", "log_in");
+        $a969998314c3f48f$var$title.textContent = "Log in";
+        $a969998314c3f48f$var$actionText.textContent = "Don`t have account?";
+        $a969998314c3f48f$var$usernameInput.removeAttribute("required");
+        $a969998314c3f48f$var$authForm.reset();
+        $a969998314c3f48f$var$isRegMode = false;
     } else {
-        $3f77bd57f4711a86$var$btnChangeForm.textContent = "Log in";
-        $3f77bd57f4711a86$var$btnChangeForm.setAttribute("data-action", "reg");
-        $3f77bd57f4711a86$var$userNameForm.classList.remove("hiden");
-        $3f77bd57f4711a86$var$title.textContent = "Registration";
-        $3f77bd57f4711a86$var$actionText.textContent = "Already have account?";
-        $3f77bd57f4711a86$var$authForm.reset();
-        $3f77bd57f4711a86$var$isRegMode = true;
+        $a969998314c3f48f$var$btnChangeForm.textContent = "Log in";
+        $a969998314c3f48f$var$btnChangeForm.setAttribute("data-action", "reg");
+        $a969998314c3f48f$var$userNameForm.classList.remove("hiden");
+        $a969998314c3f48f$var$title.textContent = "Registration";
+        $a969998314c3f48f$var$actionText.textContent = "Already have account?";
+        $a969998314c3f48f$var$authForm.reset();
+        $a969998314c3f48f$var$isRegMode = true;
     }
 }
-$3f77bd57f4711a86$var$userButton.addEventListener("click", $3f77bd57f4711a86$export$a7f6cffb6b8ba11c);
-$3f77bd57f4711a86$var$authForm.addEventListener("submit", $3f77bd57f4711a86$export$89c2621768820c8b);
-$3f77bd57f4711a86$var$btnChangeForm.addEventListener("click", $3f77bd57f4711a86$var$changeForm);
+$a969998314c3f48f$var$userButton.addEventListener("click", $a969998314c3f48f$export$a7f6cffb6b8ba11c);
+$a969998314c3f48f$var$authForm.addEventListener("submit", $a969998314c3f48f$export$89c2621768820c8b);
+$a969998314c3f48f$var$btnChangeForm.addEventListener("click", $a969998314c3f48f$var$changeForm);
 document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") $3f77bd57f4711a86$export$3f6fecd573f3fa48();
+    if (event.key === "Escape") $a969998314c3f48f$export$3f6fecd573f3fa48();
 });
-$3f77bd57f4711a86$var$authModal.addEventListener("click", function(event) {
-    if (event.target === $3f77bd57f4711a86$var$authModal) $3f77bd57f4711a86$export$3f6fecd573f3fa48();
+$a969998314c3f48f$var$authModal.addEventListener("click", function(event) {
+    if (event.target === $a969998314c3f48f$var$authModal) $a969998314c3f48f$export$3f6fecd573f3fa48();
 });
 
 
@@ -886,5 +887,5 @@ $3f77bd57f4711a86$var$authModal.addEventListener("click", function(event) {
  //    }
  //    }
 
-
-//# sourceMappingURL=index.2861846b.js.map
+})();
+//# sourceMappingURL=index.eb42e4d5.js.map

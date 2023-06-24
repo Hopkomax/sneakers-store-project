@@ -1,4 +1,3 @@
-(function () {
 var $parcel$global =
 typeof globalThis !== 'undefined'
   ? globalThis
@@ -37,7 +36,7 @@ if (parcelRequire == null) {
 
   $parcel$global["parcelRequire7084"] = parcelRequire;
 }
-parcelRequire.register("4xiPt", function(module, exports) {
+parcelRequire.register("svd5d", function(module, exports) {
 (function() {
     /** Used as a safe reference for `undefined` in pre-ES5 environments. */ var undefined;
     /** Used as the semantic version number. */ var VERSION = "4.17.21";
@@ -14270,14 +14269,14 @@ parcelRequire.register("4xiPt", function(module, exports) {
 
 });
 
-parcelRequire("j5HDT");
+parcelRequire("1iJ0s");
 
-var $lGpGj = parcelRequire("lGpGj");
+var $03Y6j = parcelRequire("03Y6j");
 
-var $30aga = parcelRequire("30aga");
+var $2wACO = parcelRequire("2wACO");
 
-var $iDdm1 = parcelRequire("iDdm1");
-function $0ff4aedaabdabfe3$export$2e2bcd8739ae039(items) {
+var $d9MTO = parcelRequire("d9MTO");
+function $bda1df280237c685$export$2e2bcd8739ae039(items) {
     const markup = items.map(({ order: order , createdAt: createdAt  })=>{
         console.log(createdAt);
         const normalDate = new Date(createdAt.toDate()).toLocaleString("en-GB", {
@@ -14315,8 +14314,8 @@ function $0ff4aedaabdabfe3$export$2e2bcd8739ae039(items) {
  // })
 
 
-parcelRequire("103Hm");
-function $96606eaac26dde88$export$1d64ff822c743c19() {
+parcelRequire("ZMfkQ");
+function $d850ae1270f62831$export$1d64ff822c743c19() {
     return `<div class="emptyContentPurchases__wrapper" >
     <div class="emptyContentPurchases__img">🥺</div>
     <h3 class="emptyContentPurchases__title">Purchases not found</h3>
@@ -14329,47 +14328,47 @@ function $96606eaac26dde88$export$1d64ff822c743c19() {
 
 
 
-var $eJHP4 = parcelRequire("eJHP4");
-parcelRequire("8cZNZ");
-parcelRequire("4xiPt");
+var $iqmmd = parcelRequire("iqmmd");
+parcelRequire("lo6ue");
+parcelRequire("svd5d");
 // import { openModal } from './handleAuthForm';
-const $59ec8db264053c46$var$list = document.querySelector(".purchasesList__list");
-const $59ec8db264053c46$var$headerGroup = document.querySelector(".header__user__icons__group");
-const $59ec8db264053c46$var$btnLogOut = document.querySelector(".btn__log__out");
-(0, $lGpGj.setThemeOnLoad)();
-(0, $eJHP4.db).auth().onAuthStateChanged((user)=>{
+const $a4959b174543b015$var$list = document.querySelector(".purchasesList__list");
+const $a4959b174543b015$var$headerGroup = document.querySelector(".header__user__icons__group");
+const $a4959b174543b015$var$btnLogOut = document.querySelector(".btn__log__out");
+(0, $03Y6j.setThemeOnLoad)();
+(0, $iqmmd.db).auth().onAuthStateChanged((user)=>{
     if (user) {
         console.log(" USER =>", user);
-        (0, $iDdm1.setActualPriceIntoHeader)();
+        (0, $d9MTO.setActualPriceIntoHeader)();
         console.log(" USER =>", user);
         document.querySelector(".header__user__user__name").textContent = user.displayName;
-        $59ec8db264053c46$var$headerGroup.classList.add("visible");
-        $59ec8db264053c46$var$btnLogOut.classList.add("visible");
+        $a4959b174543b015$var$headerGroup.classList.add("visible");
+        $a4959b174543b015$var$btnLogOut.classList.add("visible");
         console.log(user.displayName);
     } else {
-        $59ec8db264053c46$var$headerGroup.classList.remove("visible");
-        $59ec8db264053c46$var$btnLogOut.classList.remove("visible");
+        $a4959b174543b015$var$headerGroup.classList.remove("visible");
+        $a4959b174543b015$var$btnLogOut.classList.remove("visible");
     }
 });
-document.querySelector(".theme__switch").addEventListener("change", (0, $lGpGj.themeSwitch));
-document.addEventListener("click", (0, $30aga.modalHandler));
-$59ec8db264053c46$var$btnLogOut.addEventListener("click", ()=>{
-    (0, $eJHP4.signOut)().then(()=>{
-        (0, $eJHP4.db).auth().onAuthStateChanged((user)=>{
+document.querySelector(".theme__switch").addEventListener("change", (0, $03Y6j.themeSwitch));
+document.addEventListener("click", (0, $2wACO.modalHandler));
+$a4959b174543b015$var$btnLogOut.addEventListener("click", ()=>{
+    (0, $iqmmd.signOut)().then(()=>{
+        (0, $iqmmd.db).auth().onAuthStateChanged((user)=>{
             if (!user) window.location.href = "index.html";
         });
     });
 });
 // const userButton = document.querySelector('.header__user__icon__user');
-function $59ec8db264053c46$var$handleAuthStateChanged(user) {
-    if (user) (0, $eJHP4.db).firestore().collection("orders").where("userId", "==", (0, $eJHP4.db).auth().currentUser.uid).onSnapshot((snapshot)=>{
+function $a4959b174543b015$var$handleAuthStateChanged(user) {
+    if (user) (0, $iqmmd.db).firestore().collection("orders").where("userId", "==", (0, $iqmmd.db).auth().currentUser.uid).onSnapshot((snapshot)=>{
         const orders = snapshot.docs.map((doc)=>doc.data()) || [];
         console.log(orders);
         orders.forEach(({ order: order , createdAt: createdAt  })=>{
             console.log(order, createdAt);
         });
         // const purchases = JSON.parse(localStorage.getItem('purchases')) || [];
-        if (orders.length === 0) $59ec8db264053c46$var$emptyPurchases();
+        if (orders.length === 0) $a4959b174543b015$var$emptyPurchases();
         else //       <li>
         //   <p>10.06</p>
         //   <ul>
@@ -14386,16 +14385,16 @@ function $59ec8db264053c46$var$handleAuthStateChanged(user) {
         //   </ul>
         // </li>`
         // })
-        $59ec8db264053c46$var$list.insertAdjacentHTML("afterbegin", (0, $0ff4aedaabdabfe3$export$2e2bcd8739ae039)(orders));
+        $a4959b174543b015$var$list.insertAdjacentHTML("afterbegin", (0, $bda1df280237c685$export$2e2bcd8739ae039)(orders));
     }, (error)=>{
         console.log("Помилка отримання даних:", error);
     });
 }
-(0, $eJHP4.db).auth().onAuthStateChanged($59ec8db264053c46$var$handleAuthStateChanged);
-function $59ec8db264053c46$var$emptyPurchases() {
+(0, $iqmmd.db).auth().onAuthStateChanged($a4959b174543b015$var$handleAuthStateChanged);
+function $a4959b174543b015$var$emptyPurchases() {
     const purchasesList = document.querySelector(".purchasesList__list");
-    purchasesList.innerHTML = (0, $96606eaac26dde88$export$1d64ff822c743c19)();
-} // userButton.addEventListener('click', openModal);
+    purchasesList.innerHTML = (0, $d850ae1270f62831$export$1d64ff822c743c19)();
+}
 
-})();
-//# sourceMappingURL=purchases.b42eead4.js.map
+
+//# sourceMappingURL=purchases.adfaf32b.js.map
