@@ -737,7 +737,9 @@ function $a969998314c3f48f$export$a7f6cffb6b8ba11c() {
     console.log("openModal1");
     const currentUser = (0, $eJHP4.db).auth().currentUser;
     if (currentUser) {
-        window.location.replace(`${window.location.origin}/sneakers-store-project/purchases.html`);
+        const currentPath = window.location.pathname;
+        const basePath = currentPath.endsWith("/index.html") ? currentPath.slice(0, -10) : currentPath;
+        window.location.replace(`${window.location.origin}${basePath}/purchases.html`);
         console.log("window.location");
         console.log(window.location);
         return;
@@ -888,4 +890,4 @@ $a969998314c3f48f$var$authModal.addEventListener("click", function(event) {
  //    }
 
 })();
-//# sourceMappingURL=index.2e64d511.js.map
+//# sourceMappingURL=index.cb82f363.js.map
