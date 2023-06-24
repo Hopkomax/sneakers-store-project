@@ -736,7 +736,7 @@ function $3f77bd57f4711a86$export$a7f6cffb6b8ba11c() {
     console.log("openModal1");
     const currentUser = (0, $iqmmd.db).auth().currentUser;
     if (currentUser) {
-        window.location.replace(`${window.location.href}/purchases.html`);
+        window.location.replace(`${window.location.origin}/sneakers-store-project/purchases.html`);
         console.log("window.location");
         console.log(window.location);
         return;
@@ -887,4 +887,4 @@ $3f77bd57f4711a86$var$authModal.addEventListener("click", function(event) {
  //    }
 
 
-//# sourceMappingURL=index.2861846b.js.map
+//# sourceMappingURL=index.fca0032c.js.map
