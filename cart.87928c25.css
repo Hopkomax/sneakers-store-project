@@ -28,6 +28,7 @@
   --header-user-color: #5c5c5c;
   --header-user-slider-color: #fff;
   --sneaker-inCart-color: #111321;
+  --InPurchases-text-color: #000;
 }
 
 :root .dark {
@@ -55,6 +56,7 @@
   --header-user-color: #e6e6e6;
   --header-user-slider-color: #111321;
   --sneaker-inCart-color: #111321;
+  --InPurchases-text-color: #fff;
 }
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -1512,8 +1514,8 @@ ul {
 }
 
 .sneaker__InPurchases__item {
-  background-color: #fff;
-  border: 1px solid #f3f3f3;
+  background: var(--card-color);
+  border: 1px solid var(--card-border-color);
   border-radius: 20px;
   flex-direction: column;
   align-items: center;
@@ -1529,7 +1531,7 @@ ul {
 }
 
 .sneaker__InPurchases__description {
-  color: var(--text-color);
+  color: var(--InPurchases-text-color);
   flex-direction: column;
   gap: 8px;
   display: flex;
@@ -1737,4 +1739,4 @@ button:hover {
   background-color: var(--modal-background-color);
 }
 
-/*# sourceMappingURL=cart.ac5fc91a.css.map */
+/*# sourceMappingURL=cart.87928c25.css.map */
