@@ -249,6 +249,7 @@ $a969998314c3f48f$var$authModal.addEventListener("click", function(event) {
 
 var $eJHP4 = parcelRequire("eJHP4");
 parcelRequire("8cZNZ");
+// import { handleCart } from './handleCart';
 const $448c8bee6521701e$var$headerGroup = document.querySelector(".header__user__icons__group");
 const $448c8bee6521701e$var$btnLogOut = document.querySelector(".btn__log__out");
 (0, $eJHP4.db).auth().onAuthStateChanged((user)=>{
@@ -284,7 +285,7 @@ const $448c8bee6521701e$var$userButton = document.querySelector(".header__user__
 $448c8bee6521701e$var$userButton.addEventListener("click", (0, $a969998314c3f48f$export$a7f6cffb6b8ba11c));
 const $448c8bee6521701e$var$list = document.querySelector(".favoritesList__list");
 $448c8bee6521701e$var$list.addEventListener("click", $448c8bee6521701e$var$handleFavorites);
-$448c8bee6521701e$var$list.addEventListener("click", (0, $9jwmw.handleCart));
+$448c8bee6521701e$var$list.addEventListener("click", $448c8bee6521701e$var$handleCart);
 function $448c8bee6521701e$var$handleAuthStateChanged(user) {
     if (user) {
         console.log("USER =>", user);
@@ -333,7 +334,7 @@ async function $448c8bee6521701e$var$handleFavorites(event) {
         console.log("Помилка при отриманні даних з колекції:", error);
     });
 }
-async function $9jwmw.handleCart(event) {
+async function $448c8bee6521701e$var$handleCart(event) {
     const cart = event.target;
     if (cart.classList.contains("sneaker__add__button")) {
         const sneakerId = cart.parentNode.parentNode.id;
@@ -362,4 +363,4 @@ async function $9jwmw.handleCart(event) {
 }
 
 })();
-//# sourceMappingURL=favorites.760c89a7.js.map
+//# sourceMappingURL=favorites.1003c928.js.map
