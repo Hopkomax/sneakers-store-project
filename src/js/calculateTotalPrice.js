@@ -22,15 +22,25 @@ export async function calculateTotalPrice() {
 export async function setActualPriceIntoHeader() {
   const priceEl = document.querySelector('.header__user__icon__cart span');
   let price = priceEl.textContent.split('\n')[0];
-  price = await calculateTotalPrice() + ' ' + 'UAH';
+
+  // Перевірка, чи користувач увійшов у систему
+  if (db.auth().currentUser) {
+    const totalPrice = await calculateTotalPrice();
+    price = totalPrice + ' ' + 'UAH';
+  }
+
   priceEl.textContent = price;
 }
 
 export async function setActualPriceIntoCart() {
   const priceElement = document.querySelector('.sneaker__inCart__totalAmount').lastElementChild;
   const taxElement = document.querySelector('.sneaker__inCart__taxes').lastElementChild;
-  const totalPrice = await calculateTotalPrice();
-  const tax = ((totalPrice * 5) / 100).toFixed(2);
-  priceElement.textContent = totalPrice + ' ' + 'UAH';
-  taxElement.textContent = parseFloat(tax) + ' ' + 'UAH';
+
+  // Перевірка, чи користувач увійшов у систему
+  if (db.auth().currentUser) {
+    const totalPrice = await calculateTotalPrice();
+    const tax = ((totalPrice * 5) / 100).toFixed(2);
+    priceElement.textContent = totalPrice + ' ' + 'UAH';
+    taxElement.textContent = parseFloat(tax) + ' ' + 'UAH';
+  }
 }
