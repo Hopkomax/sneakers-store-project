@@ -1529,6 +1529,7 @@ ul {
 }
 
 .sneaker__InPurchases__description {
+  color: var(--text-color);
   flex-direction: column;
   gap: 8px;
   display: flex;
@@ -1736,4 +1737,4 @@ button:hover {
   background-color: var(--modal-background-color);
 }
 
-/*# sourceMappingURL=cart.6d0ef7dc.css.map */
+/*# sourceMappingURL=cart.ac5fc91a.css.map */
