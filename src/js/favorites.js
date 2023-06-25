@@ -10,7 +10,7 @@ import './mobileMenu';
 import { openModal } from './handleAuthForm';
 import { db, signOut } from '../firebase';
 import 'firebase/compat/firestore';
-import { handleCart } from './handleCart';
+// import { handleCart } from './handleCart';
 
 const headerGroup = document.querySelector('.header__user__icons__group');
 const btnLogOut = document.querySelector('.btn__log__out');
