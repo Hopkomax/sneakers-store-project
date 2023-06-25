@@ -15,7 +15,8 @@
   border-radius: 10px;
 }
 .sneaker__InPurchases__description {
-    display: flex;
+  color: var(--text-color);
+      display: flex;
     flex-direction: column;
     gap: 8px;
     & h3 {
