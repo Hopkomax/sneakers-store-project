@@ -11,6 +11,7 @@ import 'firebase/compat/firestore';
 import { forEach } from 'lodash';
 
 // import { openModal } from './handleAuthForm';
+import './mobileMenu';
 
 const list = document.querySelector('.purchasesList__list');
 const headerGroup = document.querySelector('.header__user__icons__group');
@@ -20,7 +21,6 @@ setThemeOnLoad();
 db.auth().onAuthStateChanged(user => {
   if (user) {
     console.log(' USER =>', user);
-
     setActualPriceIntoHeader();
 
     console.log(' USER =>', user);

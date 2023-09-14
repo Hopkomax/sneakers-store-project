@@ -37,7 +37,12 @@ export async function handleSubmit(event) {
   authForm.reset();
   const curentUser = await db.auth().currentUser;
   console.log(curentUser);
-  userName.textContent = curentUser.displayName;
+  if (curentUser) {
+    console.log(curentUser);
+    userName.textContent = curentUser.displayName;
+  } else {
+    console.log('user not found');
+  }
   closeModal();
 }
 
@@ -52,7 +57,8 @@ export function openModal() {
     const newURL = `${window.location.origin}${basePath}/purchases.html`;
     const finalURL = newURL.replace('/favorites.html', '');
     
-    window.location.replace(finalURL);        console.log('window.location');
+    window.location.replace(finalURL);        
+    console.log('window.location');
     console.log(window.location);
     return;
   }

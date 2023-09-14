@@ -12,9 +12,21 @@
     <!-- <include src="./templates/favoritesList.html"></include> -->
     <include src="./templates/cartList.html"></include>
 
-    <include src="./templates/purchasesList.html"></include>
+    <!-- <include src="./templates/purchasesList.html"></include> -->
+    
+     <div id="react-container"></div>
+     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+ 
+    <script type="module">
+      import React from 'react';
+      import { createRoot } from 'react-dom/client';
+      import PurchasesPage from './PurchasesPage/PurchasesPage'
 
-    <script src="./js/purchases.js" type="module"></script>
+      const root = createRoot(document.getElementById('react-container'));
+root.render(<PurchasesPage />);
+    </script> 
+    <!-- <script src="./js/purchases.js" type="module"></script> -->
 
   </body>
 </html>

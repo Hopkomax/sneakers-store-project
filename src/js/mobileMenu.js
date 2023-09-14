@@ -15,6 +15,7 @@
   });
   
   
+  
   window.addEventListener(
     "resize", () => {
       if (document.body.clientWidth > 1200) {
@@ -29,4 +30,3 @@
     },
     { passive: false }
   );
-  

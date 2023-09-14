@@ -38,6 +38,7 @@ setTimeout(() => {
 
     console.log(' USER =>', user);
     document.querySelector('.header__user__user__name').textContent = user.displayName;
+  
     headerGroup.classList.add('visible');
       btnLogOut.classList.add('visible');
 

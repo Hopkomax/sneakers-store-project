@@ -152,6 +152,7 @@
     }
   }
   .header__user__icon__user {
+
     &::after {
       content: 'User';
       padding-left: 10px;
@@ -297,4 +298,5 @@ input:checked + .round::before {
 .header__user__user__name {
   margin-right: 25px;
   color: var(--header-user-color);
+  text-transform: capitalize;
 }
