@@ -1,3 +1,4 @@
+(function () {
 function $parcel$export(e, n, v, s) {
   Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
 }
@@ -42,10 +43,10 @@ if (parcelRequire == null) {
 
   $parcel$global["parcelRequire7084"] = parcelRequire;
 }
-parcelRequire.register("1iJ0s", function(module, exports) {
+parcelRequire.register("j5HDT", function(module, exports) {
 
-$parcel$export(module.exports, "default", function () { return $0f2a623c2774378d$export$2e2bcd8739ae039; });
-function $0f2a623c2774378d$export$2e2bcd8739ae039(items) {
+$parcel$export(module.exports, "default", function () { return $de60566cd0384743$export$2e2bcd8739ae039; });
+function $de60566cd0384743$export$2e2bcd8739ae039(items) {
     const markup = items.map(({ title: title, images: images, price: price, id: id })=>{
         const formatedTitle = title.slice(0, 23) + "...";
         return `<li class='sneaker__item' id = "${id}">
@@ -71,80 +72,14 @@ function $0f2a623c2774378d$export$2e2bcd8739ae039(items) {
 
 });
 
-parcelRequire.register("4GMN4", function(module, exports) {
+parcelRequire.register("9FS1E", function(module, exports) {
 
-$parcel$export(module.exports, "handleFavorites", function () { return $36a0ee730425f3c7$export$4be896189efc8c9f; });
-$parcel$export(module.exports, "setFavoritesOnload", function () { return $36a0ee730425f3c7$export$29284ae2149307d8; });
+$parcel$export(module.exports, "getSneakers", function () { return $70b1d9c235de254b$export$3ef7560edd391c4a; });
+$parcel$export(module.exports, "findSneakers", function () { return $70b1d9c235de254b$export$7d9f49ff9b9deb6b; });
+$parcel$export(module.exports, "getSneakerById", function () { return $70b1d9c235de254b$export$a99e8a841c7e62c1; });
 
-var $lDONj = parcelRequire("lDONj");
-
-var $iqmmd = parcelRequire("iqmmd");
-parcelRequire("lo6ue");
-
-var $cm2nk = parcelRequire("cm2nk");
-async function $36a0ee730425f3c7$export$4be896189efc8c9f(event) {
-    const heart = event.target;
-    // console.log('heart', heart);
-    if (heart.classList.contains("sneaker__heart__button")) {
-        console.log("heart", heart);
-        await (0, $iqmmd.db).auth().onAuthStateChanged(async (user)=>{
-            if (user) {
-                const sneaker = heart.closest("li");
-                const selectedSneaker = await (0, $lDONj.getSneakerById)(sneaker.id) || {};
-                // const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-                if (heart.classList.contains("active")) {
-                    // const updatedFavorites = favorites.filter(({ id }) => id !== sneaker.id);
-                    // localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-                    heart.classList.remove("active");
-                    // work with FIREBASE
-                    const docId = await (0, $iqmmd.db).firestore().collection("favorites").get();
-                    docId.forEach(async (item)=>{
-                        const currentSneaker = item.data();
-                        if (currentSneaker.id === selectedSneaker.id) await (0, $iqmmd.db).firestore().collection("favorites").doc(item.id).delete();
-                    });
-                    return;
-                }
-                heart.classList.add("active");
-                // favorites.push(selectedSneaker);
-                // localStorage.setItem('favorites', JSON.stringify(favorites));
-                // add sneakers to FIREBASE
-                await (0, $iqmmd.db).firestore().collection("favorites").add({
-                    ...selectedSneaker,
-                    userId: (0, $iqmmd.db).auth().currentUser.uid
-                });
-            } else {
-                console.log("зареєструйся");
-                (0, (/*@__PURE__*/$parcel$interopDefault($cm2nk))).fire("Please log in");
-            }
-        });
-    }
-}
-function $36a0ee730425f3c7$export$29284ae2149307d8() {
-    const currentUser = (0, $iqmmd.db).auth().currentUser;
-    if (!currentUser) return;
-    (0, $iqmmd.db).firestore().collection("favorites").where("userId", "==", currentUser.uid).onSnapshot((snapshot)=>{
-        const favorites = snapshot.docs.map((doc)=>doc.data()) || [];
-        document.querySelectorAll(".sneaker__heart__button.active").forEach((item)=>item.classList.remove("active"));
-        for (const { id: id } of favorites){
-            const item = document.getElementById(id);
-            if (!item) continue;
-            const heartButton = item.querySelector(".sneaker__heart__button");
-            heartButton.classList.add("active");
-        }
-    }, (error)=>{
-        console.log("Помилка отримання даних:", error);
-    });
-}
-
-});
-parcelRequire.register("lDONj", function(module, exports) {
-
-$parcel$export(module.exports, "getSneakers", function () { return $fc14a43744015c7e$export$3ef7560edd391c4a; });
-$parcel$export(module.exports, "findSneakers", function () { return $fc14a43744015c7e$export$7d9f49ff9b9deb6b; });
-$parcel$export(module.exports, "getSneakerById", function () { return $fc14a43744015c7e$export$a99e8a841c7e62c1; });
-
-const $fc14a43744015c7e$var$BASE_URL = "https://sneakers-store-project.onrender.com";
-const $fc14a43744015c7e$export$3ef7560edd391c4a = async ()=>{
+const $70b1d9c235de254b$var$BASE_URL = "https://sneakers-store-project.onrender.com";
+const $70b1d9c235de254b$export$3ef7560edd391c4a = async ()=>{
     // variant 1
     // const { data } = await axios.get('/contcts')
     // return data;
@@ -152,24 +87,24 @@ const $fc14a43744015c7e$export$3ef7560edd391c4a = async ()=>{
     // const data = await fetch(`${BASE_URL}/contacts`)
     // return await data.json();
     // variant 3
-    const response = await fetch(`${$fc14a43744015c7e$var$BASE_URL}/sneakers`);
+    const response = await fetch(`${$70b1d9c235de254b$var$BASE_URL}/sneakers`);
     return response.json();
 };
-const $fc14a43744015c7e$export$7d9f49ff9b9deb6b = async (query)=>{
+const $70b1d9c235de254b$export$7d9f49ff9b9deb6b = async (query)=>{
     // return fetch(`${BASE_URL}/sneakers?title_like=${query}`).then(response => response.json());
-    const response = await fetch(`${$fc14a43744015c7e$var$BASE_URL}/sneakers?title_like=${query}`);
+    const response = await fetch(`${$70b1d9c235de254b$var$BASE_URL}/sneakers?title_like=${query}`);
     return response.json();
 };
-const $fc14a43744015c7e$export$a99e8a841c7e62c1 = async (id)=>{
-    const response = await fetch(`${$fc14a43744015c7e$var$BASE_URL}/sneakers/${id}`);
+const $70b1d9c235de254b$export$a99e8a841c7e62c1 = async (id)=>{
+    const response = await fetch(`${$70b1d9c235de254b$var$BASE_URL}/sneakers/${id}`);
     return response.json();
 };
 
 });
 
-parcelRequire.register("cm2nk", function(module, exports) {
+parcelRequire.register("1wyha", function(module, exports) {
 /*!
-* sweetalert2 v11.7.27
+* sweetalert2 v11.7.28
 * Released under the MIT License.
 */ (function(global, factory) {
     module.exports = factory();
@@ -230,18 +165,6 @@ parcelRequire.register("cm2nk", function(module, exports) {
             }, RESTORE_FOCUS_TIMEOUT); // issues/900
             window.scrollTo(x, y);
         });
-    };
-    /**
-   * This module contains `WeakMap`s for each effectively-"private  property" that a `Swal` has.
-   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
-   * This is the approach that Babel will probably take to implement private methods/fields
-   *   https://github.com/tc39/proposal-private-methods
-   *   https://github.com/babel/babel/pull/7555
-   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
-   *   then we can use that language feature.
-   */ var privateProps = {
-        innerParams: new WeakMap(),
-        domCache: new WeakMap()
     };
     const swalPrefix = "swal2-";
     /**
@@ -638,7 +561,7 @@ parcelRequire.register("cm2nk", function(module, exports) {
     };
     /**
    * @param {HTMLElement} popup
-   * @param {import('./renderers/renderInput').InputClass} inputClass
+   * @param {import('./renderers/renderInput').InputClass | SweetAlertInput} inputClass
    * @returns {HTMLInputElement | null}
    */ const getInput$1 = (popup, inputClass)=>{
         if (!inputClass) return null;
@@ -1062,6 +985,18 @@ parcelRequire.register("cm2nk", function(module, exports) {
         if (!grow) return;
         addClass(container, swalClasses["grow-".concat(grow)]);
     }
+    /**
+   * This module contains `WeakMap`s for each effectively-"private  property" that a `Swal` has.
+   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
+   * This is the approach that Babel will probably take to implement private methods/fields
+   *   https://github.com/tc39/proposal-private-methods
+   *   https://github.com/babel/babel/pull/7555
+   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
+   *   then we can use that language feature.
+   */ var privateProps = {
+        innerParams: new WeakMap(),
+        domCache: new WeakMap()
+    };
     /// <reference path="../../../../sweetalert2.d.ts"/>
     /** @type {InputClass[]} */ const inputClasses = [
         "input",
@@ -1580,14 +1515,13 @@ parcelRequire.register("cm2nk", function(module, exports) {
         }
     };
     /**
-   * @param {SweetAlert} instance
    * @param {GlobalState} globalState
    * @param {SweetAlertOptions} innerParams
    * @param {*} dismissWith
-   */ const addKeydownHandler = (instance, globalState, innerParams, dismissWith)=>{
+   */ const addKeydownHandler = (globalState, innerParams, dismissWith)=>{
         removeKeydownHandler(globalState);
         if (!innerParams.toast) {
-            globalState.keydownHandler = (e)=>keydownHandler(instance, e, dismissWith);
+            globalState.keydownHandler = (e)=>keydownHandler(innerParams, e, dismissWith);
             globalState.keydownTarget = innerParams.keydownListenerCapture ? window : getPopup();
             globalState.keydownListenerCapture = innerParams.keydownListenerCapture;
             globalState.keydownTarget.addEventListener("keydown", globalState.keydownHandler, {
@@ -1600,6 +1534,7 @@ parcelRequire.register("cm2nk", function(module, exports) {
    * @param {number} index
    * @param {number} increment
    */ const setFocus = (index, increment)=>{
+        var _dom$getPopup;
         const focusableElements = getFocusableElements();
         // search for visible elements and select the next possible match
         if (focusableElements.length) {
@@ -1611,7 +1546,7 @@ parcelRequire.register("cm2nk", function(module, exports) {
             return;
         }
         // no visible focusable elements, focus the popup
-        getPopup().focus();
+        (_dom$getPopup = getPopup()) === null || _dom$getPopup === void 0 || _dom$getPopup.focus();
     };
     const arrowKeysNextButton = [
         "ArrowRight",
@@ -1622,11 +1557,10 @@ parcelRequire.register("cm2nk", function(module, exports) {
         "ArrowUp"
     ];
     /**
-   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} innerParams
    * @param {KeyboardEvent} event
    * @param {Function} dismissWith
-   */ const keydownHandler = (instance, event, dismissWith)=>{
-        const innerParams = privateProps.innerParams.get(instance);
+   */ const keydownHandler = (innerParams, event, dismissWith)=>{
         if (!innerParams) return; // This instance has already been destroyed
         // Ignore keydown during IME composition
         // https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event#ignoring_keydown_during_ime_composition
@@ -1635,7 +1569,7 @@ parcelRequire.register("cm2nk", function(module, exports) {
         if (event.isComposing || event.keyCode === 229) return;
         if (innerParams.stopKeydownPropagation) event.stopPropagation();
         // ENTER
-        if (event.key === "Enter") handleEnter(instance, event, innerParams);
+        if (event.key === "Enter") handleEnter(event, innerParams);
         else if (event.key === "Tab") handleTab(event);
         else if ([
             ...arrowKeysNextButton,
@@ -1644,13 +1578,13 @@ parcelRequire.register("cm2nk", function(module, exports) {
         else if (event.key === "Escape") handleEsc(event, innerParams, dismissWith);
     };
     /**
-   * @param {SweetAlert} instance
    * @param {KeyboardEvent} event
    * @param {SweetAlertOptions} innerParams
-   */ const handleEnter = (instance, event, innerParams)=>{
+   */ const handleEnter = (event, innerParams)=>{
         // https://github.com/sweetalert2/sweetalert2/issues/2386
         if (!callIfFunction(innerParams.allowEnterKey)) return;
-        if (event.target && instance.getInput() && event.target instanceof HTMLElement && event.target.outerHTML === instance.getInput().outerHTML) {
+        const input = getInput$1(getPopup(), innerParams.input);
+        if (event.target && input && event.target instanceof HTMLElement && event.target.outerHTML === input.outerHTML) {
             if ([
                 "textarea",
                 "file"
@@ -1678,9 +1612,11 @@ parcelRequire.register("cm2nk", function(module, exports) {
     /**
    * @param {string} key
    */ const handleArrows = (key)=>{
+        const actions = getActions();
         const confirmButton = getConfirmButton();
         const denyButton = getDenyButton();
         const cancelButton = getCancelButton();
+        if (!actions || !confirmButton || !denyButton || !cancelButton) return;
         /** @type HTMLElement[] */ const buttons = [
             confirmButton,
             denyButton,
@@ -1689,7 +1625,8 @@ parcelRequire.register("cm2nk", function(module, exports) {
         if (document.activeElement instanceof HTMLElement && !buttons.includes(document.activeElement)) return;
         const sibling = arrowKeysNextButton.includes(key) ? "nextElementSibling" : "previousElementSibling";
         let buttonToFocus = document.activeElement;
-        for(let i = 0; i < getActions().children.length; i++){
+        if (!buttonToFocus) return;
+        for(let i = 0; i < actions.children.length; i++){
             buttonToFocus = buttonToFocus[sibling];
             if (!buttonToFocus) return;
             if (buttonToFocus instanceof HTMLButtonElement && isVisible$1(buttonToFocus)) break;
@@ -2253,7 +2190,7 @@ parcelRequire.register("cm2nk", function(module, exports) {
     };
     /**
    * @param {SweetAlert} instance
-   * @param {SweetAlertInputValue | null} inputValue
+   * @param {SweetAlertInputValue} inputValue
    * @param {'confirm' | 'deny'} type
    */ const handleInputValidator = (instance, inputValue, type)=>{
         const innerParams = privateProps.innerParams.get(instance);
@@ -2418,6 +2355,7 @@ parcelRequire.register("cm2nk", function(module, exports) {
    * Show block with validation message
    *
    * @param {string} error
+   * @this {SweetAlert}
    */ function showValidationMessage(error) {
         const domCache = privateProps.domCache.get(this);
         const params = privateProps.innerParams.get(this);
@@ -2427,7 +2365,7 @@ parcelRequire.register("cm2nk", function(module, exports) {
         show(domCache.validationMessage);
         const input = this.getInput();
         if (input) {
-            input.setAttribute("aria-invalid", true);
+            input.setAttribute("aria-invalid", "true");
             input.setAttribute("aria-describedby", swalClasses["validation-message"]);
             focusInput(input);
             addClass(input, swalClasses.inputerror);
@@ -2435,6 +2373,8 @@ parcelRequire.register("cm2nk", function(module, exports) {
     }
     /**
    * Hide block with validation message
+   *
+   * @this {SweetAlert}
    */ function resetValidationMessage() {
         const domCache = privateProps.domCache.get(this);
         if (domCache.validationMessage) hide(domCache.validationMessage);
@@ -2763,34 +2703,42 @@ parcelRequire.register("cm2nk", function(module, exports) {
         showValidationMessage: showValidationMessage,
         update: update
     });
-    const handlePopupClick = (instance, domCache, dismissWith)=>{
-        const innerParams = privateProps.innerParams.get(instance);
-        if (innerParams.toast) handleToastClick(instance, domCache, dismissWith);
+    /**
+   * @param {SweetAlertOptions} innerParams
+   * @param {DomCache} domCache
+   * @param {Function} dismissWith
+   */ const handlePopupClick = (innerParams, domCache, dismissWith)=>{
+        if (innerParams.toast) handleToastClick(innerParams, domCache, dismissWith);
         else {
             // Ignore click events that had mousedown on the popup but mouseup on the container
             // This can happen when the user drags a slider
             handleModalMousedown(domCache);
             // Ignore click events that had mousedown on the container but mouseup on the popup
             handleContainerMousedown(domCache);
-            handleModalClick(instance, domCache, dismissWith);
+            handleModalClick(innerParams, domCache, dismissWith);
         }
     };
-    const handleToastClick = (instance, domCache, dismissWith)=>{
+    /**
+   * @param {SweetAlertOptions} innerParams
+   * @param {DomCache} domCache
+   * @param {Function} dismissWith
+   */ const handleToastClick = (innerParams, domCache, dismissWith)=>{
         // Closing toast by internal click
         domCache.popup.onclick = ()=>{
-            const innerParams = privateProps.innerParams.get(instance);
             if (innerParams && (isAnyButtonShown(innerParams) || innerParams.timer || innerParams.input)) return;
             dismissWith(DismissReason.close);
         };
     };
     /**
-   * @param {*} innerParams
+   * @param {SweetAlertOptions} innerParams
    * @returns {boolean}
    */ const isAnyButtonShown = (innerParams)=>{
         return innerParams.showConfirmButton || innerParams.showDenyButton || innerParams.showCancelButton || innerParams.showCloseButton;
     };
     let ignoreOutsideClick = false;
-    const handleModalMousedown = (domCache)=>{
+    /**
+   * @param {DomCache} domCache
+   */ const handleModalMousedown = (domCache)=>{
         domCache.popup.onmousedown = ()=>{
             domCache.container.onmouseup = function(e) {
                 domCache.container.onmouseup = undefined;
@@ -2800,18 +2748,23 @@ parcelRequire.register("cm2nk", function(module, exports) {
             };
         };
     };
-    const handleContainerMousedown = (domCache)=>{
+    /**
+   * @param {DomCache} domCache
+   */ const handleContainerMousedown = (domCache)=>{
         domCache.container.onmousedown = ()=>{
             domCache.popup.onmouseup = function(e) {
                 domCache.popup.onmouseup = undefined;
                 // We also need to check if the mouseup target is a child of the popup
-                if (e.target === domCache.popup || domCache.popup.contains(e.target)) ignoreOutsideClick = true;
+                if (e.target === domCache.popup || e.target instanceof HTMLElement && domCache.popup.contains(e.target)) ignoreOutsideClick = true;
             };
         };
     };
-    const handleModalClick = (instance, domCache, dismissWith)=>{
+    /**
+   * @param {SweetAlertOptions} innerParams
+   * @param {DomCache} domCache
+   * @param {Function} dismissWith
+   */ const handleModalClick = (innerParams, domCache, dismissWith)=>{
         domCache.container.onclick = (e)=>{
-            const innerParams = privateProps.innerParams.get(instance);
             if (ignoreOutsideClick) {
                 ignoreOutsideClick = false;
                 return;
@@ -3446,8 +3399,8 @@ parcelRequire.register("cm2nk", function(module, exports) {
             domCache.closeButton.onclick = ()=>{
                 dismissWith(DismissReason.close);
             };
-            handlePopupClick(instance, domCache, dismissWith);
-            addKeydownHandler(instance, globalState, innerParams, dismissWith);
+            handlePopupClick(innerParams, domCache, dismissWith);
+            addKeydownHandler(globalState, innerParams, dismissWith);
             handleInputOptionsAndValue(instance, innerParams);
             openPopup(innerParams);
             setupTimer(globalState, innerParams, dismissWith);
@@ -3591,7 +3544,7 @@ parcelRequire.register("cm2nk", function(module, exports) {
         };
     });
     SweetAlert.DismissReason = DismissReason;
-    SweetAlert.version = "11.7.27";
+    SweetAlert.version = "11.7.28";
     const Swal = SweetAlert;
     // @ts-ignore
     Swal.default = Swal;
@@ -3610,26 +3563,25 @@ if (typeof module.exports !== "undefined" && module.exports.Sweetalert2) module.
 
 });
 
+parcelRequire.register("9jwmw", function(module, exports) {
 
-parcelRequire.register("bEAY7", function(module, exports) {
+$parcel$export(module.exports, "handleCart", function () { return $6c7efde1355f19a5$export$726ce20dc20708cd; });
+$parcel$export(module.exports, "setInCartOnload", function () { return $6c7efde1355f19a5$export$f43df08f77b54999; });
 
-$parcel$export(module.exports, "handleCart", function () { return $87c01b5d679bdfc8$export$726ce20dc20708cd; });
-$parcel$export(module.exports, "setInCartOnload", function () { return $87c01b5d679bdfc8$export$f43df08f77b54999; });
+var $iDdm1 = parcelRequire("iDdm1");
 
-var $d9MTO = parcelRequire("d9MTO");
+var $9FS1E = parcelRequire("9FS1E");
 
-var $lDONj = parcelRequire("lDONj");
+var $eJHP4 = parcelRequire("eJHP4");
+parcelRequire("8cZNZ");
 
-var $iqmmd = parcelRequire("iqmmd");
-parcelRequire("lo6ue");
-
-var $cm2nk = parcelRequire("cm2nk");
-async function $87c01b5d679bdfc8$export$726ce20dc20708cd(event) {
+var $1wyha = parcelRequire("1wyha");
+async function $6c7efde1355f19a5$export$726ce20dc20708cd(event) {
     const cart = event.target;
     console.log(cart);
     if (cart.classList.contains("sneaker__add__button")) {
         const sneakerId = cart.parentNode.parentNode.id;
-        const selectedSneaker = await (0, $lDONj.getSneakerById)(sneakerId) || {};
+        const selectedSneaker = await (0, $9FS1E.getSneakerById)(sneakerId) || {};
         // const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
         //console.log(inCart);
         if (cart.classList.contains("active")) {
@@ -3641,25 +3593,25 @@ async function $87c01b5d679bdfc8$export$726ce20dc20708cd(event) {
             cart.classList.remove("active");
             console.log(cart);
             // work with FIREBASE
-            const docId = await (0, $iqmmd.db).firestore().collection("cart").get();
+            const docId = await (0, $eJHP4.db).firestore().collection("cart").get();
             docId.forEach(async (item)=>{
                 const currentSneaker = item.data();
-                if (currentSneaker.id === selectedSneaker.id) await (0, $iqmmd.db).firestore().collection("cart").doc(item.id).delete();
+                if (currentSneaker.id === selectedSneaker.id) await (0, $eJHP4.db).firestore().collection("cart").doc(item.id).delete();
             });
-            (0, $d9MTO.setActualPriceIntoHeader)();
+            (0, $iDdm1.setActualPriceIntoHeader)();
             return;
         }
-        await (0, $iqmmd.db).auth().onAuthStateChanged(async (user)=>{
+        await (0, $eJHP4.db).auth().onAuthStateChanged(async (user)=>{
             if (user) {
                 cart.classList.add("active");
-                await (0, $iqmmd.db).firestore().collection("cart").add({
+                await (0, $eJHP4.db).firestore().collection("cart").add({
                     ...selectedSneaker,
-                    userId: (0, $iqmmd.db).auth().currentUser.uid
+                    userId: (0, $eJHP4.db).auth().currentUser.uid
                 });
-                (0, $d9MTO.setActualPriceIntoHeader)();
+                (0, $iDdm1.setActualPriceIntoHeader)();
             } else {
                 console.log("щоб додати у корзину - зареєструйся");
-                (0, (/*@__PURE__*/$parcel$interopDefault($cm2nk))).fire("Please log in");
+                (0, (/*@__PURE__*/$parcel$interopDefault($1wyha))).fire("Please log in");
             }
         });
     //inCart.push(selectedSneaker);
@@ -3672,11 +3624,11 @@ async function $87c01b5d679bdfc8$export$726ce20dc20708cd(event) {
     // setActualPriceIntoHeader();
     }
 }
-function $87c01b5d679bdfc8$export$f43df08f77b54999() {
+function $6c7efde1355f19a5$export$f43df08f77b54999() {
     // const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
-    const currentUser = (0, $iqmmd.db).auth().currentUser;
+    const currentUser = (0, $eJHP4.db).auth().currentUser;
     if (!currentUser) return;
-    (0, $iqmmd.db).firestore().collection("cart").where("userId", "==", currentUser.uid).onSnapshot((snapshot)=>{
+    (0, $eJHP4.db).firestore().collection("cart").where("userId", "==", currentUser.uid).onSnapshot((snapshot)=>{
         const inCart = snapshot.docs.map((doc)=>doc.data()) || [];
         document.querySelectorAll(".sneaker__add__button.active").forEach((item)=>item.classList.remove("active"));
         for (const { id: id } of inCart){
@@ -3695,14 +3647,14 @@ function $87c01b5d679bdfc8$export$f43df08f77b54999() {
 
 });
 
-parcelRequire.register("03Y6j", function(module, exports) {
+parcelRequire.register("lGpGj", function(module, exports) {
 
-$parcel$export(module.exports, "themeSwitch", function () { return $00bee6b6512e009a$export$5ed123b0f7007c88; });
-$parcel$export(module.exports, "setThemeOnLoad", function () { return $00bee6b6512e009a$export$5fa534a5e82494ef; });
-const $00bee6b6512e009a$var$switchElement = document.querySelector(".theme__switch");
-function $00bee6b6512e009a$export$5ed123b0f7007c88() {
-    console.log($00bee6b6512e009a$var$switchElement.checked);
-    if ($00bee6b6512e009a$var$switchElement.checked) {
+$parcel$export(module.exports, "themeSwitch", function () { return $fc91710a13c76b87$export$5ed123b0f7007c88; });
+$parcel$export(module.exports, "setThemeOnLoad", function () { return $fc91710a13c76b87$export$5fa534a5e82494ef; });
+const $fc91710a13c76b87$var$switchElement = document.querySelector(".theme__switch");
+function $fc91710a13c76b87$export$5ed123b0f7007c88() {
+    console.log($fc91710a13c76b87$var$switchElement.checked);
+    if ($fc91710a13c76b87$var$switchElement.checked) {
         document.body.classList.add("dark");
         localStorage.setItem("theme", "dark");
     } else {
@@ -3710,80 +3662,80 @@ function $00bee6b6512e009a$export$5ed123b0f7007c88() {
         localStorage.setItem("theme", "light");
     }
 }
-function $00bee6b6512e009a$export$5fa534a5e82494ef() {
+function $fc91710a13c76b87$export$5fa534a5e82494ef() {
     const currentTheme = localStorage.getItem("theme");
     document.body.classList.add(currentTheme);
-    if (currentTheme === "dark") $00bee6b6512e009a$var$switchElement.checked = true;
+    if (currentTheme === "dark") $fc91710a13c76b87$var$switchElement.checked = true;
 }
 
 });
 
-parcelRequire.register("2wACO", function(module, exports) {
+parcelRequire.register("30aga", function(module, exports) {
 
-$parcel$export(module.exports, "modalHandler", function () { return $1d6afae14448cd82$export$ea6ae64fa989b7ac; });
+$parcel$export(module.exports, "modalHandler", function () { return $22f954899530a68f$export$ea6ae64fa989b7ac; });
 
-var $ZMfkQ = parcelRequire("ZMfkQ");
+var $103Hm = parcelRequire("103Hm");
 
-var $d9MTO = parcelRequire("d9MTO");
+var $iDdm1 = parcelRequire("iDdm1");
 
-var $bEAY7 = parcelRequire("bEAY7");
+var $9jwmw = parcelRequire("9jwmw");
 
-var $5NJKC = parcelRequire("5NJKC");
+var $1fvgT = parcelRequire("1fvgT");
 
-var $8zqf3 = parcelRequire("8zqf3");
+var $4Wb2o = parcelRequire("4Wb2o");
 
-var $iqmmd = parcelRequire("iqmmd");
-parcelRequire("lo6ue");
-let $1d6afae14448cd82$var$list = null;
-const $1d6afae14448cd82$var$backdrop = document.querySelector("#modal-backdrop");
-const $1d6afae14448cd82$var$modalCart = document.querySelector(".cartList");
-document.addEventListener("click", $1d6afae14448cd82$export$ea6ae64fa989b7ac);
-function $1d6afae14448cd82$export$ea6ae64fa989b7ac(evt) {
+var $eJHP4 = parcelRequire("eJHP4");
+parcelRequire("8cZNZ");
+let $22f954899530a68f$var$list = null;
+const $22f954899530a68f$var$backdrop = document.querySelector("#modal-backdrop");
+const $22f954899530a68f$var$modalCart = document.querySelector(".cartList");
+document.addEventListener("click", $22f954899530a68f$export$ea6ae64fa989b7ac);
+function $22f954899530a68f$export$ea6ae64fa989b7ac(evt) {
     // const inCart = JSON.parse(localStorage.getItem('inCart')) || [];
     const modalBtnOpen = evt.target.closest(".header__user__icon__cart");
     if (modalBtnOpen) {
-        (0, $5NJKC.default)();
-        $1d6afae14448cd82$var$list = document.querySelector(".cartList__list");
+        (0, $1fvgT.default)();
+        $22f954899530a68f$var$list = document.querySelector(".cartList__list");
         // open btn click
-        $1d6afae14448cd82$export$d7e8d4d4450c819c($1d6afae14448cd82$var$modalCart);
-        (0, $d9MTO.setActualPriceIntoCart)();
-        (0, $iqmmd.db).firestore().collection("cart").where("userId", "==", (0, $iqmmd.db).auth().currentUser.uid).onSnapshot((snapshot)=>{
+        $22f954899530a68f$export$d7e8d4d4450c819c($22f954899530a68f$var$modalCart);
+        (0, $iDdm1.setActualPriceIntoCart)();
+        (0, $eJHP4.db).firestore().collection("cart").where("userId", "==", (0, $eJHP4.db).auth().currentUser.uid).onSnapshot((snapshot)=>{
             const inCart = snapshot.docs.map((doc)=>doc.data()) || [];
             console.log(inCart);
             if (inCart.length === 0) {
                 const cart = document.querySelector(".cartList__container");
-                cart.innerHTML = (0, $8zqf3.default)();
-            } else $1d6afae14448cd82$var$list.innerHTML = (0, $ZMfkQ.default)(inCart);
+                cart.innerHTML = (0, $4Wb2o.default)();
+            } else $22f954899530a68f$var$list.innerHTML = (0, $103Hm.default)(inCart);
         }, (error)=>{
             console.log("Помилка отримання даних:", error);
         });
     }
     if (evt.target.matches("#modal-backdrop")) {
-        $1d6afae14448cd82$var$list.innerHTML = "";
-        $1d6afae14448cd82$export$af4939467128bcd0($1d6afae14448cd82$var$modalCart);
-        (0, $d9MTO.setActualPriceIntoHeader)();
-        (0, $bEAY7.setInCartOnload)();
+        $22f954899530a68f$var$list.innerHTML = "";
+        $22f954899530a68f$export$af4939467128bcd0($22f954899530a68f$var$modalCart);
+        (0, $iDdm1.setActualPriceIntoHeader)();
+        (0, $9jwmw.setInCartOnload)();
     }
 }
-function $1d6afae14448cd82$export$d7e8d4d4450c819c(modalElem) {
+function $22f954899530a68f$export$d7e8d4d4450c819c(modalElem) {
     modalElem.classList.add("active");
-    $1d6afae14448cd82$var$backdrop.classList.remove("hidden");
+    $22f954899530a68f$var$backdrop.classList.remove("hidden");
     document.body.style.overflow = "hidden";
 }
-function $1d6afae14448cd82$export$af4939467128bcd0(modalElem) {
+function $22f954899530a68f$export$af4939467128bcd0(modalElem) {
     modalElem.classList.remove("active");
-    $1d6afae14448cd82$var$backdrop.classList.add("hidden");
+    $22f954899530a68f$var$backdrop.classList.add("hidden");
     document.body.style.overflow = "visible";
 }
 document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") $1d6afae14448cd82$export$af4939467128bcd0($1d6afae14448cd82$var$modalCart);
+    if (event.key === "Escape") $22f954899530a68f$export$af4939467128bcd0($22f954899530a68f$var$modalCart);
 });
 
 });
-parcelRequire.register("ZMfkQ", function(module, exports) {
+parcelRequire.register("103Hm", function(module, exports) {
 
-$parcel$export(module.exports, "default", function () { return $0b9b1f56b7a01344$export$2e2bcd8739ae039; });
-function $0b9b1f56b7a01344$export$2e2bcd8739ae039(items) {
+$parcel$export(module.exports, "default", function () { return $0ba8a8f637cea334$export$2e2bcd8739ae039; });
+function $0ba8a8f637cea334$export$2e2bcd8739ae039(items) {
     const markup = items.map(({ title: title, images: images, price: price, id: id })=>{
         return `
       <li class='sneaker__inCart__item'id=${id}>
@@ -3802,14 +3754,14 @@ function $0b9b1f56b7a01344$export$2e2bcd8739ae039(items) {
 
 });
 
-parcelRequire.register("5NJKC", function(module, exports) {
+parcelRequire.register("1fvgT", function(module, exports) {
 
-$parcel$export(module.exports, "default", function () { return $4395048e413b2903$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "default", function () { return $0e8f73078e52d54c$export$2e2bcd8739ae039; });
 
-var $1TB0V = parcelRequire("1TB0V");
+var $cMUt8 = parcelRequire("cMUt8");
 
-var $bI4e8 = parcelRequire("bI4e8");
-function $4395048e413b2903$export$2e2bcd8739ae039() {
+var $be7K5 = parcelRequire("be7K5");
+function $0e8f73078e52d54c$export$2e2bcd8739ae039() {
     document.querySelector(".cartList").innerHTML = `
   <div class="cartList__container">
     <div class="cart__container__top__blok">
@@ -3834,42 +3786,42 @@ function $4395048e413b2903$export$2e2bcd8739ae039() {
   </div>`;
     const cartList = document.querySelector(".cartList__list");
     const makeOrderButton = document.querySelector(".cart__container__button");
-    cartList.addEventListener("click", (0, $1TB0V.handleDelete));
-    makeOrderButton.addEventListener("click", (0, $bI4e8.handleOrder));
+    cartList.addEventListener("click", (0, $cMUt8.handleDelete));
+    makeOrderButton.addEventListener("click", (0, $be7K5.handleOrder));
 }
 
 });
-parcelRequire.register("bI4e8", function(module, exports) {
+parcelRequire.register("be7K5", function(module, exports) {
 
-$parcel$export(module.exports, "handleOrder", function () { return $8867152803e8da55$export$6268f44a1b62927f; });
+$parcel$export(module.exports, "handleOrder", function () { return $82c701fc8c82f17a$export$6268f44a1b62927f; });
 
-var $iqmmd = parcelRequire("iqmmd");
+var $eJHP4 = parcelRequire("eJHP4");
 
-var $j5Pfr = parcelRequire("j5Pfr");
-async function $8867152803e8da55$export$6268f44a1b62927f() {
+var $g33fn = parcelRequire("g33fn");
+async function $82c701fc8c82f17a$export$6268f44a1b62927f() {
     // await db.firestore().collection('cart').doc(item.id).delete();
-    const currentUser = (0, $iqmmd.db).auth().currentUser.uid;
-    await (0, $iqmmd.db).firestore().collection("cart").where("userId", "==", currentUser).get().then(async (snapshot)=>{
+    const currentUser = (0, $eJHP4.db).auth().currentUser.uid;
+    await (0, $eJHP4.db).firestore().collection("cart").where("userId", "==", currentUser).get().then(async (snapshot)=>{
         const sneakers = await snapshot.docs.map((doc)=>doc.data());
-        await (0, $iqmmd.db).firestore().collection("orders").add({
+        await (0, $eJHP4.db).firestore().collection("orders").add({
             order: sneakers,
             userId: currentUser,
             createdAt: new Date()
         });
-        const docId = await (0, $iqmmd.db).firestore().collection("cart").get();
+        const docId = await (0, $eJHP4.db).firestore().collection("cart").get();
         docId.forEach(async (item)=>{
             const currentSneaker = item.data();
-            if (currentSneaker.userId === currentUser) await (0, $iqmmd.db).firestore().collection("cart").doc(item.id).delete();
+            if (currentSneaker.userId === currentUser) await (0, $eJHP4.db).firestore().collection("cart").doc(item.id).delete();
         });
     });
-    (0, $j5Pfr.default)();
+    (0, $g33fn.default)();
 }
 
 });
-parcelRequire.register("j5Pfr", function(module, exports) {
+parcelRequire.register("g33fn", function(module, exports) {
 
-$parcel$export(module.exports, "default", function () { return $de663cc4831314c4$export$2e2bcd8739ae039; });
-function $de663cc4831314c4$export$2e2bcd8739ae039() {
+$parcel$export(module.exports, "default", function () { return $baef71f1913b2c2d$export$2e2bcd8739ae039; });
+function $baef71f1913b2c2d$export$2e2bcd8739ae039() {
     // const inCartItems = localStorage.getItem('inCart');
     // let purchasesItems = localStorage.getItem('purchases');
     // if (!purchasesItems) {
@@ -3898,26 +3850,26 @@ function $de663cc4831314c4$export$2e2bcd8739ae039() {
 
 
 
-parcelRequire.register("f2p19", function(module, exports) {
-const $af2a72dd55787b74$var$navToggle = document.querySelector("#navToggle");
-const $af2a72dd55787b74$var$navClosedIcon = document.querySelector("#navClosed");
-const $af2a72dd55787b74$var$navOpenIcon = document.querySelector("#navOpen");
-const $af2a72dd55787b74$var$navIcon = document.querySelectorAll(".navIcon");
-const $af2a72dd55787b74$var$nav = document.querySelector("nav");
-$af2a72dd55787b74$var$navToggle.addEventListener("click", ()=>{
-    $af2a72dd55787b74$var$nav.classList.toggle("open");
-    document.body.style.overflow = $af2a72dd55787b74$var$nav.classList.contains("open") ? "hidden" : "auto";
-    $af2a72dd55787b74$var$navIcon.forEach((icon)=>{
+parcelRequire.register("gq42V", function(module, exports) {
+const $bf423685ba1738e3$var$navToggle = document.querySelector("#navToggle");
+const $bf423685ba1738e3$var$navClosedIcon = document.querySelector("#navClosed");
+const $bf423685ba1738e3$var$navOpenIcon = document.querySelector("#navOpen");
+const $bf423685ba1738e3$var$navIcon = document.querySelectorAll(".navIcon");
+const $bf423685ba1738e3$var$nav = document.querySelector("nav");
+$bf423685ba1738e3$var$navToggle.addEventListener("click", ()=>{
+    $bf423685ba1738e3$var$nav.classList.toggle("open");
+    document.body.style.overflow = $bf423685ba1738e3$var$nav.classList.contains("open") ? "hidden" : "auto";
+    $bf423685ba1738e3$var$navIcon.forEach((icon)=>{
         icon.classList.toggle("hidden");
     });
 });
 window.addEventListener("resize", ()=>{
     if (document.body.clientWidth > 1200) {
-        $af2a72dd55787b74$var$nav.classList.remove("open");
-        $af2a72dd55787b74$var$navIcon.forEach((icon)=>{
+        $bf423685ba1738e3$var$nav.classList.remove("open");
+        $bf423685ba1738e3$var$navIcon.forEach((icon)=>{
             icon.classList.remove("hidden");
         });
-        $af2a72dd55787b74$var$navOpenIcon.classList.add("hidden");
+        $bf423685ba1738e3$var$navOpenIcon.classList.add("hidden");
         document.body.style.overflow = "auto";
     }
 }, {
@@ -3926,106 +3878,5 @@ window.addEventListener("resize", ()=>{
 
 });
 
-parcelRequire.register("5rPUo", function(module, exports) {
-
-$parcel$export(module.exports, "openModal", function () { return $3f77bd57f4711a86$export$a7f6cffb6b8ba11c; });
-
-var $iqmmd = parcelRequire("iqmmd");
-const $3f77bd57f4711a86$var$userButton = document.querySelector(".header__user__icon__user");
-const $3f77bd57f4711a86$var$authModal = document.querySelector(".modal-auth__backdrop");
-const $3f77bd57f4711a86$var$closeButton = document.querySelector(".close");
-const $3f77bd57f4711a86$var$authForm = document.querySelector(".auth__form");
-const $3f77bd57f4711a86$var$userNameForm = document.querySelector(".username__form");
-const $3f77bd57f4711a86$var$usernameInput = $3f77bd57f4711a86$var$userNameForm.querySelector('input[name="name"]');
-const $3f77bd57f4711a86$var$actionText = document.querySelector(".action__text");
-const $3f77bd57f4711a86$var$btnChangeForm = document.querySelector(".btn__change__form");
-const $3f77bd57f4711a86$var$title = document.querySelector(".form__title");
-let $3f77bd57f4711a86$var$isRegMode = true;
-const $3f77bd57f4711a86$var$identificateForm = document.querySelector("[data-action]");
-const $3f77bd57f4711a86$var$actionValue = $3f77bd57f4711a86$var$identificateForm.dataset.action;
-const $3f77bd57f4711a86$var$userName = document.querySelector(".header__user__user__name");
-const $3f77bd57f4711a86$var$btnLogOut = document.querySelector(".btn__log__out");
-console.log($3f77bd57f4711a86$var$actionValue);
-async function $3f77bd57f4711a86$export$89c2621768820c8b(event) {
-    event.preventDefault();
-    const formData = [
-        ...$3f77bd57f4711a86$var$authForm.elements
-    ].reduce((formData, element)=>{
-        if (element.name) formData[element.name] = element.value;
-        return formData;
-    }, {});
-    if ($3f77bd57f4711a86$var$isRegMode) {
-        await (0, $iqmmd.createUser)(formData);
-        console.log("rege");
-        await (0, $iqmmd.signIn)(formData);
-    } else if (!$3f77bd57f4711a86$var$isRegMode) {
-        await (0, $iqmmd.signIn)(formData);
-        console.log("log_in");
-    }
-    $3f77bd57f4711a86$var$authForm.reset();
-    const curentUser = await (0, $iqmmd.db).auth().currentUser;
-    console.log(curentUser);
-    if (curentUser) {
-        console.log(curentUser);
-        $3f77bd57f4711a86$var$userName.textContent = curentUser.displayName;
-    } else console.log("user not found");
-    $3f77bd57f4711a86$export$3f6fecd573f3fa48();
-}
-function $3f77bd57f4711a86$export$a7f6cffb6b8ba11c() {
-    console.log("openModal1");
-    const currentUser = (0, $iqmmd.db).auth().currentUser;
-    if (currentUser) {
-        const currentPath = window.location.pathname;
-        const basePath = currentPath.endsWith("/index.html") ? currentPath.slice(0, -11) : currentPath;
-        const newURL = `${window.location.origin}${basePath}/purchases.html`;
-        const finalURL = newURL.replace("/favorites.html", "");
-        window.location.replace(finalURL);
-        console.log("window.location");
-        console.log(window.location);
-        return;
-    }
-    $3f77bd57f4711a86$var$authModal.classList.add("open");
-    $3f77bd57f4711a86$var$closeButton.addEventListener("click", $3f77bd57f4711a86$export$3f6fecd573f3fa48);
-    $3f77bd57f4711a86$var$userButton.removeEventListener("click", $3f77bd57f4711a86$export$a7f6cffb6b8ba11c);
-    document.body.style.overflow = "hidden";
-}
-function $3f77bd57f4711a86$export$3f6fecd573f3fa48() {
-    $3f77bd57f4711a86$var$authModal.classList.remove("open");
-    $3f77bd57f4711a86$var$closeButton.removeEventListener("click", $3f77bd57f4711a86$export$3f6fecd573f3fa48);
-    $3f77bd57f4711a86$var$userButton.addEventListener("click", $3f77bd57f4711a86$export$a7f6cffb6b8ba11c);
-    document.body.style.overflow = "visible";
-}
-function $3f77bd57f4711a86$var$changeForm() {
-    if ($3f77bd57f4711a86$var$isRegMode) {
-        $3f77bd57f4711a86$var$btnChangeForm.textContent = "Registration";
-        $3f77bd57f4711a86$var$userNameForm.classList.add("hiden");
-        $3f77bd57f4711a86$var$btnChangeForm.setAttribute("data-action", "log_in");
-        $3f77bd57f4711a86$var$title.textContent = "Log in";
-        $3f77bd57f4711a86$var$actionText.textContent = "Don`t have account?";
-        $3f77bd57f4711a86$var$usernameInput.removeAttribute("required");
-        $3f77bd57f4711a86$var$authForm.reset();
-        $3f77bd57f4711a86$var$isRegMode = false;
-    } else {
-        $3f77bd57f4711a86$var$btnChangeForm.textContent = "Log in";
-        $3f77bd57f4711a86$var$btnChangeForm.setAttribute("data-action", "reg");
-        $3f77bd57f4711a86$var$userNameForm.classList.remove("hiden");
-        $3f77bd57f4711a86$var$title.textContent = "Registration";
-        $3f77bd57f4711a86$var$actionText.textContent = "Already have account?";
-        $3f77bd57f4711a86$var$authForm.reset();
-        $3f77bd57f4711a86$var$isRegMode = true;
-    }
-}
-$3f77bd57f4711a86$var$userButton.addEventListener("click", $3f77bd57f4711a86$export$a7f6cffb6b8ba11c);
-$3f77bd57f4711a86$var$authForm.addEventListener("submit", $3f77bd57f4711a86$export$89c2621768820c8b);
-$3f77bd57f4711a86$var$btnChangeForm.addEventListener("click", $3f77bd57f4711a86$var$changeForm);
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Escape") $3f77bd57f4711a86$export$3f6fecd573f3fa48();
-});
-$3f77bd57f4711a86$var$authModal.addEventListener("click", function(event) {
-    if (event.target === $3f77bd57f4711a86$var$authModal) $3f77bd57f4711a86$export$3f6fecd573f3fa48();
-});
-
-});
-
-
-//# sourceMappingURL=index.072fb329.js.map
+})();
+//# sourceMappingURL=purchases.1606de10.js.map
