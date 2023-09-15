@@ -630,7 +630,32 @@ parcelRequire("30aga");
 parcelRequire("g33fn");
 parcelRequire("103Hm");
 parcelRequire("lGpGj");
-parcelRequire("gq42V");
+const $bf423685ba1738e3$var$navToggle = document.querySelector("#navToggle");
+const $bf423685ba1738e3$var$navClosedIcon = document.querySelector("#navClosed");
+const $bf423685ba1738e3$var$navOpenIcon = document.querySelector("#navOpen");
+const $bf423685ba1738e3$var$navIcon = document.querySelectorAll(".navIcon");
+const $bf423685ba1738e3$var$nav = document.querySelector("nav");
+$bf423685ba1738e3$var$navToggle.addEventListener("click", ()=>{
+    $bf423685ba1738e3$var$nav.classList.toggle("open");
+    document.body.style.overflow = $bf423685ba1738e3$var$nav.classList.contains("open") ? "hidden" : "auto";
+    $bf423685ba1738e3$var$navIcon.forEach((icon)=>{
+        icon.classList.toggle("hidden");
+    });
+});
+window.addEventListener("resize", ()=>{
+    if (document.body.clientWidth > 1200) {
+        $bf423685ba1738e3$var$nav.classList.remove("open");
+        $bf423685ba1738e3$var$navIcon.forEach((icon)=>{
+            icon.classList.remove("hidden");
+        });
+        $bf423685ba1738e3$var$navOpenIcon.classList.add("hidden");
+        document.body.style.overflow = "auto";
+    }
+}, {
+    passive: false
+});
+
+
 function $0ff4aedaabdabfe3$export$2e2bcd8739ae039(items) {
     const markup = items.map(({ order: order, createdAt: createdAt })=>{
         console.log(createdAt);
@@ -705,10 +730,7 @@ async function $a969998314c3f48f$export$89c2621768820c8b(event) {
     $a969998314c3f48f$var$authForm.reset();
     const curentUser = await (0, $eJHP4.db).auth().currentUser;
     console.log(curentUser);
-    if (curentUser) {
-        console.log(curentUser);
-        $a969998314c3f48f$var$userName.textContent = curentUser.displayName;
-    } else console.log("user not found");
+    $a969998314c3f48f$var$userName.textContent = curentUser.displayName;
     $a969998314c3f48f$export$3f6fecd573f3fa48();
 }
 function $a969998314c3f48f$export$a7f6cffb6b8ba11c() {
@@ -870,4 +892,4 @@ $a969998314c3f48f$var$authModal.addEventListener("click", function(event) {
  //    }
 
 })();
-//# sourceMappingURL=index.020f1140.js.map
+//# sourceMappingURL=index.3c59c305.js.map

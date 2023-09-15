@@ -380,7 +380,6 @@ input:checked + .round:before, .dark {
 
 .header__user__user__name {
   color: var(--header-user-color);
-  text-transform: capitalize;
   margin-right: 25px;
 }
 
@@ -1740,4 +1739,4 @@ button:hover {
   background-color: var(--modal-background-color);
 }
 
-/*# sourceMappingURL=cart.a0e6217a.css.map */
+/*# sourceMappingURL=cart.87928c25.css.map */
